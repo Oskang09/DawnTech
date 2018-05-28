@@ -55,22 +55,30 @@ namespace DawnTech.wfgui
                 WorkData wd = new WorkData().LoadJson(when_cbox.Text);
                 foreach (var worker in wd.EMPLOYEES)
                 {
-                    Employee emp = new Employee().LoadJson(worker.Key).setParameters(wd.When.Year, wd.When.Month);
+                    if (new Employee().Exists("EMP-" + worker.Key))
+                    {
+                        Employee emp = new Employee().LoadJson("EMP-" + worker.Key).setParameters(wd.When.Year, wd.When.Month);
 
-                    DataTable.Rows.Add(
-                        emp.Name,
-                        emp.UID,
-                        emp.DEPT,
-                        emp.Basic.ToString("0.00"),
-                        emp.cOvertime().ToString("0.00"),
-                        emp.cLeave().ToString("0.00"),
-                        emp.cGrossPay().ToString("0.00"),
-                        emp.cEPF().ToString("0.00"),
-                        emp.cSocso().ToString("0.00"),
-                        emp.cEIS().ToString("0.00"),
-                        emp.cTotal().ToString("0.00"),
-                        emp.cLate().ToString("0.00"),
-                        emp.cNetPay().ToString("0.00"));
+                        DataTable.Rows.Add(
+                            emp.Name,
+                            emp.UID,
+                            emp.DEPT,
+                           "RM " + emp.Basic.ToString("0.00"),
+                            "RM " + emp.cOvertime().ToString("0.00"),
+                            "RM " + emp.cLeave().ToString("0.00"),
+                            "RM " + emp.cGrossPay().ToString("0.00"),
+                            "RM " + emp.cEPF().ToString("0.00"),
+                            "RM " + emp.cSocso().ToString("0.00"),
+                            "RM " + emp.cEIS().ToString("0.00"),
+                            "RM " + emp.cTotal().ToString("0.00"),
+                            "RM " + emp.cLate().ToString("0.00"),
+                            "RM " + emp.cNetPay().ToString("0.00"));
+                    }
+                    else
+                    {
+                        DataTable.Rows.Add("Not exists!",
+                            worker.Key);
+                    }
                 }
             }
         }

@@ -33,7 +33,11 @@ namespace DawnTech
 
             GetInstance = this;
             new DataManager();
-            InitializeUI();
+            LoginDialog ld = new LoginDialog(DataManager.SETTINGS["username"], DataManager.SETTINGS["password"]);
+            if (ld.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                InitializeUI();
+            }
         }
 
         public void InitializeUI()
@@ -49,7 +53,8 @@ namespace DawnTech
                         if (data_b.Action == "NEW_DATA")
                         {
                             Employee emp = data_b.CallbackData as Employee;
-                            emp.SaveJson(emp.UID);
+                            emp.SaveJson("EMP-" + emp.UID);
+                            EDD.UpdateUI();
                         }
                     };
                     edr.Show();

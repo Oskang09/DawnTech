@@ -44,11 +44,11 @@ namespace DawnTech
             int rowC = xlR.Rows.Count;
             int colC = xlR.Columns.Count;
 
-            string[] date = Parser.readCell(xlR, 4, 3).Split('~');
+            string[] date = Parser.readCell(xlR, 3, 3).Split('~');
             tle.When = Parser.readStringToDateTime(date[0]);
 
             List<CheckData> data = new List<CheckData>();
-            int start_row = 6;
+            int start_row = 5;
             for (int sr = start_row; sr < rowC; sr += 2)
             {
                 data.Add(new CheckData()

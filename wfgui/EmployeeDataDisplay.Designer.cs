@@ -32,6 +32,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.InputLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.bankname = new System.Windows.Forms.TextBox();
+            this.bankacc = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.eistype = new System.Windows.Forms.ComboBox();
@@ -47,9 +49,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.empno = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.percentageEPF = new CSharpOskaAPI.WF.NumberBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.basic = new CSharpOskaAPI.WF.NumberBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.confirm_date = new System.Windows.Forms.DateTimePicker();
+            this.join_date = new System.Windows.Forms.DateTimePicker();
+            this.nric = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.EditBtn = new System.Windows.Forms.Button();
             this.ExitBtn = new System.Windows.Forms.Button();
@@ -63,6 +71,8 @@
             this.SortBy = new System.Windows.Forms.ComboBox();
             this.SortBox = new System.Windows.Forms.TextBox();
             this.age = new CSharpOskaAPI.WF.NumberBox();
+            this.percentageEPF = new CSharpOskaAPI.WF.NumberBox();
+            this.basic = new CSharpOskaAPI.WF.NumberBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.InputLayout.SuspendLayout();
@@ -87,7 +97,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(833, 585);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1052, 643);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -103,14 +113,18 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(410, 579);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(520, 637);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // InputLayout
             // 
-            this.InputLayout.ColumnCount = 2;
-            this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.82178F));
-            this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.17822F));
+            this.InputLayout.ColumnCount = 4;
+            this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.InputLayout.Controls.Add(this.bankname, 3, 2);
+            this.InputLayout.Controls.Add(this.bankacc, 3, 1);
             this.InputLayout.Controls.Add(this.age, 1, 3);
             this.InputLayout.Controls.Add(this.tableLayoutPanel6, 0, 7);
             this.InputLayout.Controls.Add(this.tableLayoutPanel5, 0, 6);
@@ -124,6 +138,14 @@
             this.InputLayout.Controls.Add(this.empno, 1, 0);
             this.InputLayout.Controls.Add(this.tableLayoutPanel7, 0, 5);
             this.InputLayout.Controls.Add(this.basic, 1, 4);
+            this.InputLayout.Controls.Add(this.label6, 2, 0);
+            this.InputLayout.Controls.Add(this.label8, 2, 1);
+            this.InputLayout.Controls.Add(this.label9, 2, 2);
+            this.InputLayout.Controls.Add(this.label10, 2, 3);
+            this.InputLayout.Controls.Add(this.label11, 2, 4);
+            this.InputLayout.Controls.Add(this.confirm_date, 3, 4);
+            this.InputLayout.Controls.Add(this.join_date, 3, 3);
+            this.InputLayout.Controls.Add(this.nric, 3, 0);
             this.InputLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InputLayout.Location = new System.Drawing.Point(3, 3);
             this.InputLayout.Name = "InputLayout";
@@ -136,38 +158,55 @@
             this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49938F));
             this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50187F));
             this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50187F));
-            this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.InputLayout.Size = new System.Drawing.Size(404, 457);
+            this.InputLayout.Size = new System.Drawing.Size(514, 503);
             this.InputLayout.TabIndex = 2;
+            // 
+            // bankname
+            // 
+            this.bankname.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.bankname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.bankname.Location = new System.Drawing.Point(336, 141);
+            this.bankname.Name = "bankname";
+            this.bankname.ReadOnly = true;
+            this.bankname.Size = new System.Drawing.Size(175, 27);
+            this.bankname.TabIndex = 7;
+            // 
+            // bankacc
+            // 
+            this.bankacc.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.bankacc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.bankacc.Location = new System.Drawing.Point(336, 79);
+            this.bankacc.Name = "bankacc";
+            this.bankacc.ReadOnly = true;
+            this.bankacc.Size = new System.Drawing.Size(175, 27);
+            this.bankacc.TabIndex = 6;
             // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 2;
-            this.InputLayout.SetColumnSpan(this.tableLayoutPanel6, 2);
+            this.InputLayout.SetColumnSpan(this.tableLayoutPanel6, 4);
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.25557F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.74443F));
             this.tableLayoutPanel6.Controls.Add(this.checkBox3, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.eistype, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 402);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 437);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(398, 52);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(508, 63);
             this.tableLayoutPanel6.TabIndex = 12;
             // 
             // checkBox3
             // 
             this.checkBox3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Enabled = false;
-            this.checkBox3.Location = new System.Drawing.Point(58, 15);
+            this.checkBox3.Location = new System.Drawing.Point(98, 21);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(83, 21);
-            this.checkBox3.TabIndex = 1;
+            this.checkBox3.TabIndex = 14;
             this.checkBox3.Text = "USE EIS";
             this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // eistype
             // 
@@ -178,39 +217,37 @@
             this.eistype.Items.AddRange(new object[] {
             "EMPLOYEE",
             "BOSS"});
-            this.eistype.Location = new System.Drawing.Point(147, 12);
+            this.eistype.Location = new System.Drawing.Point(187, 17);
             this.eistype.Name = "eistype";
             this.eistype.Size = new System.Drawing.Size(243, 28);
-            this.eistype.TabIndex = 3;
+            this.eistype.TabIndex = 15;
             // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
-            this.InputLayout.SetColumnSpan(this.tableLayoutPanel5, 2);
+            this.InputLayout.SetColumnSpan(this.tableLayoutPanel5, 4);
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.40416F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.59584F));
             this.tableLayoutPanel5.Controls.Add(this.checkBox2, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.socsoType, 1, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 345);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 375);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(398, 51);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(508, 56);
             this.tableLayoutPanel5.TabIndex = 11;
             // 
             // checkBox2
             // 
             this.checkBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Enabled = false;
-            this.checkBox2.Location = new System.Drawing.Point(30, 15);
+            this.checkBox2.Location = new System.Drawing.Point(70, 17);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(111, 21);
-            this.checkBox2.TabIndex = 1;
+            this.checkBox2.TabIndex = 12;
             this.checkBox2.Text = "USE SOCSO";
             this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // socsoType
             // 
@@ -221,16 +258,16 @@
             this.socsoType.Items.AddRange(new object[] {
             "EMPLOYEE",
             "BOSS"});
-            this.socsoType.Location = new System.Drawing.Point(147, 11);
+            this.socsoType.Location = new System.Drawing.Point(187, 14);
             this.socsoType.Name = "socsoType";
             this.socsoType.Size = new System.Drawing.Size(242, 28);
-            this.socsoType.TabIndex = 2;
+            this.socsoType.TabIndex = 13;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 248);
+            this.label5.Location = new System.Drawing.Point(27, 270);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 17);
             this.label5.TabIndex = 8;
@@ -240,7 +277,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 191);
+            this.label4.Location = new System.Drawing.Point(37, 208);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 17);
             this.label4.TabIndex = 6;
@@ -250,17 +287,17 @@
             // 
             this.dept.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dept.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dept.Location = new System.Drawing.Point(74, 129);
+            this.dept.Location = new System.Drawing.Point(80, 141);
             this.dept.Name = "dept";
             this.dept.ReadOnly = true;
-            this.dept.Size = new System.Drawing.Size(242, 27);
-            this.dept.TabIndex = 5;
+            this.dept.Size = new System.Drawing.Size(173, 27);
+            this.dept.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 134);
+            this.label3.Location = new System.Drawing.Point(29, 146);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 17);
             this.label3.TabIndex = 4;
@@ -270,17 +307,17 @@
             // 
             this.name.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name.Location = new System.Drawing.Point(74, 72);
+            this.name.Location = new System.Drawing.Point(80, 79);
             this.name.Name = "name";
             this.name.ReadOnly = true;
-            this.name.Size = new System.Drawing.Size(242, 27);
-            this.name.TabIndex = 3;
+            this.name.Size = new System.Drawing.Size(173, 27);
+            this.name.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 77);
+            this.label2.Location = new System.Drawing.Point(27, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 17);
             this.label2.TabIndex = 2;
@@ -290,7 +327,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 20);
+            this.label1.Location = new System.Drawing.Point(12, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 17);
             this.label1.TabIndex = 0;
@@ -300,66 +337,116 @@
             // 
             this.empno.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.empno.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.empno.Location = new System.Drawing.Point(74, 15);
+            this.empno.Location = new System.Drawing.Point(80, 17);
             this.empno.Name = "empno";
             this.empno.ReadOnly = true;
-            this.empno.Size = new System.Drawing.Size(242, 27);
-            this.empno.TabIndex = 1;
+            this.empno.Size = new System.Drawing.Size(173, 27);
+            this.empno.TabIndex = 0;
             // 
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 2;
-            this.InputLayout.SetColumnSpan(this.tableLayoutPanel7, 2);
+            this.InputLayout.SetColumnSpan(this.tableLayoutPanel7, 4);
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.40416F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.59584F));
             this.tableLayoutPanel7.Controls.Add(this.percentageEPF, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.checkBox1, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 288);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 313);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(398, 51);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(508, 56);
             this.tableLayoutPanel7.TabIndex = 10;
-            // 
-            // percentageEPF
-            // 
-            this.percentageEPF.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.percentageEPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.percentageEPF.Holder = "%";
-            this.percentageEPF.HolderType = CSharpOskaAPI.WF.HolderType.BACK;
-            this.percentageEPF.Location = new System.Drawing.Point(147, 12);
-            this.percentageEPF.Name = "percentageEPF";
-            this.percentageEPF.ReadOnly = true;
-            this.percentageEPF.Size = new System.Drawing.Size(242, 27);
-            this.percentageEPF.TabIndex = 14;
-            this.percentageEPF.Text = "%";
             // 
             // checkBox1
             // 
             this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Enabled = false;
-            this.checkBox1.Location = new System.Drawing.Point(53, 15);
+            this.checkBox1.Location = new System.Drawing.Point(93, 17);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(88, 21);
-            this.checkBox1.TabIndex = 0;
+            this.checkBox1.TabIndex = 10;
             this.checkBox1.Text = "USE EPF";
             this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // basic
+            // label6
             // 
-            this.basic.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.basic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.basic.Holder = "RM ";
-            this.basic.HolderType = CSharpOskaAPI.WF.HolderType.FRONT;
-            this.basic.Location = new System.Drawing.Point(74, 243);
-            this.basic.Name = "basic";
-            this.basic.ReadOnly = true;
-            this.basic.Size = new System.Drawing.Size(242, 27);
-            this.basic.TabIndex = 13;
-            this.basic.Text = "RM ";
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(290, 22);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(40, 17);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "NRIC";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(259, 84);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 17);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Bank ACC";
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(285, 138);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(45, 34);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Bank Name";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(262, 208);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(68, 17);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Join Date";
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(270, 262);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(60, 34);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "Confirm Date";
+            // 
+            // confirm_date
+            // 
+            this.confirm_date.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.confirm_date.Enabled = false;
+            this.confirm_date.Location = new System.Drawing.Point(336, 268);
+            this.confirm_date.Name = "confirm_date";
+            this.confirm_date.Size = new System.Drawing.Size(175, 22);
+            this.confirm_date.TabIndex = 9;
+            // 
+            // join_date
+            // 
+            this.join_date.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.join_date.Enabled = false;
+            this.join_date.Location = new System.Drawing.Point(336, 206);
+            this.join_date.Name = "join_date";
+            this.join_date.Size = new System.Drawing.Size(175, 22);
+            this.join_date.TabIndex = 8;
+            // 
+            // nric
+            // 
+            this.nric.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.nric.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.nric.Location = new System.Drawing.Point(336, 17);
+            this.nric.Name = "nric";
+            this.nric.ReadOnly = true;
+            this.nric.Size = new System.Drawing.Size(175, 27);
+            this.nric.TabIndex = 5;
             // 
             // tableLayoutPanel3
             // 
@@ -375,21 +462,21 @@
             this.tableLayoutPanel3.Controls.Add(this.DeleteBtn, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.SaveBtn, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 466);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 512);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(404, 110);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(514, 122);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // EditBtn
             // 
             this.EditBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EditBtn.Image = ((System.Drawing.Image)(resources.GetObject("EditBtn.Image")));
-            this.EditBtn.Location = new System.Drawing.Point(83, 3);
+            this.EditBtn.Location = new System.Drawing.Point(105, 3);
             this.EditBtn.Name = "EditBtn";
-            this.EditBtn.Size = new System.Drawing.Size(74, 104);
-            this.EditBtn.TabIndex = 11;
+            this.EditBtn.Size = new System.Drawing.Size(96, 116);
+            this.EditBtn.TabIndex = 17;
             this.EditBtn.Text = "Edit";
             this.EditBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.EditBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -400,10 +487,10 @@
             // 
             this.ExitBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ExitBtn.Image = ((System.Drawing.Image)(resources.GetObject("ExitBtn.Image")));
-            this.ExitBtn.Location = new System.Drawing.Point(323, 3);
+            this.ExitBtn.Location = new System.Drawing.Point(411, 3);
             this.ExitBtn.Name = "ExitBtn";
-            this.ExitBtn.Size = new System.Drawing.Size(78, 104);
-            this.ExitBtn.TabIndex = 10;
+            this.ExitBtn.Size = new System.Drawing.Size(100, 116);
+            this.ExitBtn.TabIndex = 20;
             this.ExitBtn.Text = "Exit";
             this.ExitBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ExitBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -416,8 +503,8 @@
             this.AddBtn.Image = ((System.Drawing.Image)(resources.GetObject("AddBtn.Image")));
             this.AddBtn.Location = new System.Drawing.Point(3, 3);
             this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(74, 104);
-            this.AddBtn.TabIndex = 7;
+            this.AddBtn.Size = new System.Drawing.Size(96, 116);
+            this.AddBtn.TabIndex = 16;
             this.AddBtn.Text = "Add";
             this.AddBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.AddBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -428,10 +515,10 @@
             // 
             this.DeleteBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DeleteBtn.Image = ((System.Drawing.Image)(resources.GetObject("DeleteBtn.Image")));
-            this.DeleteBtn.Location = new System.Drawing.Point(243, 3);
+            this.DeleteBtn.Location = new System.Drawing.Point(309, 3);
             this.DeleteBtn.Name = "DeleteBtn";
-            this.DeleteBtn.Size = new System.Drawing.Size(74, 104);
-            this.DeleteBtn.TabIndex = 9;
+            this.DeleteBtn.Size = new System.Drawing.Size(96, 116);
+            this.DeleteBtn.TabIndex = 19;
             this.DeleteBtn.Text = "Delete";
             this.DeleteBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.DeleteBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -442,10 +529,10 @@
             // 
             this.SaveBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SaveBtn.Image = ((System.Drawing.Image)(resources.GetObject("SaveBtn.Image")));
-            this.SaveBtn.Location = new System.Drawing.Point(163, 3);
+            this.SaveBtn.Location = new System.Drawing.Point(207, 3);
             this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.Size = new System.Drawing.Size(74, 104);
-            this.SaveBtn.TabIndex = 8;
+            this.SaveBtn.Size = new System.Drawing.Size(96, 116);
+            this.SaveBtn.TabIndex = 18;
             this.SaveBtn.Text = "Save";
             this.SaveBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.SaveBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -459,12 +546,12 @@
             this.tableLayoutPanel8.Controls.Add(this.EmployeeDataDGV, 0, 1);
             this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 0, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(419, 3);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(529, 3);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(411, 579);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(520, 637);
             this.tableLayoutPanel8.TabIndex = 1;
             // 
             // EmployeeDataDGV
@@ -474,7 +561,7 @@
             this.EmployeeDataDGV.AllowUserToOrderColumns = true;
             this.EmployeeDataDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.EmployeeDataDGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EmployeeDataDGV.Location = new System.Drawing.Point(3, 60);
+            this.EmployeeDataDGV.Location = new System.Drawing.Point(3, 66);
             this.EmployeeDataDGV.MultiSelect = false;
             this.EmployeeDataDGV.Name = "EmployeeDataDGV";
             this.EmployeeDataDGV.ReadOnly = true;
@@ -482,7 +569,7 @@
             this.EmployeeDataDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.EmployeeDataDGV.RowTemplate.Height = 24;
             this.EmployeeDataDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.EmployeeDataDGV.Size = new System.Drawing.Size(405, 516);
+            this.EmployeeDataDGV.Size = new System.Drawing.Size(514, 568);
             this.EmployeeDataDGV.TabIndex = 3;
             this.EmployeeDataDGV.SelectionChanged += new System.EventHandler(this.EmployeeDataDGV_SelectionChanged);
             // 
@@ -500,14 +587,14 @@
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(405, 51);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(514, 57);
             this.tableLayoutPanel9.TabIndex = 2;
             // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 17);
+            this.label7.Location = new System.Drawing.Point(20, 20);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 17);
             this.label7.TabIndex = 0;
@@ -518,7 +605,7 @@
             this.SortBy.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.SortBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SortBy.FormattingEnabled = true;
-            this.SortBy.Location = new System.Drawing.Point(63, 13);
+            this.SortBy.Location = new System.Drawing.Point(80, 16);
             this.SortBy.Name = "SortBy";
             this.SortBy.Size = new System.Drawing.Size(115, 24);
             this.SortBy.TabIndex = 1;
@@ -527,7 +614,7 @@
             // SortBox
             // 
             this.SortBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.SortBox.Location = new System.Drawing.Point(184, 14);
+            this.SortBox.Location = new System.Drawing.Point(234, 17);
             this.SortBox.Name = "SortBox";
             this.SortBox.Size = new System.Drawing.Size(218, 22);
             this.SortBox.TabIndex = 2;
@@ -539,11 +626,40 @@
             this.age.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.age.Holder = "";
             this.age.HolderType = CSharpOskaAPI.WF.HolderType.NONE;
-            this.age.Location = new System.Drawing.Point(74, 186);
+            this.age.Location = new System.Drawing.Point(80, 203);
             this.age.Name = "age";
+            this.age.OriText = null;
             this.age.ReadOnly = true;
-            this.age.Size = new System.Drawing.Size(242, 27);
-            this.age.TabIndex = 14;
+            this.age.Size = new System.Drawing.Size(173, 27);
+            this.age.TabIndex = 3;
+            // 
+            // percentageEPF
+            // 
+            this.percentageEPF.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.percentageEPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.percentageEPF.Holder = "%";
+            this.percentageEPF.HolderType = CSharpOskaAPI.WF.HolderType.BACK;
+            this.percentageEPF.Location = new System.Drawing.Point(187, 14);
+            this.percentageEPF.Name = "percentageEPF";
+            this.percentageEPF.OriText = "";
+            this.percentageEPF.ReadOnly = true;
+            this.percentageEPF.Size = new System.Drawing.Size(242, 27);
+            this.percentageEPF.TabIndex = 11;
+            this.percentageEPF.Text = "%";
+            // 
+            // basic
+            // 
+            this.basic.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.basic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.basic.Holder = "RM ";
+            this.basic.HolderType = CSharpOskaAPI.WF.HolderType.FRONT;
+            this.basic.Location = new System.Drawing.Point(80, 265);
+            this.basic.Name = "basic";
+            this.basic.OriText = "";
+            this.basic.ReadOnly = true;
+            this.basic.Size = new System.Drawing.Size(173, 27);
+            this.basic.TabIndex = 4;
+            this.basic.Text = "RM ";
             // 
             // EmployeeDataDisplay
             // 
@@ -552,7 +668,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
             this.Name = "EmployeeDataDisplay";
-            this.Size = new System.Drawing.Size(833, 585);
+            this.Size = new System.Drawing.Size(1052, 643);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.InputLayout.ResumeLayout(false);
@@ -582,7 +698,16 @@
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.Button DeleteBtn;
         private System.Windows.Forms.Button SaveBtn;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.DataGridView EmployeeDataDGV;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.ComboBox SortBy;
+        public System.Windows.Forms.TextBox SortBox;
         private System.Windows.Forms.TableLayoutPanel InputLayout;
+        private System.Windows.Forms.TextBox bankname;
+        private System.Windows.Forms.TextBox bankacc;
+        private CSharpOskaAPI.WF.NumberBox age;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.ComboBox eistype;
@@ -601,12 +726,13 @@
         private CSharpOskaAPI.WF.NumberBox percentageEPF;
         private System.Windows.Forms.CheckBox checkBox1;
         private CSharpOskaAPI.WF.NumberBox basic;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        private System.Windows.Forms.DataGridView EmployeeDataDGV;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private System.Windows.Forms.Label label7;
-        public System.Windows.Forms.ComboBox SortBy;
-        public System.Windows.Forms.TextBox SortBox;
-        private CSharpOskaAPI.WF.NumberBox age;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DateTimePicker confirm_date;
+        private System.Windows.Forms.DateTimePicker join_date;
+        private System.Windows.Forms.TextBox nric;
     }
 }

@@ -36,6 +36,7 @@ namespace DawnTech
         {
             return JsonConvert.DeserializeObject<T>(File.ReadAllText(DATA + "/" + path + ".json"));
         }
+
         public void DeleteJson(string path)
         {
             File.Delete(DATA + "/" + path + ".json");

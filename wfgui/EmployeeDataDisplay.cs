@@ -14,7 +14,7 @@ namespace DawnTech.wfgui
 {
     public partial class EmployeeDataDisplay : UserControl, IFormCallback<FormData>, IUpdateUI
     {
-        private string[] sortbylist = { "EMP NO", "NAME", "DEPT", "AGE" };
+        private string[] sortbylist = { "EMP NO", "NAME", "DEPT", "AGE", "NRIC" };
         private DataView DataView { get; set; }
         private DataTable DataTable { get; set; }
         private bool editMode { get; set; }
@@ -45,6 +45,8 @@ namespace DawnTech.wfgui
             DataTable.Columns.Add("NAME");
             DataTable.Columns.Add("DEPT");
             DataTable.Columns.Add("AGE");
+            DataTable.Columns.Add("NRIC");
+            DataTable.Columns.Add("LEAVE");
             DataView = DataTable.DefaultView;
             EmployeeDataDGV.DataSource = DataView;
             foreach (var emp in new Employee().GetList())
@@ -53,7 +55,9 @@ namespace DawnTech.wfgui
                     emp.UID,
                     emp.Name,
                     emp.DEPT,
-                    emp.Age);
+                    emp.Age,
+                    emp.NRIC,
+                    emp.calculateLeave());
             }
         }
 
@@ -74,76 +78,92 @@ namespace DawnTech.wfgui
                 if (ctl is TextBox) ((TextBox)ctl).ReadOnly = !((TextBox)ctl).ReadOnly;
                 if (ctl is CheckBox) ((CheckBox)ctl).Enabled = !((CheckBox)ctl).Enabled;
                 if (ctl is ComboBox) ((ComboBox)ctl).Enabled = !((ComboBox)ctl).Enabled;
+                if (ctl is DateTimePicker) ((DateTimePicker)ctl).Enabled = !((DateTimePicker)ctl).Enabled;
             }
         }
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if (EmployeeDataDGV.SelectedRows.Count == 1)
+            if (editMode)
             {
-                var uid = EmployeeDataDGV.SelectedRows[0].Cells[0];
-                if (uid.ToString() == empno.Text)
+                if (EmployeeDataDGV.SelectedRows.Count == 1)
                 {
-                    new Employee()
+                    var uid = EmployeeDataDGV.SelectedRows[0].Cells[0];
+                    if (uid.Value.ToString() == empno.Text)
                     {
-                        UID = empno.Text,
-                        Name = name.Text,
-                        DEPT = dept.Text,
-                        Age = int.Parse(age.OriText),
-                        Basic = double.Parse(basic.OriText),
-                        useEpf = checkBox1.Checked,
-                        useSocso = checkBox2.Checked,
-                        useEIS = checkBox3.Enabled,
-                        EISType = checkBox3.Checked ? (EISType)Enum.Parse(typeof(EISType), eistype.Text) : EISType.NONE,
-                        SocsoType = checkBox2.Checked ? (SocsoType)Enum.Parse(typeof(SocsoType), socsoType.Text) : SocsoType.NONE,
-                        percentageEpf = int.Parse(percentageEPF.OriText)
-                    }.SaveJson(empno.Text);
+                        new Employee()
+                        {
+                            UID = empno.Text != "" ? empno.Text : "",
+                            Name = name.Text != "" ? name.Text : "",
+                            DEPT = dept.Text != "" ? dept.Text : "",
+                            Age = age.OriText != "" ? int.Parse(age.OriText) : 0,
+                            Basic = basic.OriText != "" ? double.Parse(basic.OriText) : 0,
+                            useEpf = checkBox1.Checked,
+                            useSocso = checkBox2.Checked,
+                            useEIS = checkBox3.Checked,
+                            EISType = checkBox3.Checked ? (EISType)Enum.Parse(typeof(EISType), eistype.Text) : EISType.NONE,
+                            SocsoType = checkBox2.Checked ? (SocsoType)Enum.Parse(typeof(SocsoType), socsoType.Text) : SocsoType.NONE,
+                            percentageEpf = checkBox1.Checked ? int.Parse(percentageEPF.OriText) : 0,
+                            BankAcc = bankacc.Text != "" ? bankacc.Text : "",
+                            BankName = bankname.Text != "" ? bankname.Text : "",
+                            ConfirmDate = confirm_date.Value,
+                            JoinDate = join_date.Value,
+                            NRIC = nric.Text != "" ? nric.Text : "",
+                            LeaveData = new Employee().LoadJson("EMP-" + empno.Text).LeaveData
+                        }.SaveJson("EMP-" + empno.Text);
 
 
-                    DataRow[] dr = DataTable.Select($"[Vehicle No]='{empno.Text}'");
-                    dr[0].Delete();
+                        DataRow[] dr = DataTable.Select($"[EMP NO]='{empno.Text}'");
+                        dr[0].Delete();
 
-                    DataTable.Rows.Add(
-                        empno.Text,
-                        name.Text,
-                        dept.Text,
-                        age.Text);
+                        DataTable.Rows.Add(
+                            empno.Text,
+                            name.Text,
+                            dept.Text,
+                            age.Text);
 
-                    return;
-                }
-                
-                if (uid.ToString() != empno.Text && DataTable.AsEnumerable().Where(row => row.Field<string>("EMP NO").Equals("")).Count() > 0)
-                {
-                    MessageBox.Show("Repeated value!");
-                }
-                else
-                {
-                    // Update
-                    Employee emp = new Employee()
+                        return;
+                    }
+
+                    if (uid.ToString() != empno.Text && DataTable.AsEnumerable().Where(row => row.Field<string>("EMP NO").Equals("")).Count() > 0)
                     {
-                        UID = empno.Text,
-                        Name = name.Text,
-                        DEPT = dept.Text,
-                        Age = int.Parse(age.OriText),
-                        Basic = double.Parse(basic.OriText),
-                        useEpf = checkBox1.Checked,
-                        useSocso = checkBox2.Checked,
-                        useEIS = checkBox3.Enabled,
-                        EISType = checkBox3.Checked ? (EISType)Enum.Parse(typeof(EISType), eistype.Text) : EISType.NONE,
-                        SocsoType = checkBox2.Checked ? (SocsoType)Enum.Parse(typeof(SocsoType), socsoType.Text) : SocsoType.NONE,
-                        percentageEpf = int.Parse(percentageEPF.OriText)
-                    };
-                    emp.DeleteJson(uid.ToString());
-                    emp.SaveJson(empno.Text);
+                        MessageBox.Show("Repeated value!");
+                    }
+                    else
+                    {
+                        // Update
+                        Employee emp = new Employee()
+                        {
+                            UID = empno.Text != "" ? empno.Text : "",
+                            Name = name.Text != "" ? name.Text : "",
+                            DEPT = dept.Text != "" ? dept.Text : "",
+                            Age = age.OriText != "" ? int.Parse(age.OriText) : 0,
+                            Basic = basic.OriText != "" ? double.Parse(basic.OriText) : 0,
+                            useEpf = checkBox1.Checked,
+                            useSocso = checkBox2.Checked,
+                            useEIS = checkBox3.Checked,
+                            EISType = checkBox3.Checked ? (EISType)Enum.Parse(typeof(EISType), eistype.Text) : EISType.NONE,
+                            SocsoType = checkBox2.Checked ? (SocsoType)Enum.Parse(typeof(SocsoType), socsoType.Text) : SocsoType.NONE,
+                            percentageEpf = checkBox1.Checked ? int.Parse(percentageEPF.OriText) : 0,
+                            BankAcc = bankacc.Text != "" ? bankacc.Text : "",
+                            BankName = bankname.Text != "" ? bankname.Text : "",
+                            ConfirmDate = confirm_date.Value,
+                            JoinDate = join_date.Value,
+                            NRIC = nric.Text != "" ? nric.Text : "",
+                            LeaveData = new Employee().LoadJson("EMP-" + uid.Value.ToString()).LeaveData
+                        };
+                        emp.DeleteJson("EMP-" + uid.Value.ToString());
+                        emp.SaveJson("EMP-" + empno.Text);
 
-                    DataRow[] dr = DataTable.Select($"[EMP No]='{uid.ToString()}'");
-                    dr[0].Delete();
+                        DataRow[] dr = DataTable.Select($"[EMP NO]='{uid.Value.ToString()}'");
+                        dr[0].Delete();
 
-                    DataTable.Rows.Add(
-                        empno.Text,
-                        name.Text,
-                        dept.Text,
-                        age.Text);
+                        DataTable.Rows.Add(
+                            empno.Text,
+                            name.Text,
+                            dept.Text,
+                            age.Text);
+                    }
                 }
             }
         }
@@ -157,7 +177,7 @@ namespace DawnTech.wfgui
                     var uid = EmployeeDataDGV.SelectedRows[0].Cells[0];
                     new Employee().DeleteJson(uid.ToString());
 
-                    DataRow[] dr = DataTable.Select($"[EMP No]='{uid.ToString()}'");
+                    DataRow[] dr = DataTable.Select($"[EMP NO]='{uid.Value.ToString()}'");
                     dr[0].Delete();
                 }
             }
@@ -194,7 +214,7 @@ namespace DawnTech.wfgui
             if (rowsCount == 0 || rowsCount > 1) return;
 
             var uid = EmployeeDataDGV.SelectedRows[0].Cells[0];
-            var employee = new Employee().LoadJson(uid.Value.ToString());
+            var employee = new Employee().LoadJson("EMP-" + uid.Value.ToString());
             if (employee != null)
             {
                 empno.Text = ObjectParse.ObjectParseString(employee.UID);
@@ -210,6 +230,12 @@ namespace DawnTech.wfgui
                 percentageEPF.Text = ObjectParse.ObjectParseString(employee.percentageEpf);
                 socsoType.SelectedIndex = (int) employee.SocsoType;
                 eistype.SelectedIndex = (int) employee.EISType;
+
+                nric.Text = ObjectParse.ObjectParseString(employee.NRIC);
+                bankacc.Text = ObjectParse.ObjectParseString(employee.BankAcc);
+                bankname.Text = ObjectParse.ObjectParseString(employee.BankName);
+                join_date.Value = employee.JoinDate;
+                confirm_date.Value = employee.ConfirmDate;
             }
 
         }

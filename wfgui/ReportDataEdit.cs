@@ -76,6 +76,7 @@ namespace DawnTech.wfgui
                 };
                 MessageBox.Show($"Updated EMPLOYEE({employeeList.Text})'s data!", "Update Employee Data");
             }
+            WorkData.SaveJson($"{WorkData.When.Year}-{WorkData.When.Month}");
         }
 
         private void employeeList_SelectedIndexChanged(object sender, EventArgs e)

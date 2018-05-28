@@ -1,5 +1,6 @@
 ﻿using CSharpOskaAPI;
 using NCalc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -43,11 +44,11 @@ namespace DawnTech
             this.month = month;
             return this;
         }
-
-        private int year { get; set; }
-        private int month { get; set; }
+        [JsonIgnore] private int year { get; set; }
+        [JsonIgnore] private int month { get; set; }
 
         // EmployeeData
+        public LeaveData LeaveData { get; set; }
         public string UID { get; set; }
         public string Name { get; set; }
         public string DEPT { get; set; }
@@ -64,8 +65,18 @@ namespace DawnTech
         public bool useEIS { get; set; }
         public EISType EISType { get; set; }
 
-        public WorkData getWorkData => new WorkData().LoadJson($"{year}-{month}");
-        public WorkTime getWorkTime => getWorkData.EMPLOYEES[UID];
+        public string NRIC { get; set; }
+
+        public string BankAcc { get; set; }
+
+        public string BankName { get; set; }
+
+        public DateTime JoinDate { get; set; }
+
+        public DateTime ConfirmDate { get; set; }
+       
+        [JsonIgnore] public WorkData getWorkData => new WorkData().LoadJson($"{year}-{month}");
+        [JsonIgnore] public WorkTime getWorkTime => getWorkData.EMPLOYEES[UID];
 
         public double cGrossPay()
         {
@@ -126,6 +137,41 @@ namespace DawnTech
         public double cNetPay()
         {
             return Math.Round(cTotal() - cLate(), 1, MidpointRounding.AwayFromZero);
+        }
+
+        public float calculateMedical()
+        {
+            float total = 0F;
+            foreach (var tp in LeaveData.leaves)
+            {
+                if (tp.Item1.Year == DateTime.Now.Year)
+                {
+                    return total += tp.Item3;
+                }
+            }
+            return LeaveData.medical_fee - total;
+        }
+        public float calculateLeave()
+        {
+            int month = (DateTime.Now.Month - ConfirmDate.Month) + 12 * (DateTime.Now.Year - ConfirmDate.Year);
+            if (month < 3)
+            {
+                return 0;
+            }
+
+            if (month < 12)
+            {
+                int times = month / 3;
+                return times * (float.Parse(DataManager.SETTINGS["extra_leave_1"]) / 4f) - LeaveData.used_leave;
+            }
+            else
+            {
+                float firstyear = float.Parse(DataManager.SETTINGS["extra_leave_1"]);
+                month = month - 12;
+
+                int times = month / 3;
+                return times * (float.Parse(DataManager.SETTINGS["extra_leave_2"]) / 4F) + firstyear - LeaveData.used_leave;
+            }
         }
     }
 }

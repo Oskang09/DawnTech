@@ -5,3 +5,6 @@ late: %times% * ( ( %basic% / %working_day% / 8 ) / 2 )
 before_late: 09:00
 late_interval: 30
 over_time: 18:00
+
+extra_leave_1: 10
+extra_leave_2: 12

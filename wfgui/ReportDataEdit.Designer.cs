@@ -129,7 +129,7 @@
             this.working_day.Name = "working_day";
             this.working_day.OriText = "";
             this.working_day.Size = new System.Drawing.Size(131, 28);
-            this.working_day.TabIndex = 2;
+            this.working_day.TabIndex = 0;
             this.working_day.Text = " DAY";
             // 
             // employeeList
@@ -138,11 +138,13 @@
             this.employeeList.DataSource = ((object)(resources.GetObject("employeeList.DataSource")));
             this.employeeList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.employeeList.FormattingEnabled = true;
-            this.employeeList.Location = new System.Drawing.Point(124, 146);
+            this.employeeList.Items.AddRange(new object[] {
+            ""});
+            this.employeeList.Location = new System.Drawing.Point(124, 147);
             this.employeeList.Name = "employeeList";
             this.employeeList.Size = new System.Drawing.Size(131, 30);
             this.employeeList.StringList = "";
-            this.employeeList.TabIndex = 4;
+            this.employeeList.TabIndex = 1;
             this.employeeList.SelectedIndexChanged += new System.EventHandler(this.employeeList_SelectedIndexChanged);
             // 
             // InputLayout
@@ -232,7 +234,7 @@
             this.leave.Name = "leave";
             this.leave.OriText = "";
             this.leave.Size = new System.Drawing.Size(144, 28);
-            this.leave.TabIndex = 7;
+            this.leave.TabIndex = 2;
             // 
             // ot
             // 
@@ -244,7 +246,7 @@
             this.ot.Name = "ot";
             this.ot.OriText = "";
             this.ot.Size = new System.Drawing.Size(144, 28);
-            this.ot.TabIndex = 8;
+            this.ot.TabIndex = 3;
             // 
             // worked
             // 
@@ -256,7 +258,7 @@
             this.worked.Name = "worked";
             this.worked.OriText = "";
             this.worked.Size = new System.Drawing.Size(144, 28);
-            this.worked.TabIndex = 9;
+            this.worked.TabIndex = 4;
             // 
             // late
             // 
@@ -268,7 +270,7 @@
             this.late.Name = "late";
             this.late.OriText = "";
             this.late.Size = new System.Drawing.Size(144, 28);
-            this.late.TabIndex = 10;
+            this.late.TabIndex = 5;
             // 
             // worked_day
             // 
@@ -280,7 +282,7 @@
             this.worked_day.Name = "worked_day";
             this.worked_day.OriText = "";
             this.worked_day.Size = new System.Drawing.Size(144, 28);
-            this.worked_day.TabIndex = 11;
+            this.worked_day.TabIndex = 6;
             // 
             // tableLayoutPanel3
             // 
