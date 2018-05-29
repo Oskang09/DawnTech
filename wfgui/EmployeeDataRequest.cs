@@ -23,22 +23,25 @@ namespace DawnTech.wfgui
         {
             if (!new Employee().Exists(empno.Text))
             {
-                int month = (DateTime.Now.Month - confirm_date.Value.Month) + 12 * (DateTime.Now.Year - confirm_date.Value.Year);
                 float total_leave = 0;
-                if (month > 3)
+                if (confirm.Checked)
                 {
-                    if (month < 12)
+                    int month = (DateTime.Now.Month - confirm_date.Value.Month) + 12 * (DateTime.Now.Year - confirm_date.Value.Year);
+                    if (month > 3)
                     {
-                        int times = month / 3;
-                        total_leave = times * (float.Parse(DataManager.SETTINGS["extra_leave_1"]) / 4f);
-                    }
-                    else
-                    {
-                        float firstyear = float.Parse(DataManager.SETTINGS["extra_leave_1"]);
-                        month = month - 12;
+                        if (month < 12)
+                        {
+                            int times = month / 3;
+                            total_leave = times * (float.Parse(DataManager.SETTINGS["extra_leave_1"]) / 4f);
+                        }
+                        else
+                        {
+                            float firstyear = float.Parse(DataManager.SETTINGS["extra_leave_1"]);
+                            month = month - 12;
 
-                        int times = month / 3;
-                        total_leave = times * (float.Parse(DataManager.SETTINGS["extra_leave_2"]) / 4F) + firstyear;
+                            int times = month / 3;
+                            total_leave = times * (float.Parse(DataManager.SETTINGS["extra_leave_2"]) / 4F) + firstyear;
+                        }
                     }
                 }
 

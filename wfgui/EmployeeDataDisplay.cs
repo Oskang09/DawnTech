@@ -91,6 +91,30 @@ namespace DawnTech.wfgui
                     var uid = EmployeeDataDGV.SelectedRows[0].Cells[0];
                     if (uid.Value.ToString() == empno.Text)
                     {
+                        float total_leave = 0;
+                        LeaveData ld = new Employee().LoadJson("EMP-" + empno.Text).LeaveData;
+                        if (confirm.Checked)
+                        {
+                            int month = (DateTime.Now.Month - confirm_date.Value.Month) + 12 * (DateTime.Now.Year - confirm_date.Value.Year);
+                            if (month > 3)
+                            {
+                                if (month < 12)
+                                {
+                                    int times = month / 3;
+                                    total_leave = times * (float.Parse(DataManager.SETTINGS["extra_leave_1"]) / 4f);
+                                }
+                                else
+                                {
+                                    float firstyear = float.Parse(DataManager.SETTINGS["extra_leave_1"]);
+                                    month = month - 12;
+
+                                    int times = month / 3;
+                                    total_leave = times * (float.Parse(DataManager.SETTINGS["extra_leave_2"]) / 4F) + firstyear;
+                                }
+                            }
+                            ld.used_leave = total_leave - float.Parse(leave.OriText);
+                        }
+
                         new Employee()
                         {
                             UID = empno.Text != "" ? empno.Text : "",
@@ -107,7 +131,7 @@ namespace DawnTech.wfgui
                             ConfirmDate = confirm.Checked ? confirm_date.Value : (DateTime?)null,
                             JoinDate = join_date.Value,
                             NRIC = nric.Text != "" ? nric.Text : "",
-                            LeaveData = new Employee().LoadJson("EMP-" + empno.Text).LeaveData
+                            LeaveData = ld
                         }.SaveJson("EMP-" + empno.Text);
 
 
@@ -129,6 +153,29 @@ namespace DawnTech.wfgui
                     }
                     else
                     {
+                        float total_leave = 0;
+                        LeaveData ld = new Employee().LoadJson("EMP-" + uid.Value.ToString()).LeaveData;
+                        if (confirm.Checked)
+                        {
+                            int month = (DateTime.Now.Month - confirm_date.Value.Month) + 12 * (DateTime.Now.Year - confirm_date.Value.Year);
+                            if (month > 3)
+                            {
+                                if (month < 12)
+                                {
+                                    int times = month / 3;
+                                    total_leave = times * (float.Parse(DataManager.SETTINGS["extra_leave_1"]) / 4f);
+                                }
+                                else
+                                {
+                                    float firstyear = float.Parse(DataManager.SETTINGS["extra_leave_1"]);
+                                    month = month - 12;
+
+                                    int times = month / 3;
+                                    total_leave = times * (float.Parse(DataManager.SETTINGS["extra_leave_2"]) / 4F) + firstyear;
+                                }
+                            }
+                            ld.used_leave = total_leave - float.Parse(leave.OriText);
+                        }
                         // Update
                         Employee emp = new Employee()
                         {
@@ -146,7 +193,7 @@ namespace DawnTech.wfgui
                             ConfirmDate = confirm.Checked ? confirm_date.Value : (DateTime?) null,
                             JoinDate = join_date.Value,
                             NRIC = nric.Text != "" ? nric.Text : "",
-                            LeaveData = new Employee().LoadJson("EMP-" + uid.Value.ToString()).LeaveData
+                            LeaveData = ld
                         };
                         emp.DeleteJson("EMP-" + uid.Value.ToString());
                         emp.SaveJson("EMP-" + empno.Text);
@@ -234,6 +281,7 @@ namespace DawnTech.wfgui
                     confirm.Checked = true;
                     confirm_date.Value = employee.ConfirmDate.Value;
                 }
+                leave.Text = employee.calculateLeave().ToString();
             }
 
         }
