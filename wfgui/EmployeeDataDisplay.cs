@@ -74,7 +74,7 @@ namespace DawnTech.wfgui
             editMode = !editMode;
             foreach (var ctl in Recursive.GetAllChildren(InputLayout))
             {
-                if (ctl == percentageEPF || ctl == socsoType || ctl == eistype) continue;
+                if (ctl == percentageEPF || ctl == confirm_date) continue;
                 if (ctl is TextBox) ((TextBox)ctl).ReadOnly = !((TextBox)ctl).ReadOnly;
                 if (ctl is CheckBox) ((CheckBox)ctl).Enabled = !((CheckBox)ctl).Enabled;
                 if (ctl is ComboBox) ((ComboBox)ctl).Enabled = !((ComboBox)ctl).Enabled;
@@ -101,12 +101,10 @@ namespace DawnTech.wfgui
                             useEpf = checkBox1.Checked,
                             useSocso = checkBox2.Checked,
                             useEIS = checkBox3.Checked,
-                            EISType = checkBox3.Checked ? (EISType)Enum.Parse(typeof(EISType), eistype.Text) : EISType.NONE,
-                            SocsoType = checkBox2.Checked ? (SocsoType)Enum.Parse(typeof(SocsoType), socsoType.Text) : SocsoType.NONE,
                             percentageEpf = checkBox1.Checked ? int.Parse(percentageEPF.OriText) : 0,
                             BankAcc = bankacc.Text != "" ? bankacc.Text : "",
                             BankName = bankname.Text != "" ? bankname.Text : "",
-                            ConfirmDate = confirm_date.Value,
+                            ConfirmDate = confirm.Checked ? confirm_date.Value : (DateTime?)null,
                             JoinDate = join_date.Value,
                             NRIC = nric.Text != "" ? nric.Text : "",
                             LeaveData = new Employee().LoadJson("EMP-" + empno.Text).LeaveData
@@ -142,12 +140,10 @@ namespace DawnTech.wfgui
                             useEpf = checkBox1.Checked,
                             useSocso = checkBox2.Checked,
                             useEIS = checkBox3.Checked,
-                            EISType = checkBox3.Checked ? (EISType)Enum.Parse(typeof(EISType), eistype.Text) : EISType.NONE,
-                            SocsoType = checkBox2.Checked ? (SocsoType)Enum.Parse(typeof(SocsoType), socsoType.Text) : SocsoType.NONE,
                             percentageEpf = checkBox1.Checked ? int.Parse(percentageEPF.OriText) : 0,
                             BankAcc = bankacc.Text != "" ? bankacc.Text : "",
                             BankName = bankname.Text != "" ? bankname.Text : "",
-                            ConfirmDate = confirm_date.Value,
+                            ConfirmDate = confirm.Checked ? confirm_date.Value : (DateTime?) null,
                             JoinDate = join_date.Value,
                             NRIC = nric.Text != "" ? nric.Text : "",
                             LeaveData = new Employee().LoadJson("EMP-" + uid.Value.ToString()).LeaveData
@@ -228,14 +224,16 @@ namespace DawnTech.wfgui
                 checkBox3.Checked = employee.useEIS;
 
                 percentageEPF.Text = ObjectParse.ObjectParseString(employee.percentageEpf);
-                socsoType.SelectedIndex = (int) employee.SocsoType;
-                eistype.SelectedIndex = (int) employee.EISType;
 
                 nric.Text = ObjectParse.ObjectParseString(employee.NRIC);
                 bankacc.Text = ObjectParse.ObjectParseString(employee.BankAcc);
                 bankname.Text = ObjectParse.ObjectParseString(employee.BankName);
                 join_date.Value = employee.JoinDate;
-                confirm_date.Value = employee.ConfirmDate;
+                if (employee.ConfirmDate.HasValue)
+                {
+                    confirm.Checked = true;
+                    confirm_date.Value = employee.ConfirmDate.Value;
+                }
             }
 
         }
@@ -245,14 +243,9 @@ namespace DawnTech.wfgui
             if (editMode) percentageEPF.ReadOnly = !checkBox1.Checked;
         }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        private void confirm_CheckedChanged(object sender, EventArgs e)
         {
-            if (editMode) socsoType.Enabled = checkBox2.Checked;
-        }
-
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-            if (editMode) eistype.Enabled = checkBox3.Checked;
+            if (editMode) confirm_date.Enabled = confirm.Checked;
         }
     }
 }

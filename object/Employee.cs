@@ -17,13 +17,6 @@ namespace DawnTech
         NONE
     }
 
-    public enum EISType
-    {
-        EMPLOYEE,
-        BOSS,
-        NONE
-    }
-
     public class Employee : IJsonObject<Employee>
     {
         public Employee() : base("employee")
@@ -60,10 +53,8 @@ namespace DawnTech
         public int percentageEpf { get; set; }
 
         public bool useSocso { get; set; }
-        public SocsoType SocsoType { get; set; }
 
         public bool useEIS { get; set; }
-        public EISType EISType { get; set; }
 
         public string NRIC { get; set; }
 
@@ -73,7 +64,7 @@ namespace DawnTech
 
         public DateTime JoinDate { get; set; }
 
-        public DateTime ConfirmDate { get; set; }
+        public DateTime? ConfirmDate { get; set; }
        
         [JsonIgnore] public WorkData getWorkData => new WorkData().LoadJson($"{year}-{month}");
         [JsonIgnore] public WorkTime getWorkTime => getWorkData.EMPLOYEES[UID];
@@ -116,9 +107,9 @@ namespace DawnTech
                 0;
         }
 
-        public double cSocso()
+        public double cSocso(SocsoType st)
         {
-            return Math.Round(new CALC(cGrossPay()).cSocso(SocsoType), 1, MidpointRounding.AwayFromZero);
+            return Math.Round(new CALC(cGrossPay()).cSocso(st), 1, MidpointRounding.AwayFromZero);
         }
 
         public double cEIS()
@@ -126,17 +117,17 @@ namespace DawnTech
             return  Math.Round(new CALC(cGrossPay()).cEIS(), 1, MidpointRounding.AwayFromZero);
         }
 
-        public double cTotal()
+        public double cTotal(SocsoType st)
         {
             return  Math.Round(cGrossPay() - 
                 ( useEpf ? cEPF() : 0 ) -
                 ( useEIS ? cEIS() : 0 ) -
-                ( useSocso ? cSocso() : 0 ), 1, MidpointRounding.AwayFromZero);
+                ( useSocso ? cSocso(st) : 0 ), 1, MidpointRounding.AwayFromZero);
         }
 
-        public double cNetPay()
+        public double cNetPay(SocsoType st)
         {
-            return Math.Round(cTotal() - cLate(), 1, MidpointRounding.AwayFromZero);
+            return Math.Round(cTotal(st) - cLate(), 1, MidpointRounding.AwayFromZero);
         }
 
         public float calculateMedical()
@@ -153,24 +144,31 @@ namespace DawnTech
         }
         public float calculateLeave()
         {
-            int month = (DateTime.Now.Month - ConfirmDate.Month) + 12 * (DateTime.Now.Year - ConfirmDate.Year);
-            if (month < 3)
+            if (ConfirmDate.HasValue)
             {
-                return 0;
-            }
+                int month = (DateTime.Now.Month - ConfirmDate.Value.Month) + 12 * (DateTime.Now.Year - ConfirmDate.Value.Year);
+                if (month < 3)
+                {
+                    return 0;
+                }
 
-            if (month < 12)
-            {
-                int times = month / 3;
-                return times * (float.Parse(DataManager.SETTINGS["extra_leave_1"]) / 4f) - LeaveData.used_leave;
+                if (month < 12)
+                {
+                    int times = month / 3;
+                    return times * (float.Parse(DataManager.SETTINGS["extra_leave_1"]) / 4f) - LeaveData.used_leave;
+                }
+                else
+                {
+                    float firstyear = float.Parse(DataManager.SETTINGS["extra_leave_1"]);
+                    month = month - 12;
+
+                    int times = month / 3;
+                    return times * (float.Parse(DataManager.SETTINGS["extra_leave_2"]) / 4F) + firstyear - LeaveData.used_leave;
+                }
             }
             else
             {
-                float firstyear = float.Parse(DataManager.SETTINGS["extra_leave_1"]);
-                month = month - 12;
-
-                int times = month / 3;
-                return times * (float.Parse(DataManager.SETTINGS["extra_leave_2"]) / 4F) + firstyear - LeaveData.used_leave;
+                return 0;
             }
         }
     }

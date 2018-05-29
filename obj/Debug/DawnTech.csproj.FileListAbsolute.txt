@@ -122,15 +122,6 @@ C:\Users\Oska\source\repos\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.EmployeeDa
 C:\Users\Oska\source\repos\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.ReportDataDisplay.resources
 C:\Users\Oska\source\repos\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.ChooseDialog.resources
 C:\Users\Oska\source\repos\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.ReportDataEdit.resources
-C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.csprojAssemblyReference.cache
-C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.exe.config
-C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.csproj.ResolveComReference.cache
-C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\MainWindow.g.cs
-C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\App.g.cs
-C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech_MarkupCompile.cache
-C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech_MarkupCompile.lref
-C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.exe
-C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.pdb
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\bin\Debug\DawnTech.exe.config
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\bin\Debug\DawnTech.exe
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\bin\Debug\DawnTech.pdb
@@ -235,15 +226,24 @@ C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\bin\Debug\NCalc.dll
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\bin\Debug\Newtonsoft.Json.dll
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\bin\Debug\CSharpOskaAPI.pdb
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\bin\Debug\Newtonsoft.Json.xml
+C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.csprojAssemblyReference.cache
+C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.exe.config
+C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.csproj.ResolveComReference.cache
+C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\MainWindow.g.cs
+C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\App.g.cs
+C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech_MarkupCompile.cache
+C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech_MarkupCompile.lref
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\MainWindow.baml
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.g.resources
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.Properties.Resources.resources
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.ChooseDialog.resources
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.EmployeeDataDisplay.resources
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.EmployeeDataRequest.resources
+C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.LoginDialog.resources
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.ReportDataDisplay.resources
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.ReportDataEdit.resources
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.csproj.GenerateResource.cache
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.csproj.CoreCompileInputs.cache
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.csproj.CopyComplete
-C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.LoginDialog.resources
+C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.exe
+C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.pdb

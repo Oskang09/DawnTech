@@ -32,14 +32,14 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.InputLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.confirm = new System.Windows.Forms.CheckBox();
+            this.confirm_date = new System.Windows.Forms.DateTimePicker();
             this.bankname = new System.Windows.Forms.TextBox();
             this.bankacc = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.eistype = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.socsoType = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dept = new System.Windows.Forms.TextBox();
@@ -55,7 +55,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.confirm_date = new System.Windows.Forms.DateTimePicker();
             this.join_date = new System.Windows.Forms.DateTimePicker();
             this.nric = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -73,10 +72,11 @@
             this.age = new CSharpOskaAPI.WF.NumberBox();
             this.percentageEPF = new CSharpOskaAPI.WF.NumberBox();
             this.basic = new CSharpOskaAPI.WF.NumberBox();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.InputLayout.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -123,10 +123,10 @@
             this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.InputLayout.Controls.Add(this.tableLayoutPanel4, 3, 4);
             this.InputLayout.Controls.Add(this.bankname, 3, 2);
             this.InputLayout.Controls.Add(this.bankacc, 3, 1);
             this.InputLayout.Controls.Add(this.age, 1, 3);
-            this.InputLayout.Controls.Add(this.tableLayoutPanel6, 0, 7);
             this.InputLayout.Controls.Add(this.tableLayoutPanel5, 0, 6);
             this.InputLayout.Controls.Add(this.label5, 0, 4);
             this.InputLayout.Controls.Add(this.label4, 0, 3);
@@ -143,23 +143,59 @@
             this.InputLayout.Controls.Add(this.label9, 2, 2);
             this.InputLayout.Controls.Add(this.label10, 2, 3);
             this.InputLayout.Controls.Add(this.label11, 2, 4);
-            this.InputLayout.Controls.Add(this.confirm_date, 3, 4);
             this.InputLayout.Controls.Add(this.join_date, 3, 3);
             this.InputLayout.Controls.Add(this.nric, 3, 0);
+            this.InputLayout.Controls.Add(this.tableLayoutPanel6, 0, 7);
             this.InputLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InputLayout.Location = new System.Drawing.Point(3, 3);
             this.InputLayout.Name = "InputLayout";
             this.InputLayout.RowCount = 8;
-            this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49938F));
-            this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49938F));
-            this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49938F));
-            this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49938F));
-            this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49938F));
-            this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49938F));
-            this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50187F));
-            this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50187F));
+            this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49961F));
+            this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49961F));
+            this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49961F));
+            this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49961F));
+            this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49961F));
+            this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.49961F));
+            this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5021F));
+            this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50023F));
             this.InputLayout.Size = new System.Drawing.Size(514, 503);
             this.InputLayout.TabIndex = 2;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.81197F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.18803F));
+            this.tableLayoutPanel4.Controls.Add(this.confirm, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.confirm_date, 1, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(336, 251);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(175, 56);
+            this.tableLayoutPanel4.TabIndex = 27;
+            // 
+            // confirm
+            // 
+            this.confirm.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.confirm.AutoSize = true;
+            this.confirm.Enabled = false;
+            this.confirm.Location = new System.Drawing.Point(4, 19);
+            this.confirm.Name = "confirm";
+            this.confirm.Size = new System.Drawing.Size(18, 17);
+            this.confirm.TabIndex = 0;
+            this.confirm.UseVisualStyleBackColor = true;
+            this.confirm.CheckedChanged += new System.EventHandler(this.confirm_CheckedChanged);
+            // 
+            // confirm_date
+            // 
+            this.confirm_date.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.confirm_date.Enabled = false;
+            this.confirm_date.Location = new System.Drawing.Point(30, 17);
+            this.confirm_date.Name = "confirm_date";
+            this.confirm_date.Size = new System.Drawing.Size(142, 22);
+            this.confirm_date.TabIndex = 1;
             // 
             // bankname
             // 
@@ -181,55 +217,14 @@
             this.bankacc.Size = new System.Drawing.Size(175, 27);
             this.bankacc.TabIndex = 6;
             // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.InputLayout.SetColumnSpan(this.tableLayoutPanel6, 4);
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.25557F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.74443F));
-            this.tableLayoutPanel6.Controls.Add(this.checkBox3, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.eistype, 1, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 437);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(508, 63);
-            this.tableLayoutPanel6.TabIndex = 12;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(98, 21);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(83, 21);
-            this.checkBox3.TabIndex = 14;
-            this.checkBox3.Text = "USE EIS";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // eistype
-            // 
-            this.eistype.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.eistype.Enabled = false;
-            this.eistype.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.eistype.FormattingEnabled = true;
-            this.eistype.Items.AddRange(new object[] {
-            "EMPLOYEE",
-            "BOSS"});
-            this.eistype.Location = new System.Drawing.Point(187, 17);
-            this.eistype.Name = "eistype";
-            this.eistype.Size = new System.Drawing.Size(243, 28);
-            this.eistype.TabIndex = 15;
-            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
             this.InputLayout.SetColumnSpan(this.tableLayoutPanel5, 4);
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.40416F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.59584F));
+            this.tableLayoutPanel5.Controls.Add(this.checkBox3, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.checkBox2, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.socsoType, 1, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 375);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -238,30 +233,29 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(508, 56);
             this.tableLayoutPanel5.TabIndex = 11;
             // 
+            // checkBox3
+            // 
+            this.checkBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Enabled = false;
+            this.checkBox3.Location = new System.Drawing.Point(187, 17);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(83, 21);
+            this.checkBox3.TabIndex = 14;
+            this.checkBox3.Text = "USE EIS";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
             // checkBox2
             // 
             this.checkBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.checkBox2.AutoSize = true;
+            this.checkBox2.Enabled = false;
             this.checkBox2.Location = new System.Drawing.Point(70, 17);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(111, 21);
             this.checkBox2.TabIndex = 12;
             this.checkBox2.Text = "USE SOCSO";
             this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // socsoType
-            // 
-            this.socsoType.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.socsoType.Enabled = false;
-            this.socsoType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.socsoType.FormattingEnabled = true;
-            this.socsoType.Items.AddRange(new object[] {
-            "EMPLOYEE",
-            "BOSS"});
-            this.socsoType.Location = new System.Drawing.Point(187, 14);
-            this.socsoType.Name = "socsoType";
-            this.socsoType.Size = new System.Drawing.Size(242, 28);
-            this.socsoType.TabIndex = 13;
             // 
             // label5
             // 
@@ -363,12 +357,14 @@
             // 
             this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.checkBox1.AutoSize = true;
+            this.checkBox1.Enabled = false;
             this.checkBox1.Location = new System.Drawing.Point(93, 17);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(88, 21);
             this.checkBox1.TabIndex = 10;
             this.checkBox1.Text = "USE EPF";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label6
             // 
@@ -419,15 +415,6 @@
             this.label11.Size = new System.Drawing.Size(60, 34);
             this.label11.TabIndex = 19;
             this.label11.Text = "Confirm Date";
-            // 
-            // confirm_date
-            // 
-            this.confirm_date.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.confirm_date.Enabled = false;
-            this.confirm_date.Location = new System.Drawing.Point(336, 268);
-            this.confirm_date.Name = "confirm_date";
-            this.confirm_date.Size = new System.Drawing.Size(175, 22);
-            this.confirm_date.TabIndex = 9;
             // 
             // join_date
             // 
@@ -661,6 +648,20 @@
             this.basic.TabIndex = 4;
             this.basic.Text = "RM ";
             // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.InputLayout.SetColumnSpan(this.tableLayoutPanel6, 4);
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 437);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(508, 63);
+            this.tableLayoutPanel6.TabIndex = 28;
+            // 
             // EmployeeDataDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -673,8 +674,8 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.InputLayout.ResumeLayout(false);
             this.InputLayout.PerformLayout();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
@@ -708,12 +709,9 @@
         private System.Windows.Forms.TextBox bankname;
         private System.Windows.Forms.TextBox bankacc;
         private CSharpOskaAPI.WF.NumberBox age;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.ComboBox eistype;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.ComboBox socsoType;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox dept;
@@ -731,8 +729,11 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DateTimePicker confirm_date;
         private System.Windows.Forms.DateTimePicker join_date;
         private System.Windows.Forms.TextBox nric;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.CheckBox confirm;
+        private System.Windows.Forms.DateTimePicker confirm_date;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
     }
 }

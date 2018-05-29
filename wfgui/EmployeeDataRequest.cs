@@ -55,12 +55,10 @@ namespace DawnTech.wfgui
                         useEpf = checkBox1.Checked,
                         useSocso = checkBox2.Checked,
                         useEIS = checkBox3.Checked,
-                        EISType = checkBox3.Checked ? (EISType)Enum.Parse(typeof(EISType), eistype.Text) : EISType.NONE,
-                        SocsoType = checkBox2.Checked ? (SocsoType)Enum.Parse(typeof(SocsoType), socsoType.Text) : SocsoType.NONE,
                         percentageEpf = checkBox1.Checked ? int.Parse(percentageEPF.OriText) : 0,
                         BankAcc = bankacc.Text != "" ? bankacc.Text : "",
                         BankName = bankname.Text != "" ? bankname.Text : "",
-                        ConfirmDate = confirm_date.Value,
+                        ConfirmDate = confirm.Checked ? confirm_date.Value : (DateTime?)null,
                         JoinDate = join_date.Value,
                         NRIC = nric.Text != "" ? nric.Text : "",
                         LeaveData = new LeaveData()
@@ -89,14 +87,9 @@ namespace DawnTech.wfgui
             percentageEPF.ReadOnly = !checkBox1.Checked;
         }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        private void confirm_CheckedChanged(object sender, EventArgs e)
         {
-            socsoType.Enabled = checkBox2.Checked;
-        }
-
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-            eistype.Enabled = checkBox3.Checked;
+            confirm_date.Enabled = confirm.Checked;
         }
     }
 }

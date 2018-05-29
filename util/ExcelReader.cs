@@ -34,9 +34,10 @@ namespace DawnTech
             return lists;
         }
 
-        public TimelineExcel readExcel(int sheets)
+        public WorkData readExcel(int sheets)
         {
-            TimelineExcel tle = new TimelineExcel();
+            WorkData tle = new WorkData();
+            tle.Holidays = new List<DateTime>();
             _Worksheet Ws = Workbook.Sheets[sheets];
 
             Range xlR = Ws.UsedRange;
@@ -47,17 +48,17 @@ namespace DawnTech
             string[] date = Parser.readCell(xlR, 3, 3).Split('~');
             tle.When = Parser.readStringToDateTime(date[0]);
 
-            List<CheckData> data = new List<CheckData>();
+            List<ExcelData> data = new List<ExcelData>();
             int start_row = 5;
             for (int sr = start_row; sr < rowC; sr += 2)
             {
-                data.Add(new CheckData()
+                data.Add(new ExcelData()
                 {
                     UID = Parser.readCell(xlR, sr, 3),
                     CheckIn = Parser.readStringToCheckIn(xlR, sr + 1, tle.When)
                 });
             }
-            tle.CheckData = data;
+            tle.ExcelData = data;
             return tle;
         }
 

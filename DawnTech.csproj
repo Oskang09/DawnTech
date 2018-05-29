@@ -86,7 +86,6 @@
     <Compile Include="object\LeaveData.cs" />
     <Compile Include="util\ExcelReader.cs" />
     <Compile Include="util\Parse.cs" />
-    <Compile Include="object\TimelineExcel.cs" />
     <Compile Include="object\WorkData.cs" />
     <Compile Include="wfgui\ChooseDialog.cs">
       <SubType>Form</SubType>

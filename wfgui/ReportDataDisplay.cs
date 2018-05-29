@@ -31,9 +31,10 @@ namespace DawnTech.wfgui
             DataTable.Columns.Add("OVERTIME");
             DataTable.Columns.Add("LEAVE");
             DataTable.Columns.Add("GROSS PAY");
-            DataTable.Columns.Add("EPF");
-            DataTable.Columns.Add("SOCSO");
-            DataTable.Columns.Add("EIS");
+            DataTable.Columns.Add("EPF EMPLOYEE");
+            DataTable.Columns.Add("SOCSO EMPLOYEE");
+            DataTable.Columns.Add("SOCSO BOSS");
+            DataTable.Columns.Add("EIS EMPLOYEE");
             DataTable.Columns.Add("TOTAL");
             DataTable.Columns.Add("LATE");
             DataTable.Columns.Add("NETPAY");
@@ -68,11 +69,12 @@ namespace DawnTech.wfgui
                             "RM " + emp.cLeave().ToString("0.00"),
                             "RM " + emp.cGrossPay().ToString("0.00"),
                             "RM " + emp.cEPF().ToString("0.00"),
-                            "RM " + emp.cSocso().ToString("0.00"),
+                            "RM " + emp.cSocso(SocsoType.EMPLOYEE).ToString("0.00"),
                             "RM " + emp.cEIS().ToString("0.00"),
-                            "RM " + emp.cTotal().ToString("0.00"),
+                            "RM " + emp.cTotal(SocsoType.EMPLOYEE).ToString("0.00"),
+                            "RM " + emp.cSocso(SocsoType.BOSS).ToString("0.00"),
                             "RM " + emp.cLate().ToString("0.00"),
-                            "RM " + emp.cNetPay().ToString("0.00"));
+                            "RM " + emp.cNetPay(SocsoType.EMPLOYEE).ToString("0.00"));
                     }
                     else
                     {
@@ -88,6 +90,8 @@ namespace DawnTech.wfgui
             if (when_cbox.SelectedIndex > -1)
             {
                 ReportDataEdit rde = new ReportDataEdit();
+                string[] ar = when_cbox.Text.Split('-');
+                rde.setDate(new DateTime(int.Parse(ar[0]), int.Parse(ar[1]), 1));
                 rde.FormEvent += (form, form_data) =>
                 {
                     if (form_data.Action == "DONE")
@@ -118,12 +122,12 @@ namespace DawnTech.wfgui
                         {
                             if (MessageBox.Show("There already have a data exists. Did you want to replace it?", "Data Exists!", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                             {
-                                tle.saveWorkData();
+                                tle.readToWorkData();
                             }
                         }
                         else
                         {
-                            tle.saveWorkData();
+                            tle.readToWorkData();
                         }
                         er.close();
                         UpdateComboBox();

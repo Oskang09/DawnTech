@@ -135,12 +135,11 @@
             // employeeList
             // 
             this.employeeList.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.employeeList.DataSource = ((object)(resources.GetObject("employeeList.DataSource")));
             this.employeeList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.employeeList.FormattingEnabled = true;
             this.employeeList.Items.AddRange(new object[] {
             ""});
-            this.employeeList.Location = new System.Drawing.Point(124, 147);
+            this.employeeList.Location = new System.Drawing.Point(124, 146);
             this.employeeList.Name = "employeeList";
             this.employeeList.Size = new System.Drawing.Size(131, 30);
             this.employeeList.StringList = "";
