@@ -106,7 +106,9 @@ namespace DawnTech
                         Overtime = overtime,
                         Leave = leave,
                         Worked = worked_minute,
-                        Worked_Day = worked_day
+                        Worked_Day = worked_day,
+                        Allowance = new List<Tuple<string, float>>(),
+                        PBC = new List<Tuple<string, float>>()
                     };
                 }
                 SaveJson($"{When.Year}-{When.Month}");
@@ -129,6 +131,8 @@ namespace DawnTech
         // Times = 30 min + 1
         public int Late { get; set; }
         public int Worked_Day { get; set; }
+        public List<Tuple<string, float>> Allowance { get; set; }
+        public List<Tuple<string, float>> PBC { get; set; }
     }
     public class ExcelData
     {

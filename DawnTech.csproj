@@ -257,5 +257,8 @@
   <ItemGroup>
     <Resource Include="assets\Payroll-Icon.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\exit_button.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

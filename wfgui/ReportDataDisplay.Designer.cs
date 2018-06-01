@@ -35,8 +35,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.importBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.editBtn = new System.Windows.Forms.Button();
             this.when_cbox = new CSharpOskaAPI.WF.FilterComboBox();
+            this.editBtn = new System.Windows.Forms.Button();
+            this.delBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SUM_DATA)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -121,9 +122,11 @@
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.Controls.Add(this.delBtn, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.editBtn, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.when_cbox, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -134,29 +137,43 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(234, 94);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
+            // when_cbox
+            // 
+            this.when_cbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.when_cbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.when_cbox.FormattingEnabled = true;
+            this.when_cbox.Items.AddRange(new object[] {
+            ""});
+            this.when_cbox.Location = new System.Drawing.Point(3, 32);
+            this.when_cbox.Name = "when_cbox";
+            this.when_cbox.Size = new System.Drawing.Size(134, 30);
+            this.when_cbox.StringList = "";
+            this.when_cbox.TabIndex = 5;
+            this.when_cbox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // editBtn
             // 
             this.editBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.editBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("editBtn.BackgroundImage")));
             this.editBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.editBtn.Location = new System.Drawing.Point(190, 27);
+            this.editBtn.Location = new System.Drawing.Point(143, 27);
             this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(41, 40);
+            this.editBtn.Size = new System.Drawing.Size(40, 40);
             this.editBtn.TabIndex = 2;
             this.editBtn.UseVisualStyleBackColor = true;
             this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
-            // when_cbox
+            // delBtn
             // 
-            this.when_cbox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.when_cbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.when_cbox.FormattingEnabled = true;
-            this.when_cbox.Location = new System.Drawing.Point(3, 32);
-            this.when_cbox.Name = "when_cbox";
-            this.when_cbox.Size = new System.Drawing.Size(181, 30);
-            this.when_cbox.StringList = "";
-            this.when_cbox.TabIndex = 5;
-            this.when_cbox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.delBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.delBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("delBtn.BackgroundImage")));
+            this.delBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.delBtn.Location = new System.Drawing.Point(189, 27);
+            this.delBtn.Name = "delBtn";
+            this.delBtn.Size = new System.Drawing.Size(40, 40);
+            this.delBtn.TabIndex = 6;
+            this.delBtn.UseVisualStyleBackColor = true;
+            this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
             // 
             // ReportDataDisplay
             // 
@@ -182,9 +199,10 @@
         private System.Windows.Forms.DataGridView SUM_DATA;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Button importBtn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private CSharpOskaAPI.WF.FilterComboBox when_cbox;
+        private System.Windows.Forms.Button editBtn;
+        private System.Windows.Forms.Button delBtn;
     }
 }

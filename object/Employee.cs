@@ -87,7 +87,7 @@ namespace DawnTech
             exp.Parameters["times"] = getWorkTime.Late;
             exp.Parameters["basic"] = Basic;
             exp.Parameters["working_day"] = getWorkData.Working_Day;
-            return Math.Round((double)exp.Evaluate(), 1, MidpointRounding.AwayFromZero);
+            return !isPartTime ? Math.Round((double)exp.Evaluate(), 1, MidpointRounding.AwayFromZero) : 0;
         }
         public double cLeave()
         {
@@ -95,7 +95,7 @@ namespace DawnTech
             exp.Parameters["day"] = getWorkTime.Leave;
             exp.Parameters["basic"] = Basic;
             exp.Parameters["working_day"] = getWorkData.Working_Day;
-            return Math.Round((double)exp.Evaluate(), 1, MidpointRounding.AwayFromZero);
+            return !isPartTime ? Math.Round((double)exp.Evaluate(), 1, MidpointRounding.AwayFromZero) : 0;
         }
 
         public double cOvertime()
@@ -104,41 +104,38 @@ namespace DawnTech
             exp.Parameters["hour"] = Convert.ToInt32(getWorkTime.Overtime / 60);
             exp.Parameters["basic"] = Basic;
             exp.Parameters["working_day"] = getWorkData.Working_Day;
-            return Math.Round((double)exp.Evaluate(), 1, MidpointRounding.AwayFromZero);
+            return !isPartTime ? Math.Round((double)exp.Evaluate(), 1, MidpointRounding.AwayFromZero) : 0;
         }
 
         public double cEPF(EPFType epf)
         {
-            return useEpf ?
+            return !isPartTime && useEpf ?
                 new CALC(cGrossPay()).cEPF(epf) :
                 0;
         }
 
         public double cSocso(SocsoType st)
         {
-            return useSocso ? 
+            return !isPartTime && useSocso ? 
                 Math.Round(new CALC(cGrossPay()).cSocso(st), 1, MidpointRounding.AwayFromZero) : 
                 0;
         }
 
         public double cEIS()
         {
-            return useEIS ?
+            return !isPartTime && useEIS ?
                 Math.Round(new CALC(cGrossPay()).cEIS(), 1, MidpointRounding.AwayFromZero) : 
                 0;
         }
 
         public double cTotal(SocsoType st, EPFType epf)
         {
-            return  Math.Round(cGrossPay() - 
-                ( useEpf ? new CALC(cGrossPay()).cEPF(epf) : 0 ) -
-                ( useEIS ? cEIS() : 0 ) -
-                ( useSocso ? cSocso(st) : 0 ), 1, MidpointRounding.AwayFromZero);
+            return Math.Round(cGrossPay() - cEPF(epf) - cEIS() - cSocso(st), 1, MidpointRounding.AwayFromZero);
         }
 
         public double cNetPay(SocsoType st, EPFType epf)
         {
-            return Math.Round(cTotal(st, epf) - cLate(), 1, MidpointRounding.AwayFromZero);
+            return Math.Round(cTotal(st, epf) - cLate() - calculatePBC() + calculateAllowance(), 1, MidpointRounding.AwayFromZero);
         }
 
         public float calculateMedical()
@@ -153,9 +150,19 @@ namespace DawnTech
             }
             return LeaveData.medical_fee - total;
         }
+
+        public float calculateAllowance()
+        {
+            return getWorkTime.Allowance.Sum(x => x.Item2);
+        }
+        public float calculatePBC()
+        {
+            return getWorkTime.PBC.Sum(x => x.Item2);
+        }
+
         public float calculateLeave()
         {
-            if (ConfirmDate.HasValue)
+            if (!isPartTime && ConfirmDate.HasValue)
             {
                 int month = (DateTime.Now.Month - ConfirmDate.Value.Month) + 12 * (DateTime.Now.Year - ConfirmDate.Value.Year);
                 if (month < 3)

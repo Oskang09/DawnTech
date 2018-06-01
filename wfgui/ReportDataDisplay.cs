@@ -40,6 +40,8 @@ namespace DawnTech.wfgui
 
             DataTable.Columns.Add("TOTAL");
             DataTable.Columns.Add("LATE");
+            DataTable.Columns.Add("ALLOWANCE");
+            DataTable.Columns.Add("PBC");
             DataTable.Columns.Add("NETPAY");
 
             DataTable.Columns.Add("EPF EMPLOYER");
@@ -71,7 +73,7 @@ namespace DawnTech.wfgui
                             emp.Name,
                             emp.UID,
                             emp.DEPT,
-                           "RM " + emp.Basic.ToString("0.00"),
+                            "RM " + emp.Basic.ToString("0.00"),
                             "RM " + emp.cOvertime().ToString("0.00"),
                             "RM " + emp.cLeave().ToString("0.00"),
                             "RM " + emp.cGrossPay().ToString("0.00"),
@@ -80,6 +82,8 @@ namespace DawnTech.wfgui
                             "RM " + emp.cEIS().ToString("0.00"),
                             "RM " + emp.cTotal(SocsoType.EMPLOYEE, EPFType.EMPLOYEE).ToString("0.00"),
                             "RM " + emp.cLate().ToString("0.00"),
+                            "RM " + emp.calculateAllowance().ToString("0.00"),
+                            "RM " + emp.calculatePBC().ToString("0.00"),
                             "RM " + emp.cNetPay(SocsoType.EMPLOYEE, EPFType.EMPLOYEE).ToString("0.00"),
 
                             "RM " + emp.cEPF(EPFType.BOSS).ToString("0"),
@@ -94,19 +98,21 @@ namespace DawnTech.wfgui
                 }
                 DataTable.Rows.Add(
                     "TOTAL", "", "",
-                    SumDT(3, "0.00"),
-                    SumDT(4, "0.00"),
-                    SumDT(5, "0.00"),
-                    SumDT(6, "0.00"),
-                    SumDT(7, "0"),
-                    SumDT(8, "0.00"),
-                    SumDT(9, "0.00"),
-                    SumDT(10, "0.00"),
-                    SumDT(11, "0.00"),
-                    SumDT(12, "0.00"),
-                    SumDT(13, "0"),
-                    SumDT(14, "0.00"),
-                    SumDT(15, "0.00"));
+                    "RM " + SumDT(3, "0.00"),
+                    "RM " + SumDT(4, "0.00"),
+                    "RM " + SumDT(5, "0.00"),
+                    "RM " + SumDT(6, "0.00"),
+                    "RM " + SumDT(7, "0"),
+                    "RM " + SumDT(8, "0.00"),
+                    "RM " + SumDT(9, "0.00"),
+                    "RM " + SumDT(10, "0.00"),
+                    "RM " + SumDT(11, "0.00"),
+                    "RM " + SumDT(12, "0.00"),
+                    "RM " + SumDT(13, "0.00"),
+                    "RM " + SumDT(14, "0.00"),
+                    "RM " + SumDT(15, "0"),
+                    "RM " + SumDT(16, "0.00"),
+                    "RM " + SumDT(17, "0.00"));
             }
         }
 
@@ -172,6 +178,11 @@ namespace DawnTech.wfgui
                     MessageBox.Show("Error occurs when try to opening the excel files!\n" + ex.Message);
                 }
             }
+        }
+
+        private void delBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -59,33 +59,34 @@
             // 
             this.DATE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DATE.AutoSize = true;
-            this.DATE.Location = new System.Drawing.Point(34, 27);
+            this.DATE.Location = new System.Drawing.Point(18, 24);
             this.DATE.Name = "DATE";
-            this.DATE.Size = new System.Drawing.Size(53, 17);
+            this.DATE.Size = new System.Drawing.Size(85, 17);
             this.DATE.TabIndex = 0;
-            this.DATE.Text = "2018-1";
+            this.DATE.Text = "DATE_TIME";
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82F));
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.DATE, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.working_day, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.employeeList, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.InputLayout, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.InputLayout, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68F));
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.90909F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61.81818F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(673, 604);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
@@ -93,7 +94,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 389);
+            this.label3.Location = new System.Drawing.Point(4, 407);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 17);
             this.label3.TabIndex = 6;
@@ -103,7 +104,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 153);
+            this.label2.Location = new System.Drawing.Point(48, 137);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 17);
             this.label2.TabIndex = 3;
@@ -113,7 +114,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 93);
+            this.label1.Location = new System.Drawing.Point(29, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 17);
             this.label1.TabIndex = 1;
@@ -125,7 +126,7 @@
             this.working_day.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.working_day.Holder = " DAY";
             this.working_day.HolderType = CSharpOskaAPI.WF.HolderType.BACK;
-            this.working_day.Location = new System.Drawing.Point(124, 88);
+            this.working_day.Location = new System.Drawing.Point(124, 78);
             this.working_day.Name = "working_day";
             this.working_day.OriText = "";
             this.working_day.Size = new System.Drawing.Size(131, 28);
@@ -139,18 +140,20 @@
             this.employeeList.FormattingEnabled = true;
             this.employeeList.Items.AddRange(new object[] {
             ""});
-            this.employeeList.Location = new System.Drawing.Point(124, 146);
+            this.employeeList.Location = new System.Drawing.Point(124, 131);
             this.employeeList.Name = "employeeList";
-            this.employeeList.Size = new System.Drawing.Size(131, 30);
+            this.employeeList.Size = new System.Drawing.Size(154, 30);
             this.employeeList.StringList = "";
             this.employeeList.TabIndex = 1;
             this.employeeList.SelectedIndexChanged += new System.EventHandler(this.employeeList_SelectedIndexChanged);
             // 
             // InputLayout
             // 
-            this.InputLayout.ColumnCount = 2;
-            this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.InputLayout.ColumnCount = 4;
+            this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.InputLayout.Controls.Add(this.label8, 0, 4);
             this.InputLayout.Controls.Add(this.label7, 0, 3);
             this.InputLayout.Controls.Add(this.label6, 0, 2);
@@ -162,7 +165,7 @@
             this.InputLayout.Controls.Add(this.late, 1, 3);
             this.InputLayout.Controls.Add(this.worked_day, 1, 4);
             this.InputLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.InputLayout.Location = new System.Drawing.Point(124, 195);
+            this.InputLayout.Location = new System.Drawing.Point(124, 230);
             this.InputLayout.Name = "InputLayout";
             this.InputLayout.RowCount = 5;
             this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -170,24 +173,24 @@
             this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.InputLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.InputLayout.Size = new System.Drawing.Size(546, 406);
+            this.InputLayout.Size = new System.Drawing.Size(546, 371);
             this.InputLayout.TabIndex = 5;
             // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(47, 356);
+            this.label8.Location = new System.Drawing.Point(8, 325);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(86, 17);
+            this.label8.Size = new System.Drawing.Size(70, 17);
             this.label8.TabIndex = 6;
-            this.label8.Text = "Worked Day";
+            this.label8.Text = "Work Day";
             // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(97, 275);
+            this.label7.Location = new System.Drawing.Point(42, 250);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(36, 17);
             this.label7.TabIndex = 5;
@@ -197,7 +200,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(76, 194);
+            this.label6.Location = new System.Drawing.Point(21, 176);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 17);
             this.label6.TabIndex = 4;
@@ -207,7 +210,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(68, 113);
+            this.label5.Location = new System.Drawing.Point(13, 102);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 17);
             this.label5.TabIndex = 3;
@@ -217,7 +220,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(86, 32);
+            this.label4.Location = new System.Drawing.Point(31, 28);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 17);
             this.label4.TabIndex = 2;
@@ -229,7 +232,7 @@
             this.leave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.leave.Holder = " DAY";
             this.leave.HolderType = CSharpOskaAPI.WF.HolderType.BACK;
-            this.leave.Location = new System.Drawing.Point(139, 26);
+            this.leave.Location = new System.Drawing.Point(84, 23);
             this.leave.Name = "leave";
             this.leave.OriText = "";
             this.leave.Size = new System.Drawing.Size(144, 28);
@@ -241,7 +244,7 @@
             this.ot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.ot.Holder = " MINUTES";
             this.ot.HolderType = CSharpOskaAPI.WF.HolderType.BACK;
-            this.ot.Location = new System.Drawing.Point(139, 107);
+            this.ot.Location = new System.Drawing.Point(84, 97);
             this.ot.Name = "ot";
             this.ot.OriText = "";
             this.ot.Size = new System.Drawing.Size(144, 28);
@@ -253,7 +256,7 @@
             this.worked.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.worked.Holder = " DAY";
             this.worked.HolderType = CSharpOskaAPI.WF.HolderType.BACK;
-            this.worked.Location = new System.Drawing.Point(139, 188);
+            this.worked.Location = new System.Drawing.Point(84, 171);
             this.worked.Name = "worked";
             this.worked.OriText = "";
             this.worked.Size = new System.Drawing.Size(144, 28);
@@ -265,7 +268,7 @@
             this.late.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.late.Holder = " TIMES";
             this.late.HolderType = CSharpOskaAPI.WF.HolderType.BACK;
-            this.late.Location = new System.Drawing.Point(139, 269);
+            this.late.Location = new System.Drawing.Point(84, 245);
             this.late.Name = "late";
             this.late.OriText = "";
             this.late.Size = new System.Drawing.Size(144, 28);
@@ -277,7 +280,7 @@
             this.worked_day.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.worked_day.Holder = " DAY";
             this.worked_day.HolderType = CSharpOskaAPI.WF.HolderType.BACK;
-            this.worked_day.Location = new System.Drawing.Point(139, 351);
+            this.worked_day.Location = new System.Drawing.Point(84, 319);
             this.worked_day.Name = "worked_day";
             this.worked_day.OriText = "";
             this.worked_day.Size = new System.Drawing.Size(144, 28);
@@ -296,7 +299,7 @@
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(546, 66);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(546, 59);
             this.tableLayoutPanel3.TabIndex = 7;
             // 
             // defaultBtn
@@ -305,7 +308,7 @@
             this.defaultBtn.Image = ((System.Drawing.Image)(resources.GetObject("defaultBtn.Image")));
             this.defaultBtn.Location = new System.Drawing.Point(3, 3);
             this.defaultBtn.Name = "defaultBtn";
-            this.defaultBtn.Size = new System.Drawing.Size(267, 60);
+            this.defaultBtn.Size = new System.Drawing.Size(267, 53);
             this.defaultBtn.TabIndex = 0;
             this.defaultBtn.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.defaultBtn.UseVisualStyleBackColor = true;
@@ -317,7 +320,7 @@
             this.saveBtn.Image = ((System.Drawing.Image)(resources.GetObject("saveBtn.Image")));
             this.saveBtn.Location = new System.Drawing.Point(276, 3);
             this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(267, 60);
+            this.saveBtn.Size = new System.Drawing.Size(267, 53);
             this.saveBtn.TabIndex = 1;
             this.saveBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.saveBtn.UseVisualStyleBackColor = true;
