@@ -3,6 +3,7 @@ using NCalc;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -13,8 +14,12 @@ namespace DawnTech
     public enum SocsoType
     {
         EMPLOYEE,
-        BOSS,
-        NONE
+        BOSS
+    }
+    public enum EPFType
+    {
+        EMPLOYEE,
+        BOSS
     }
 
     public class Employee : IJsonObject<Employee>
@@ -41,6 +46,9 @@ namespace DawnTech
         [JsonIgnore] private int month { get; set; }
 
         // EmployeeData
+        [DefaultValue(false)]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate)]
+        public bool isPartTime { get; set; }
         public LeaveData LeaveData { get; set; }
         public string UID { get; set; }
         public string Name { get; set; }
@@ -50,7 +58,6 @@ namespace DawnTech
         public double Basic { get; set; }
 
         public bool useEpf { get; set; }
-        public int percentageEpf { get; set; }
 
         public bool useSocso { get; set; }
 
@@ -100,34 +107,38 @@ namespace DawnTech
             return Math.Round((double)exp.Evaluate(), 1, MidpointRounding.AwayFromZero);
         }
 
-        public double cEPF()
+        public double cEPF(EPFType epf)
         {
             return useEpf ?
-                Math.Round(cGrossPay() * ( (double)percentageEpf / 100.0 ), 1, MidpointRounding.AwayFromZero) :
+                new CALC(cGrossPay()).cEPF(epf) :
                 0;
         }
 
         public double cSocso(SocsoType st)
         {
-            return Math.Round(new CALC(cGrossPay()).cSocso(st), 1, MidpointRounding.AwayFromZero);
+            return useSocso ? 
+                Math.Round(new CALC(cGrossPay()).cSocso(st), 1, MidpointRounding.AwayFromZero) : 
+                0;
         }
 
         public double cEIS()
         {
-            return  Math.Round(new CALC(cGrossPay()).cEIS(), 1, MidpointRounding.AwayFromZero);
+            return useEIS ?
+                Math.Round(new CALC(cGrossPay()).cEIS(), 1, MidpointRounding.AwayFromZero) : 
+                0;
         }
 
-        public double cTotal(SocsoType st)
+        public double cTotal(SocsoType st, EPFType epf)
         {
             return  Math.Round(cGrossPay() - 
-                ( useEpf ? cEPF() : 0 ) -
+                ( useEpf ? new CALC(cGrossPay()).cEPF(epf) : 0 ) -
                 ( useEIS ? cEIS() : 0 ) -
                 ( useSocso ? cSocso(st) : 0 ), 1, MidpointRounding.AwayFromZero);
         }
 
-        public double cNetPay(SocsoType st)
+        public double cNetPay(SocsoType st, EPFType epf)
         {
-            return Math.Round(cTotal(st) - cLate(), 1, MidpointRounding.AwayFromZero);
+            return Math.Round(cTotal(st, epf) - cLate(), 1, MidpointRounding.AwayFromZero);
         }
 
         public float calculateMedical()

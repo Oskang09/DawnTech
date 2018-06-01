@@ -36,9 +36,7 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.bankname = new System.Windows.Forms.TextBox();
             this.bankacc = new System.Windows.Forms.TextBox();
-            this.age = new CSharpOskaAPI.WF.NumberBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.leave = new CSharpOskaAPI.WF.NumberBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
@@ -52,9 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.empno = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.percentageEPF = new CSharpOskaAPI.WF.NumberBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.basic = new CSharpOskaAPI.WF.NumberBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -65,6 +61,10 @@
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.confirm = new System.Windows.Forms.CheckBox();
             this.confirm_date = new System.Windows.Forms.DateTimePicker();
+            this.isPart = new System.Windows.Forms.CheckBox();
+            this.age = new CSharpOskaAPI.WF.NumberBox();
+            this.leave = new CSharpOskaAPI.WF.NumberBox();
+            this.basic = new CSharpOskaAPI.WF.NumberBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -196,51 +196,27 @@
             this.bankacc.Size = new System.Drawing.Size(228, 27);
             this.bankacc.TabIndex = 6;
             // 
-            // age
-            // 
-            this.age.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.age.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.age.Holder = "";
-            this.age.HolderType = CSharpOskaAPI.WF.HolderType.NONE;
-            this.age.Location = new System.Drawing.Point(104, 165);
-            this.age.Name = "age";
-            this.age.OriText = null;
-            this.age.Size = new System.Drawing.Size(231, 27);
-            this.age.TabIndex = 3;
-            // 
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel3.SetColumnSpan(this.tableLayoutPanel6, 4);
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.25557F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.74443F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.Controls.Add(this.leave, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 360);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(673, 50);
             this.tableLayoutPanel6.TabIndex = 12;
-            // 
-            // leave
-            // 
-            this.leave.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.leave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.leave.Holder = "";
-            this.leave.HolderType = CSharpOskaAPI.WF.HolderType.NONE;
-            this.leave.Location = new System.Drawing.Point(246, 11);
-            this.leave.Name = "leave";
-            this.leave.OriText = "";
-            this.leave.Size = new System.Drawing.Size(107, 27);
-            this.leave.TabIndex = 16;
             // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(142, 16);
+            this.label11.Location = new System.Drawing.Point(235, 16);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(98, 17);
             this.label11.TabIndex = 0;
@@ -250,15 +226,15 @@
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
             this.tableLayoutPanel3.SetColumnSpan(this.tableLayoutPanel5, 4);
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.40416F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.59584F));
-            this.tableLayoutPanel5.Controls.Add(this.checkBox3, 1, 0);
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.isPart, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.checkBox2, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 309);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(673, 45);
             this.tableLayoutPanel5.TabIndex = 11;
             // 
@@ -266,7 +242,7 @@
             // 
             this.checkBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(247, 12);
+            this.checkBox3.Location = new System.Drawing.Point(339, 12);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(83, 21);
             this.checkBox3.TabIndex = 14;
@@ -277,7 +253,7 @@
             // 
             this.checkBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(130, 12);
+            this.checkBox2.Location = new System.Drawing.Point(222, 12);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(111, 21);
             this.checkBox2.TabIndex = 12;
@@ -365,56 +341,29 @@
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel3.SetColumnSpan(this.tableLayoutPanel4, 4);
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.40416F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.59584F));
-            this.tableLayoutPanel4.Controls.Add(this.percentageEPF, 0, 0);
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.checkBox3, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.checkBox1, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 258);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(673, 45);
             this.tableLayoutPanel4.TabIndex = 10;
-            // 
-            // percentageEPF
-            // 
-            this.percentageEPF.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.percentageEPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.percentageEPF.Holder = "%";
-            this.percentageEPF.HolderType = CSharpOskaAPI.WF.HolderType.BACK;
-            this.percentageEPF.Location = new System.Drawing.Point(247, 9);
-            this.percentageEPF.Name = "percentageEPF";
-            this.percentageEPF.OriText = "";
-            this.percentageEPF.ReadOnly = true;
-            this.percentageEPF.Size = new System.Drawing.Size(242, 27);
-            this.percentageEPF.TabIndex = 11;
-            this.percentageEPF.Text = "%";
             // 
             // checkBox1
             // 
             this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(153, 12);
+            this.checkBox1.Location = new System.Drawing.Point(245, 12);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(88, 21);
             this.checkBox1.TabIndex = 10;
             this.checkBox1.Text = "USE EPF";
             this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // basic
-            // 
-            this.basic.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.basic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.basic.Holder = "RM ";
-            this.basic.HolderType = CSharpOskaAPI.WF.HolderType.FRONT;
-            this.basic.Location = new System.Drawing.Point(104, 216);
-            this.basic.Name = "basic";
-            this.basic.OriText = "";
-            this.basic.Size = new System.Drawing.Size(231, 27);
-            this.basic.TabIndex = 4;
-            this.basic.Text = "RM ";
             // 
             // label6
             // 
@@ -518,6 +467,54 @@
             this.confirm_date.Size = new System.Drawing.Size(191, 22);
             this.confirm_date.TabIndex = 1;
             // 
+            // isPart
+            // 
+            this.isPart.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.isPart.AutoSize = true;
+            this.isPart.Location = new System.Drawing.Point(339, 12);
+            this.isPart.Name = "isPart";
+            this.isPart.Size = new System.Drawing.Size(105, 21);
+            this.isPart.TabIndex = 14;
+            this.isPart.Text = "Is Part Time";
+            this.isPart.UseVisualStyleBackColor = true;
+            // 
+            // age
+            // 
+            this.age.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.age.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.age.Holder = "";
+            this.age.HolderType = CSharpOskaAPI.WF.HolderType.NONE;
+            this.age.Location = new System.Drawing.Point(104, 165);
+            this.age.Name = "age";
+            this.age.OriText = null;
+            this.age.Size = new System.Drawing.Size(231, 27);
+            this.age.TabIndex = 3;
+            // 
+            // leave
+            // 
+            this.leave.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.leave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.leave.Holder = "";
+            this.leave.HolderType = CSharpOskaAPI.WF.HolderType.NONE;
+            this.leave.Location = new System.Drawing.Point(339, 11);
+            this.leave.Name = "leave";
+            this.leave.OriText = "";
+            this.leave.Size = new System.Drawing.Size(107, 27);
+            this.leave.TabIndex = 16;
+            // 
+            // basic
+            // 
+            this.basic.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.basic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.basic.Holder = "RM ";
+            this.basic.HolderType = CSharpOskaAPI.WF.HolderType.FRONT;
+            this.basic.Location = new System.Drawing.Point(104, 216);
+            this.basic.Name = "basic";
+            this.basic.OriText = "";
+            this.basic.Size = new System.Drawing.Size(231, 27);
+            this.basic.TabIndex = 4;
+            this.basic.Text = "RM ";
+            // 
             // EmployeeDataRequest
             // 
             this.AcceptButton = this.AddBtn;
@@ -567,7 +564,6 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private CSharpOskaAPI.WF.NumberBox basic;
-        private CSharpOskaAPI.WF.NumberBox percentageEPF;
         private CSharpOskaAPI.WF.NumberBox age;
         private System.Windows.Forms.TextBox empno;
         private System.Windows.Forms.Label label6;
@@ -584,5 +580,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.CheckBox confirm;
         private System.Windows.Forms.DateTimePicker confirm_date;
+        private System.Windows.Forms.CheckBox isPart;
     }
 }

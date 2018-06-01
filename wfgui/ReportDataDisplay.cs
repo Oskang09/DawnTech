@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CSharpOskaAPI.UTILITY;
 
 namespace DawnTech.wfgui
 {
@@ -24,6 +25,7 @@ namespace DawnTech.wfgui
         public void InitializeUI()
         {
             DataTable = new DataTable();
+
             DataTable.Columns.Add("NAME");
             DataTable.Columns.Add("EMP NO");
             DataTable.Columns.Add("DEPT");
@@ -31,13 +33,18 @@ namespace DawnTech.wfgui
             DataTable.Columns.Add("OVERTIME");
             DataTable.Columns.Add("LEAVE");
             DataTable.Columns.Add("GROSS PAY");
+
             DataTable.Columns.Add("EPF EMPLOYEE");
             DataTable.Columns.Add("SOCSO EMPLOYEE");
-            DataTable.Columns.Add("SOCSO BOSS");
             DataTable.Columns.Add("EIS EMPLOYEE");
+
             DataTable.Columns.Add("TOTAL");
             DataTable.Columns.Add("LATE");
             DataTable.Columns.Add("NETPAY");
+
+            DataTable.Columns.Add("EPF EMPLOYER");
+            DataTable.Columns.Add("SOCSO EMPLOYER");
+            DataTable.Columns.Add("EIS EMPLOYER");
             DataView = DataTable.DefaultView;
             SUM_DATA.DataSource = DataView;
             UpdateComboBox();
@@ -68,13 +75,16 @@ namespace DawnTech.wfgui
                             "RM " + emp.cOvertime().ToString("0.00"),
                             "RM " + emp.cLeave().ToString("0.00"),
                             "RM " + emp.cGrossPay().ToString("0.00"),
-                            "RM " + emp.cEPF().ToString("0.00"),
+                            "RM " + emp.cEPF(EPFType.EMPLOYEE).ToString("0"),
                             "RM " + emp.cSocso(SocsoType.EMPLOYEE).ToString("0.00"),
                             "RM " + emp.cEIS().ToString("0.00"),
-                            "RM " + emp.cTotal(SocsoType.EMPLOYEE).ToString("0.00"),
-                            "RM " + emp.cSocso(SocsoType.BOSS).ToString("0.00"),
+                            "RM " + emp.cTotal(SocsoType.EMPLOYEE, EPFType.EMPLOYEE).ToString("0.00"),
                             "RM " + emp.cLate().ToString("0.00"),
-                            "RM " + emp.cNetPay(SocsoType.EMPLOYEE).ToString("0.00"));
+                            "RM " + emp.cNetPay(SocsoType.EMPLOYEE, EPFType.EMPLOYEE).ToString("0.00"),
+
+                            "RM " + emp.cEPF(EPFType.BOSS).ToString("0"),
+                            "RM " + emp.cSocso(SocsoType.BOSS).ToString("0.00"),
+                            "RM " + emp.cEIS().ToString("0.00"));
                     }
                     else
                     {
@@ -82,7 +92,30 @@ namespace DawnTech.wfgui
                             worker.Key);
                     }
                 }
+                DataTable.Rows.Add(
+                    "TOTAL", "", "",
+                    SumDT(3, "0.00"),
+                    SumDT(4, "0.00"),
+                    SumDT(5, "0.00"),
+                    SumDT(6, "0.00"),
+                    SumDT(7, "0"),
+                    SumDT(8, "0.00"),
+                    SumDT(9, "0.00"),
+                    SumDT(10, "0.00"),
+                    SumDT(11, "0.00"),
+                    SumDT(12, "0.00"),
+                    SumDT(13, "0"),
+                    SumDT(14, "0.00"),
+                    SumDT(15, "0.00"));
             }
+        }
+
+        private string SumDT(int column, string parseFormat)
+        {
+            return SUM_DATA.Rows.Cast<DataGridViewRow>()
+                    .AsEnumerable()
+                    .Sum(x => float.TryParse(x.Cells[column].Value.ToString().CSubstring(2), out float f) ? f : 0)
+                    .ToString(parseFormat);
         }
 
         private void editBtn_Click(object sender, EventArgs e)

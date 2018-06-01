@@ -2,7 +2,9 @@
 overtime: [hour] * ( ( [basic] / [working_day] / 8 ) * 1.5 ) 
 late: [times] * ( ( [basic] / [working_day] / 8 ) / 2 )
 
-before_late: 09:00
+part_ot: [basic] * 1.5
+
+before_late: 09:01
 late_interval: 30
 over_time: 18:00
 

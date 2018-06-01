@@ -14,6 +14,21 @@ namespace DawnTech
             this.gross_pay = gross_pay;
         }
 
+        public double cEPF(EPFType epf)
+        {
+            if (epf == EPFType.BOSS)
+            {
+                return Math.Round(gross_pay * 0.13, 0, MidpointRounding.AwayFromZero);
+            }
+            else if (epf == EPFType.EMPLOYEE)
+            {
+                return Math.Round(gross_pay * 0.11, 0, MidpointRounding.AwayFromZero);
+            }
+            else
+            {
+                return 0;
+            }
+        }
         public double cSocso(SocsoType st)
         {
             for (int i = 0; i < NUM_LIST.Length; i++)

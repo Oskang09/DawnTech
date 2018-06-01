@@ -24,27 +24,29 @@ namespace DawnTech.wfgui
             if (!new Employee().Exists(empno.Text))
             {
                 float total_leave = 0;
-                if (confirm.Checked)
+                if (leave.OriText != "")
                 {
-                    int month = (DateTime.Now.Month - confirm_date.Value.Month) + 12 * (DateTime.Now.Year - confirm_date.Value.Year);
-                    if (month > 3)
+                    if (confirm.Checked)
                     {
-                        if (month < 12)
+                        int month = (DateTime.Now.Month - confirm_date.Value.Month) + 12 * (DateTime.Now.Year - confirm_date.Value.Year);
+                        if (month > 3)
                         {
-                            int times = month / 3;
-                            total_leave = times * (float.Parse(DataManager.SETTINGS["extra_leave_1"]) / 4f);
-                        }
-                        else
-                        {
-                            float firstyear = float.Parse(DataManager.SETTINGS["extra_leave_1"]);
-                            month = month - 12;
+                            if (month < 12)
+                            {
+                                int times = month / 3;
+                                total_leave = times * (float.Parse(DataManager.SETTINGS["extra_leave_1"]) / 4f);
+                            }
+                            else
+                            {
+                                float firstyear = float.Parse(DataManager.SETTINGS["extra_leave_1"]);
+                                month = month - 12;
 
-                            int times = month / 3;
-                            total_leave = times * (float.Parse(DataManager.SETTINGS["extra_leave_2"]) / 4F) + firstyear;
+                                int times = month / 3;
+                                total_leave = times * (float.Parse(DataManager.SETTINGS["extra_leave_2"]) / 4F) + firstyear;
+                            }
                         }
                     }
                 }
-
                 FormEvent(sender, new FormData()
                 {
                     Action = "NEW_DATA",
@@ -58,15 +60,15 @@ namespace DawnTech.wfgui
                         useEpf = checkBox1.Checked,
                         useSocso = checkBox2.Checked,
                         useEIS = checkBox3.Checked,
-                        percentageEpf = checkBox1.Checked ? int.Parse(percentageEPF.OriText) : 0,
                         BankAcc = bankacc.Text != "" ? bankacc.Text : "",
                         BankName = bankname.Text != "" ? bankname.Text : "",
                         ConfirmDate = confirm.Checked ? confirm_date.Value : (DateTime?)null,
                         JoinDate = join_date.Value,
                         NRIC = nric.Text != "" ? nric.Text : "",
+                        isPartTime = isPart.Checked,
                         LeaveData = new LeaveData()
                         {
-                            used_leave = total_leave - float.Parse(leave.OriText),
+                            used_leave = leave.OriText != "" ? total_leave - float.Parse(leave.OriText) : 0,
                             leaves = new List<Tuple<DateTime, string, float>>(),
                             medical_fee = 500
                         }
@@ -83,11 +85,6 @@ namespace DawnTech.wfgui
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            percentageEPF.ReadOnly = !checkBox1.Checked;
         }
 
         private void confirm_CheckedChanged(object sender, EventArgs e)

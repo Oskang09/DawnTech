@@ -27,7 +27,7 @@ namespace DawnTech
             try
             {
                 EMPLOYEES = new Dictionary<string, WorkTime>();
-
+                Working_Day = 21;
                 foreach (var worker in ExcelData)
                 {
                     int late = 0;
@@ -53,13 +53,14 @@ namespace DawnTech
                                 TimeSpan ts = first_check.Subtract(should_at);
                                 if (ts.TotalMinutes > 0)
                                 {
-                                    late += 1;
-                                    if (ts.TotalMinutes >= 30)
+                                    late = 1;
+                                    if (Convert.ToInt32(ts.TotalMinutes) >= int.Parse(DataManager.SETTINGS["late_interval"]))
                                     {
-                                        late += Convert.ToInt32(ts.TotalMinutes) / int.Parse(DataManager.SETTINGS["late_interval"]);
+                                        late = Convert.ToInt32(ts.TotalMinutes) / int.Parse(DataManager.SETTINGS["late_interval"]);
                                     }
                                 }
                             }
+
                             DateTime dt = new DateTime(When.Year, When.Month, ck.Item1);
                             if (dt.Is(DayOfWeek.Sunday) || dt.Is(DayOfWeek.Saturday) || Holidays.Contains(dt))
                             {
@@ -95,6 +96,10 @@ namespace DawnTech
                             }
                         }
                     }
+                    if (Working_Day - worked_day >= 0)
+                    {
+                        leave = Working_Day - worked_day;
+                    }
                     EMPLOYEES[worker.UID] = new WorkTime()
                     {
                         Late = late,
@@ -104,7 +109,6 @@ namespace DawnTech
                         Worked_Day = worked_day
                     };
                 }
-                Working_Day = Parser.GetWorkingDays(When.Year, When.Month);
                 SaveJson($"{When.Year}-{When.Month}");
             }
             catch (Exception ex)

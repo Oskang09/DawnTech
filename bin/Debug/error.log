@@ -97,4 +97,241 @@ UI Thread Error : Exception has been thrown by the target of an invocation.Unhan
    at System.Windows.Application.RunInternal(Window window)
    at System.Windows.Application.Run(Window window)
    at System.Windows.Application.Run()
-   at DawnTech.App.Main()
+   at DawnTech.App.Main()UI Thread Error : 'The invocation of the constructor on type 'DawnTech.MainWindow' that matches the specified binding constraints threw an exception.' Line number '6' and line position '9'.Unhandled Error : System.Windows.Markup.XamlParseException: 'The invocation of the constructor on type 'DawnTech.MainWindow' that matches the specified binding constraints threw an exception.' Line number '6' and line position '9'. ---> System.Data.DuplicateNameException: A column named 'TOTAL' already belongs to this DataTable.
+   at System.Data.DataColumnCollection.RegisterColumnName(String name, DataColumn column)
+   at System.Data.DataColumnCollection.BaseAdd(DataColumn column)
+   at System.Data.DataColumnCollection.AddAt(Int32 index, DataColumn column)
+   at System.Data.DataColumnCollection.Add(String columnName)
+   at DawnTech.wfgui.ReportDataDisplay.InitializeUI() in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ReportDataDisplay.cs:line 47
+   at DawnTech.wfgui.ReportDataDisplay..ctor() in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ReportDataDisplay.cs:line 21
+   at DawnTech.MainWindow.InitializeUI() in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\MainWindow.xaml.cs:line 67
+   at DawnTech.MainWindow..ctor() in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\MainWindow.xaml.cs:line 39
+   --- End of inner exception stack trace ---
+   at System.Windows.Markup.WpfXamlLoader.Load(XamlReader xamlReader, IXamlObjectWriterFactory writerFactory, Boolean skipJournaledProperties, Object rootObject, XamlObjectWriterSettings settings, Uri baseUri)
+   at System.Windows.Markup.WpfXamlLoader.LoadBaml(XamlReader xamlReader, Boolean skipJournaledProperties, Object rootObject, XamlAccessLevel accessLevel, Uri baseUri)
+   at System.Windows.Markup.XamlReader.LoadBaml(Stream stream, ParserContext parserContext, Object parent, Boolean closeStream)
+   at System.Windows.Application.LoadBamlStreamWithSyncInfo(Stream stream, ParserContext pc)
+   at System.Windows.Application.LoadComponent(Uri resourceLocator, Boolean bSkipJournaledProperties)
+   at System.Windows.Application.DoStartup()
+   at System.Windows.Application.<.ctor>b__1_0(Object unused)
+   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   at System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+   at System.Windows.Threading.DispatcherOperation.InvokeImpl()
+   at System.Windows.Threading.DispatcherOperation.InvokeInSecurityContext(Object state)
+   at MS.Internal.CulturePreservingExecutionContext.CallbackWrapper(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at MS.Internal.CulturePreservingExecutionContext.Run(CulturePreservingExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Windows.Threading.DispatcherOperation.Invoke()
+   at System.Windows.Threading.Dispatcher.ProcessQueue()
+   at System.Windows.Threading.Dispatcher.WndProcHook(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   at System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+   at System.Windows.Threading.Dispatcher.LegacyInvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Int32 numArgs)
+   at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.DispatchMessage(MSG& msg)
+   at System.Windows.Threading.Dispatcher.PushFrameImpl(DispatcherFrame frame)
+   at System.Windows.Threading.Dispatcher.PushFrame(DispatcherFrame frame)
+   at System.Windows.Application.RunDispatcher(Object ignore)
+   at System.Windows.Application.RunInternal(Window window)
+   at System.Windows.Application.Run(Window window)
+   at System.Windows.Application.Run()
+   at DawnTech.App.Main()UI Thread Error : 'The invocation of the constructor on type 'DawnTech.MainWindow' that matches the specified binding constraints threw an exception.' Line number '6' and line position '9'.Unhandled Error : System.Windows.Markup.XamlParseException: 'The invocation of the constructor on type 'DawnTech.MainWindow' that matches the specified binding constraints threw an exception.' Line number '6' and line position '9'. ---> System.Data.DuplicateNameException: A column named 'TOTAL' already belongs to this DataTable.
+   at System.Data.DataColumnCollection.RegisterColumnName(String name, DataColumn column)
+   at System.Data.DataColumnCollection.BaseAdd(DataColumn column)
+   at System.Data.DataColumnCollection.AddAt(Int32 index, DataColumn column)
+   at System.Data.DataColumnCollection.Add(String columnName)
+   at DawnTech.wfgui.ReportDataDisplay.InitializeUI() in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ReportDataDisplay.cs:line 47
+   at DawnTech.wfgui.ReportDataDisplay..ctor() in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ReportDataDisplay.cs:line 21
+   at DawnTech.MainWindow.InitializeUI() in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\MainWindow.xaml.cs:line 67
+   at DawnTech.MainWindow..ctor() in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\MainWindow.xaml.cs:line 39
+   --- End of inner exception stack trace ---
+   at System.Windows.Markup.WpfXamlLoader.Load(XamlReader xamlReader, IXamlObjectWriterFactory writerFactory, Boolean skipJournaledProperties, Object rootObject, XamlObjectWriterSettings settings, Uri baseUri)
+   at System.Windows.Markup.WpfXamlLoader.LoadBaml(XamlReader xamlReader, Boolean skipJournaledProperties, Object rootObject, XamlAccessLevel accessLevel, Uri baseUri)
+   at System.Windows.Markup.XamlReader.LoadBaml(Stream stream, ParserContext parserContext, Object parent, Boolean closeStream)
+   at System.Windows.Application.LoadBamlStreamWithSyncInfo(Stream stream, ParserContext pc)
+   at System.Windows.Application.LoadComponent(Uri resourceLocator, Boolean bSkipJournaledProperties)
+   at System.Windows.Application.DoStartup()
+   at System.Windows.Application.<.ctor>b__1_0(Object unused)
+   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   at System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+   at System.Windows.Threading.DispatcherOperation.InvokeImpl()
+   at System.Windows.Threading.DispatcherOperation.InvokeInSecurityContext(Object state)
+   at MS.Internal.CulturePreservingExecutionContext.CallbackWrapper(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at MS.Internal.CulturePreservingExecutionContext.Run(CulturePreservingExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Windows.Threading.DispatcherOperation.Invoke()
+   at System.Windows.Threading.Dispatcher.ProcessQueue()
+   at System.Windows.Threading.Dispatcher.WndProcHook(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   at System.Windows.Threading.ExceptionWrapper.TryCatchWhen(Object source, Delegate callback, Object args, Int32 numArgs, Delegate catchHandler)
+   at System.Windows.Threading.Dispatcher.LegacyInvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Int32 numArgs)
+   at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.DispatchMessage(MSG& msg)
+   at System.Windows.Threading.Dispatcher.PushFrameImpl(DispatcherFrame frame)
+   at System.Windows.Threading.Dispatcher.PushFrame(DispatcherFrame frame)
+   at System.Windows.Application.RunDispatcher(Object ignore)
+   at System.Windows.Application.RunInternal(Window window)
+   at System.Windows.Application.Run(Window window)
+   at System.Windows.Application.Run()
+   at DawnTech.App.Main()Thread Error : System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at DawnTech.Parser.readStringToDateTime(String date) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\util\Parse.cs:line 39
+   at DawnTech.ExcelReader.readExcel(Int32 sheets) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\util\ExcelReader.cs:line 49
+   at DawnTech.wfgui.ReportDataDisplay.<>c__DisplayClass14_0.<importBtn_Click>b__0(Object form_sender, FormData form_data) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ReportDataDisplay.cs:line 153
+   at DawnTech.wfgui.ChooseDialog.OKBtn_Click(Object sender, EventArgs e) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ChooseDialog.cs:line 33
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)Thread Error : System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at DawnTech.Parser.readStringToDateTime(String date) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\util\Parse.cs:line 39
+   at DawnTech.ExcelReader.readExcel(Int32 sheets) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\util\ExcelReader.cs:line 49
+   at DawnTech.wfgui.ReportDataDisplay.<>c__DisplayClass14_0.<importBtn_Click>b__0(Object form_sender, FormData form_data) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ReportDataDisplay.cs:line 153
+   at DawnTech.wfgui.ChooseDialog.OKBtn_Click(Object sender, EventArgs e) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ChooseDialog.cs:line 33
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)Thread Error : System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at DawnTech.Parser.readStringToDateTime(String date) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\util\Parse.cs:line 39
+   at DawnTech.ExcelReader.readExcel(Int32 sheets) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\util\ExcelReader.cs:line 49
+   at DawnTech.wfgui.ReportDataDisplay.<>c__DisplayClass14_0.<importBtn_Click>b__0(Object form_sender, FormData form_data) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ReportDataDisplay.cs:line 153
+   at DawnTech.wfgui.ChooseDialog.OKBtn_Click(Object sender, EventArgs e) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ChooseDialog.cs:line 33
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)Thread Error : System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at DawnTech.Parser.readStringToDateTime(String date) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\util\Parse.cs:line 39
+   at DawnTech.ExcelReader.readExcel(Int32 sheets) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\util\ExcelReader.cs:line 49
+   at DawnTech.wfgui.ReportDataDisplay.<>c__DisplayClass14_0.<importBtn_Click>b__0(Object form_sender, FormData form_data) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ReportDataDisplay.cs:line 153
+   at DawnTech.wfgui.ChooseDialog.OKBtn_Click(Object sender, EventArgs e) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ChooseDialog.cs:line 33
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)Thread Error : System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at DawnTech.Parser.readStringToDateTime(String date) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\util\Parse.cs:line 39
+   at DawnTech.ExcelReader.readExcel(Int32 sheets) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\util\ExcelReader.cs:line 49
+   at DawnTech.wfgui.ReportDataDisplay.<>c__DisplayClass14_0.<importBtn_Click>b__0(Object form_sender, FormData form_data) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ReportDataDisplay.cs:line 153
+   at DawnTech.wfgui.ChooseDialog.OKBtn_Click(Object sender, EventArgs e) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ChooseDialog.cs:line 33
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)Thread Error : System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at DawnTech.Parser.readStringToDateTime(String date) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\util\Parse.cs:line 39
+   at DawnTech.ExcelReader.readExcel(Int32 sheets) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\util\ExcelReader.cs:line 49
+   at DawnTech.wfgui.ReportDataDisplay.<>c__DisplayClass14_0.<importBtn_Click>b__0(Object form_sender, FormData form_data) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ReportDataDisplay.cs:line 153
+   at DawnTech.wfgui.ChooseDialog.OKBtn_Click(Object sender, EventArgs e) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ChooseDialog.cs:line 33
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)Thread Error : System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at DawnTech.Parser.readStringToDateTime(String date) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\util\Parse.cs:line 39
+   at DawnTech.ExcelReader.readExcel(Int32 sheets) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\util\ExcelReader.cs:line 49
+   at DawnTech.wfgui.ReportDataDisplay.<>c__DisplayClass14_0.<importBtn_Click>b__0(Object form_sender, FormData form_data) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ReportDataDisplay.cs:line 153
+   at DawnTech.wfgui.ChooseDialog.OKBtn_Click(Object sender, EventArgs e) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ChooseDialog.cs:line 33
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)Thread Error : System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at DawnTech.Parser.readStringToDateTime(String date) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\util\Parse.cs:line 39
+   at DawnTech.ExcelReader.readExcel(Int32 sheets) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\util\ExcelReader.cs:line 49
+   at DawnTech.wfgui.ReportDataDisplay.<>c__DisplayClass14_0.<importBtn_Click>b__0(Object form_sender, FormData form_data) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ReportDataDisplay.cs:line 153
+   at DawnTech.wfgui.ChooseDialog.OKBtn_Click(Object sender, EventArgs e) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ChooseDialog.cs:line 33
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)Thread Error : System.FormatException: Input string was not in a correct format.
+   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Int32.Parse(String s)
+   at DawnTech.Parser.readStringToDateTime(String date) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\util\Parse.cs:line 39
+   at DawnTech.ExcelReader.readExcel(Int32 sheets) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\util\ExcelReader.cs:line 49
+   at DawnTech.wfgui.ReportDataDisplay.<>c__DisplayClass14_0.<importBtn_Click>b__0(Object form_sender, FormData form_data) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ReportDataDisplay.cs:line 153
+   at DawnTech.wfgui.ChooseDialog.OKBtn_Click(Object sender, EventArgs e) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ChooseDialog.cs:line 33
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)

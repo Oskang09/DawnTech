@@ -38,6 +38,10 @@ namespace DawnTech
             {
                 InitializeUI();
             }
+            else
+            {
+                Close();
+            }
         }
 
         public void InitializeUI()

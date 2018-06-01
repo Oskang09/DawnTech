@@ -74,7 +74,7 @@ namespace DawnTech.wfgui
             editMode = !editMode;
             foreach (var ctl in Recursive.GetAllChildren(InputLayout))
             {
-                if (ctl == percentageEPF || ctl == confirm_date) continue;
+                if (ctl == confirm_date) continue;
                 if (ctl is TextBox) ((TextBox)ctl).ReadOnly = !((TextBox)ctl).ReadOnly;
                 if (ctl is CheckBox) ((CheckBox)ctl).Enabled = !((CheckBox)ctl).Enabled;
                 if (ctl is ComboBox) ((ComboBox)ctl).Enabled = !((ComboBox)ctl).Enabled;
@@ -115,7 +115,7 @@ namespace DawnTech.wfgui
                             ld.used_leave = total_leave - float.Parse(leave.OriText);
                         }
 
-                        new Employee()
+                        Employee emp = new Employee()
                         {
                             UID = empno.Text != "" ? empno.Text : "",
                             Name = name.Text != "" ? name.Text : "",
@@ -125,24 +125,28 @@ namespace DawnTech.wfgui
                             useEpf = checkBox1.Checked,
                             useSocso = checkBox2.Checked,
                             useEIS = checkBox3.Checked,
-                            percentageEpf = checkBox1.Checked ? int.Parse(percentageEPF.OriText) : 0,
                             BankAcc = bankacc.Text != "" ? bankacc.Text : "",
                             BankName = bankname.Text != "" ? bankname.Text : "",
                             ConfirmDate = confirm.Checked ? confirm_date.Value : (DateTime?)null,
                             JoinDate = join_date.Value,
                             NRIC = nric.Text != "" ? nric.Text : "",
+                            isPartTime = isPart.Checked,
                             LeaveData = ld
-                        }.SaveJson("EMP-" + empno.Text);
+                        };
+                        emp.SaveJson("EMP-" + empno.Text);
 
 
+                        string temp = empno.Text;
                         DataRow[] dr = DataTable.Select($"[EMP NO]='{empno.Text}'");
                         dr[0].Delete();
 
                         DataTable.Rows.Add(
-                            empno.Text,
-                            name.Text,
-                            dept.Text,
-                            age.Text);
+                            emp.UID,
+                            emp.Name,
+                            emp.DEPT,
+                            emp.Age,
+                            emp.NRIC,
+                            emp.calculateLeave());
 
                         return;
                     }
@@ -187,12 +191,12 @@ namespace DawnTech.wfgui
                             useEpf = checkBox1.Checked,
                             useSocso = checkBox2.Checked,
                             useEIS = checkBox3.Checked,
-                            percentageEpf = checkBox1.Checked ? int.Parse(percentageEPF.OriText) : 0,
                             BankAcc = bankacc.Text != "" ? bankacc.Text : "",
                             BankName = bankname.Text != "" ? bankname.Text : "",
                             ConfirmDate = confirm.Checked ? confirm_date.Value : (DateTime?) null,
                             JoinDate = join_date.Value,
                             NRIC = nric.Text != "" ? nric.Text : "",
+                            isPartTime = isPart.Checked,
                             LeaveData = ld
                         };
                         emp.DeleteJson("EMP-" + uid.Value.ToString());
@@ -202,10 +206,12 @@ namespace DawnTech.wfgui
                         dr[0].Delete();
 
                         DataTable.Rows.Add(
-                            empno.Text,
-                            name.Text,
-                            dept.Text,
-                            age.Text);
+                            emp.UID,
+                            emp.Name,
+                            emp.DEPT,
+                            emp.Age,
+                            emp.NRIC,
+                            emp.calculateLeave());
                     }
                 }
             }
@@ -218,7 +224,7 @@ namespace DawnTech.wfgui
                 if (MessageBox.Show("Did you want to delete selected employee?\n* Warning : After delete cant be recover without restore from backup", "Delete Employee", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
                     var uid = EmployeeDataDGV.SelectedRows[0].Cells[0];
-                    new Employee().DeleteJson(uid.ToString());
+                    new Employee().DeleteJson(uid.Value.ToString());
 
                     DataRow[] dr = DataTable.Select($"[EMP NO]='{uid.Value.ToString()}'");
                     dr[0].Delete();
@@ -264,18 +270,17 @@ namespace DawnTech.wfgui
                 dept.Text = ObjectParse.ObjectParseString(employee.DEPT);
                 name.Text = ObjectParse.ObjectParseString(employee.Name);
                 age.Text = ObjectParse.ObjectParseString(employee.Age);
-                basic.Text = ObjectParse.ObjectParseString(employee.Basic);
+                basic.Text = "RM " + employee.Basic.ToString("0.00");
 
                 checkBox1.Checked = employee.useEpf;
                 checkBox2.Checked = employee.useSocso;
                 checkBox3.Checked = employee.useEIS;
 
-                percentageEPF.Text = ObjectParse.ObjectParseString(employee.percentageEpf);
-
                 nric.Text = ObjectParse.ObjectParseString(employee.NRIC);
                 bankacc.Text = ObjectParse.ObjectParseString(employee.BankAcc);
                 bankname.Text = ObjectParse.ObjectParseString(employee.BankName);
                 join_date.Value = employee.JoinDate;
+                isPart.Checked = employee.isPartTime;
                 if (employee.ConfirmDate.HasValue)
                 {
                     confirm.Checked = true;
@@ -284,11 +289,6 @@ namespace DawnTech.wfgui
                 leave.Text = employee.calculateLeave().ToString();
             }
 
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (editMode) percentageEPF.ReadOnly = !checkBox1.Checked;
         }
 
         private void confirm_CheckedChanged(object sender, EventArgs e)
