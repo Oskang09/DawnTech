@@ -20,6 +20,7 @@ namespace DawnTech
     {
         public App()
         {
+            /*
             WindowsIdentity identity = WindowsIdentity.GetCurrent();
             WindowsPrincipal principal = new WindowsPrincipal(identity);
             if (!principal.IsInRole(WindowsBuiltInRole.Administrator))
@@ -47,7 +48,7 @@ namespace DawnTech
                     Current.Shutdown();
                 }
             }
-            
+            */
             Dispatcher.UnhandledException += (sender, e) =>
             {
                 DebugUtil.WriteLog(DataManager.ERROR_TRACKER_PATH, $"UI Thread Error : {e.Exception.Message}");

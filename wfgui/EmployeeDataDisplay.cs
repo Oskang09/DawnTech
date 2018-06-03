@@ -84,6 +84,7 @@ namespace DawnTech.wfgui
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
+            Console.WriteLine(basic.OriText);
             if (editMode)
             {
                 if (EmployeeDataDGV.SelectedRows.Count == 1)
@@ -270,7 +271,7 @@ namespace DawnTech.wfgui
                 dept.Text = ObjectParse.ObjectParseString(employee.DEPT);
                 name.Text = ObjectParse.ObjectParseString(employee.Name);
                 age.Text = ObjectParse.ObjectParseString(employee.Age);
-                basic.Text = "RM " + employee.Basic.ToString("0.00");
+                basic.OriText = employee.Basic.ToString("0.00");
 
                 checkBox1.Checked = employee.useEpf;
                 checkBox2.Checked = employee.useSocso;

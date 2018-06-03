@@ -247,3 +247,5 @@ C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.csproj.Co
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.csproj.CopyComplete
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.exe
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.pdb
+C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.LeaveEditDialog.resources
+C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.HolidayEditDialog.resources

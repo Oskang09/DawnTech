@@ -93,6 +93,18 @@
     <Compile Include="wfgui\ChooseDialog.Designer.cs">
       <DependentUpon>ChooseDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="wfgui\HolidayEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wfgui\HolidayEditDialog.Designer.cs">
+      <DependentUpon>HolidayEditDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wfgui\LeaveEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wfgui\LeaveEditDialog.Designer.cs">
+      <DependentUpon>LeaveEditDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="wfgui\EmployeeDataDisplay.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -159,6 +171,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="wfgui\ChooseDialog.resx">
       <DependentUpon>ChooseDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wfgui\HolidayEditDialog.resx">
+      <DependentUpon>HolidayEditDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wfgui\LeaveEditDialog.resx">
+      <DependentUpon>LeaveEditDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wfgui\EmployeeDataDisplay.resx">
       <DependentUpon>EmployeeDataDisplay.cs</DependentUpon>
@@ -259,6 +277,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="assets\exit_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\add_button.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

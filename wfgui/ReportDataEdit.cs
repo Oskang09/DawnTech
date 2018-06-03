@@ -26,6 +26,8 @@ namespace DawnTech.wfgui
         {
             DATE.Text = $"{date.Year}-{date.Month}";
             WorkData.LoadJson(DATE.Text);
+
+            ph_counter.Text = WorkData.Holidays.Count.ToString();
         }
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
@@ -74,13 +76,14 @@ namespace DawnTech.wfgui
                     Leave = int.Parse(leave.OriText),
                     Overtime = int.Parse(ot.Text)
                 };
-                MessageBox.Show($"Updated EMPLOYEE({employeeList.Text})'s data!", "Update Employee Data");
+                MessageBox.Show($"Updated EMPLOYEE({employeeList.Text})'s data!", "Update Employee's Data");
             }
             WorkData.SaveJson($"{WorkData.When.Year}-{WorkData.When.Month}");
         }
 
         private void employeeList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            InputLayout.Visible = false;
             foreach (var ctl in Recursive.GetAllChildren(InputLayout))
             {
                 if (ctl is TextBox) ctl.ResetText();
@@ -93,7 +96,37 @@ namespace DawnTech.wfgui
                 worked.Text = data.Worked.ToString();
                 late.Text = data.Late.ToString();
                 worked_day.Text = data.Worked_Day.ToString();
+                allowance.Text = data.Allowance.Sum(x => x.Item2).ToString("0.00");
+                pbc.Text = data.PBC.Sum(x => x.Item2).ToString("0.00");
+                InputLayout.Visible = true;
             }
+        }
+
+        private void holidayEdit_Click(object sender, EventArgs e)
+        {
+            if (WorkData.Holidays == null)
+            {
+                WorkData.Holidays = new List<Tuple<string, DateTime>>();
+            }
+            new HolidayEditDialog(WorkData).ShowDialog();
+        }
+
+        private void leaveEdit_Click(object sender, EventArgs e)
+        {
+            if (employeeList.SelectedIndex > -1)
+            {
+                new LeaveEditDialog(new Employee().LoadJson(employeeList.Text)).ShowDialog();
+            }
+        }
+
+        private void allowanceEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbcEdit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

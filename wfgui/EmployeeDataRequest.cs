@@ -69,8 +69,7 @@ namespace DawnTech.wfgui
                         LeaveData = new LeaveData()
                         {
                             used_leave = leave.OriText != "" ? total_leave - float.Parse(leave.OriText) : 0,
-                            leaves = new List<Tuple<DateTime, string, float>>(),
-                            medical_fee = 500
+                            leaves = new List<Tuple<DateTime, string, float>>()
                         }
                     }
                 });

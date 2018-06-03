@@ -35,9 +35,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.importBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.when_cbox = new CSharpOskaAPI.WF.FilterComboBox();
-            this.editBtn = new System.Windows.Forms.Button();
             this.delBtn = new System.Windows.Forms.Button();
+            this.editBtn = new System.Windows.Forms.Button();
+            this.when_cbox = new CSharpOskaAPI.WF.FilterComboBox();
+            this.exportExcel = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SUM_DATA)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -80,11 +81,12 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 5;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.76471F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.41176F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.52941F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.64706F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.64706F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19F));
+            this.tableLayoutPanel2.Controls.Add(this.exportExcel, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.importBtn, 4, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
@@ -100,7 +102,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 41);
+            this.label1.Location = new System.Drawing.Point(53, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 17);
             this.label1.TabIndex = 0;
@@ -110,9 +112,9 @@
             // 
             this.importBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.importBtn.Image = ((System.Drawing.Image)(resources.GetObject("importBtn.Image")));
-            this.importBtn.Location = new System.Drawing.Point(675, 3);
+            this.importBtn.Location = new System.Drawing.Point(664, 3);
             this.importBtn.Name = "importBtn";
-            this.importBtn.Size = new System.Drawing.Size(139, 94);
+            this.importBtn.Size = new System.Drawing.Size(150, 94);
             this.importBtn.TabIndex = 3;
             this.importBtn.Text = "Import Excel";
             this.importBtn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -130,12 +132,36 @@
             this.tableLayoutPanel3.Controls.Add(this.editBtn, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.when_cbox, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(99, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(109, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(234, 94);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(239, 94);
             this.tableLayoutPanel3.TabIndex = 4;
+            // 
+            // delBtn
+            // 
+            this.delBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.delBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("delBtn.BackgroundImage")));
+            this.delBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.delBtn.Location = new System.Drawing.Point(193, 27);
+            this.delBtn.Name = "delBtn";
+            this.delBtn.Size = new System.Drawing.Size(40, 40);
+            this.delBtn.TabIndex = 6;
+            this.delBtn.UseVisualStyleBackColor = true;
+            this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
+            // 
+            // editBtn
+            // 
+            this.editBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.editBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("editBtn.BackgroundImage")));
+            this.editBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.editBtn.Location = new System.Drawing.Point(146, 27);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(40, 40);
+            this.editBtn.TabIndex = 2;
+            this.editBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // when_cbox
             // 
@@ -151,29 +177,18 @@
             this.when_cbox.TabIndex = 5;
             this.when_cbox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // editBtn
+            // exportExcel
             // 
-            this.editBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.editBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("editBtn.BackgroundImage")));
-            this.editBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.editBtn.Location = new System.Drawing.Point(143, 27);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(40, 40);
-            this.editBtn.TabIndex = 2;
-            this.editBtn.UseVisualStyleBackColor = true;
-            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
-            // 
-            // delBtn
-            // 
-            this.delBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.delBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("delBtn.BackgroundImage")));
-            this.delBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.delBtn.Location = new System.Drawing.Point(189, 27);
-            this.delBtn.Name = "delBtn";
-            this.delBtn.Size = new System.Drawing.Size(40, 40);
-            this.delBtn.TabIndex = 6;
-            this.delBtn.UseVisualStyleBackColor = true;
-            this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
+            this.exportExcel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.exportExcel.Image = ((System.Drawing.Image)(resources.GetObject("exportExcel.Image")));
+            this.exportExcel.Location = new System.Drawing.Point(509, 3);
+            this.exportExcel.Name = "exportExcel";
+            this.exportExcel.Size = new System.Drawing.Size(149, 94);
+            this.exportExcel.TabIndex = 5;
+            this.exportExcel.Text = "Export Excel";
+            this.exportExcel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.exportExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.exportExcel.UseVisualStyleBackColor = true;
             // 
             // ReportDataDisplay
             // 
@@ -204,5 +219,6 @@
         private CSharpOskaAPI.WF.FilterComboBox when_cbox;
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Button delBtn;
+        private System.Windows.Forms.Button exportExcel;
     }
 }

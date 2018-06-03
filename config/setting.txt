@@ -11,5 +11,7 @@ over_time: 18:00
 extra_leave_1: 10
 extra_leave_2: 12
 
+medical_fee_per_year: 500
+
 username: dawntech
 password: dt123

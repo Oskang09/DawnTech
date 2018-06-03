@@ -37,7 +37,7 @@ namespace DawnTech
         public WorkData readExcel(int sheets)
         {
             WorkData tle = new WorkData();
-            tle.Holidays = new List<DateTime>();
+            tle.Holidays = new List<Tuple<string, DateTime>>();
             _Worksheet Ws = Workbook.Sheets[sheets];
 
             Range xlR = Ws.UsedRange;

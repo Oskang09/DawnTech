@@ -148,7 +148,7 @@ namespace DawnTech
                     return total += tp.Item3;
                 }
             }
-            return LeaveData.medical_fee - total;
+            return float.Parse(DataManager.SETTINGS["medical_fee_per_year"]) - total;
         }
 
         public float calculateAllowance()
@@ -158,6 +158,11 @@ namespace DawnTech
         public float calculatePBC()
         {
             return getWorkTime.PBC.Sum(x => x.Item2);
+        }
+
+        public int calculateAnnualLeave()
+        {
+            return LeaveData.leaves.Sum(x => x.Item1.Year == year && x.Item1.Month == month ? 1 : 0);
         }
 
         public float calculateLeave()

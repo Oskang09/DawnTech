@@ -37,9 +37,10 @@
             this.confirm_date = new System.Windows.Forms.DateTimePicker();
             this.bankname = new System.Windows.Forms.TextBox();
             this.bankacc = new System.Windows.Forms.TextBox();
+            this.age = new CSharpOskaAPI.WF.NumberBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.isPart = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dept = new System.Windows.Forms.TextBox();
@@ -49,7 +50,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.empno = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.basic = new CSharpOskaAPI.WF.NumberBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -58,6 +61,7 @@
             this.join_date = new System.Windows.Forms.DateTimePicker();
             this.nric = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.leave = new CSharpOskaAPI.WF.NumberBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.EditBtn = new System.Windows.Forms.Button();
@@ -71,10 +75,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.SortBy = new System.Windows.Forms.ComboBox();
             this.SortBox = new System.Windows.Forms.TextBox();
-            this.isPart = new System.Windows.Forms.CheckBox();
-            this.age = new CSharpOskaAPI.WF.NumberBox();
-            this.basic = new CSharpOskaAPI.WF.NumberBox();
-            this.leave = new CSharpOskaAPI.WF.NumberBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.InputLayout.SuspendLayout();
@@ -220,6 +220,19 @@
             this.bankacc.Size = new System.Drawing.Size(175, 27);
             this.bankacc.TabIndex = 6;
             // 
+            // age
+            // 
+            this.age.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.age.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.age.Holder = "";
+            this.age.HolderType = CSharpOskaAPI.WF.HolderType.NONE;
+            this.age.Location = new System.Drawing.Point(80, 203);
+            this.age.Name = "age";
+            this.age.OriText = null;
+            this.age.ReadOnly = true;
+            this.age.Size = new System.Drawing.Size(173, 27);
+            this.age.TabIndex = 3;
+            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
@@ -236,18 +249,6 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(508, 56);
             this.tableLayoutPanel5.TabIndex = 11;
             // 
-            // checkBox3
-            // 
-            this.checkBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Enabled = false;
-            this.checkBox3.Location = new System.Drawing.Point(257, 17);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(83, 21);
-            this.checkBox3.TabIndex = 14;
-            this.checkBox3.Text = "USE EIS";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
             // checkBox2
             // 
             this.checkBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -259,6 +260,18 @@
             this.checkBox2.TabIndex = 12;
             this.checkBox2.Text = "USE SOCSO";
             this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // isPart
+            // 
+            this.isPart.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.isPart.AutoSize = true;
+            this.isPart.Enabled = false;
+            this.isPart.Location = new System.Drawing.Point(257, 17);
+            this.isPart.Name = "isPart";
+            this.isPart.Size = new System.Drawing.Size(105, 21);
+            this.isPart.TabIndex = 13;
+            this.isPart.Text = "Is Part Time";
+            this.isPart.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -356,6 +369,18 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(508, 56);
             this.tableLayoutPanel7.TabIndex = 10;
             // 
+            // checkBox3
+            // 
+            this.checkBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Enabled = false;
+            this.checkBox3.Location = new System.Drawing.Point(257, 17);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(83, 21);
+            this.checkBox3.TabIndex = 14;
+            this.checkBox3.Text = "USE EIS";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
             // checkBox1
             // 
             this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -367,6 +392,20 @@
             this.checkBox1.TabIndex = 10;
             this.checkBox1.Text = "USE EPF";
             this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // basic
+            // 
+            this.basic.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.basic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.basic.Holder = "RM ";
+            this.basic.HolderType = CSharpOskaAPI.WF.HolderType.FRONT;
+            this.basic.Location = new System.Drawing.Point(80, 265);
+            this.basic.Name = "basic";
+            this.basic.OriText = "";
+            this.basic.ReadOnly = true;
+            this.basic.Size = new System.Drawing.Size(173, 27);
+            this.basic.TabIndex = 4;
+            this.basic.Text = "RM ";
             // 
             // label6
             // 
@@ -452,6 +491,19 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(508, 63);
             this.tableLayoutPanel6.TabIndex = 28;
+            // 
+            // leave
+            // 
+            this.leave.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.leave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.leave.Holder = "";
+            this.leave.HolderType = CSharpOskaAPI.WF.HolderType.NONE;
+            this.leave.Location = new System.Drawing.Point(257, 18);
+            this.leave.Name = "leave";
+            this.leave.OriText = "";
+            this.leave.ReadOnly = true;
+            this.leave.Size = new System.Drawing.Size(107, 27);
+            this.leave.TabIndex = 18;
             // 
             // label12
             // 
@@ -634,58 +686,6 @@
             this.SortBox.Size = new System.Drawing.Size(218, 22);
             this.SortBox.TabIndex = 2;
             this.SortBox.TextChanged += new System.EventHandler(this.SortBox_TextChanged);
-            // 
-            // isPart
-            // 
-            this.isPart.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.isPart.AutoSize = true;
-            this.isPart.Enabled = false;
-            this.isPart.Location = new System.Drawing.Point(257, 17);
-            this.isPart.Name = "isPart";
-            this.isPart.Size = new System.Drawing.Size(105, 21);
-            this.isPart.TabIndex = 13;
-            this.isPart.Text = "Is Part Time";
-            this.isPart.UseVisualStyleBackColor = true;
-            // 
-            // age
-            // 
-            this.age.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.age.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.age.Holder = "";
-            this.age.HolderType = CSharpOskaAPI.WF.HolderType.NONE;
-            this.age.Location = new System.Drawing.Point(80, 203);
-            this.age.Name = "age";
-            this.age.OriText = null;
-            this.age.ReadOnly = true;
-            this.age.Size = new System.Drawing.Size(173, 27);
-            this.age.TabIndex = 3;
-            // 
-            // basic
-            // 
-            this.basic.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.basic.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.basic.Holder = "RM ";
-            this.basic.HolderType = CSharpOskaAPI.WF.HolderType.FRONT;
-            this.basic.Location = new System.Drawing.Point(80, 265);
-            this.basic.Name = "basic";
-            this.basic.OriText = "";
-            this.basic.ReadOnly = true;
-            this.basic.Size = new System.Drawing.Size(173, 27);
-            this.basic.TabIndex = 4;
-            this.basic.Text = "RM ";
-            // 
-            // leave
-            // 
-            this.leave.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.leave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.leave.Holder = "";
-            this.leave.HolderType = CSharpOskaAPI.WF.HolderType.NONE;
-            this.leave.Location = new System.Drawing.Point(257, 18);
-            this.leave.Name = "leave";
-            this.leave.OriText = "";
-            this.leave.ReadOnly = true;
-            this.leave.Size = new System.Drawing.Size(107, 27);
-            this.leave.TabIndex = 18;
             // 
             // EmployeeDataDisplay
             // 
