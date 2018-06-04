@@ -236,7 +236,10 @@ C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech_MarkupCom
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\MainWindow.baml
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.g.resources
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.Properties.Resources.resources
+C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.APBCDialog.resources
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.ChooseDialog.resources
+C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.HolidayEditDialog.resources
+C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.LeaveEditDialog.resources
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.EmployeeDataDisplay.resources
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.EmployeeDataRequest.resources
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.LoginDialog.resources
@@ -247,5 +250,3 @@ C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.csproj.Co
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.csproj.CopyComplete
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.exe
 C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.pdb
-C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.LeaveEditDialog.resources
-C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\obj\Debug\DawnTech.wfgui.HolidayEditDialog.resources

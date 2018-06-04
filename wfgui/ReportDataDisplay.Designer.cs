@@ -81,8 +81,8 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 5;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.955936F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.00612F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19F));
@@ -102,7 +102,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 41);
+            this.label1.Location = new System.Drawing.Point(12, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 17);
             this.label1.TabIndex = 0;
@@ -125,18 +125,18 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.71429F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.5F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.42857F));
             this.tableLayoutPanel3.Controls.Add(this.delBtn, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.editBtn, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.when_cbox, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(109, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(68, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(239, 94);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(280, 94);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
             // delBtn
@@ -144,7 +144,7 @@
             this.delBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.delBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("delBtn.BackgroundImage")));
             this.delBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.delBtn.Location = new System.Drawing.Point(193, 27);
+            this.delBtn.Location = new System.Drawing.Point(236, 27);
             this.delBtn.Name = "delBtn";
             this.delBtn.Size = new System.Drawing.Size(40, 40);
             this.delBtn.TabIndex = 6;
@@ -156,7 +156,7 @@
             this.editBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.editBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("editBtn.BackgroundImage")));
             this.editBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.editBtn.Location = new System.Drawing.Point(146, 27);
+            this.editBtn.Location = new System.Drawing.Point(187, 27);
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(40, 40);
             this.editBtn.TabIndex = 2;
@@ -172,7 +172,7 @@
             ""});
             this.when_cbox.Location = new System.Drawing.Point(3, 32);
             this.when_cbox.Name = "when_cbox";
-            this.when_cbox.Size = new System.Drawing.Size(134, 30);
+            this.when_cbox.Size = new System.Drawing.Size(178, 30);
             this.when_cbox.StringList = "";
             this.when_cbox.TabIndex = 5;
             this.when_cbox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);

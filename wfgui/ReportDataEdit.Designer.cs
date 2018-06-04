@@ -31,15 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportDataEdit));
             this.DATE = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.holidayEdit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.working_day = new CSharpOskaAPI.WF.NumberBox();
             this.InputLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.pbcEdit = new System.Windows.Forms.Button();
-            this.allowanceEdit = new System.Windows.Forms.Button();
-            this.leaveEdit = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,6 +47,12 @@
             this.worked_day = new CSharpOskaAPI.WF.NumberBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.allowanceEdit = new System.Windows.Forms.Button();
+            this.allowance = new CSharpOskaAPI.WF.NumberBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.pbcEdit = new System.Windows.Forms.Button();
+            this.pbc = new CSharpOskaAPI.WF.NumberBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.defaultBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
@@ -59,17 +60,14 @@
             this.employeeList = new CSharpOskaAPI.WF.FilterComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.holidayEdit = new System.Windows.Forms.Button();
             this.ph_counter = new CSharpOskaAPI.WF.NumberBox();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.allowance = new CSharpOskaAPI.WF.NumberBox();
-            this.pbc = new CSharpOskaAPI.WF.NumberBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.InputLayout.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // DATE
@@ -108,18 +106,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61.81818F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(673, 604);
             this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // holidayEdit
-            // 
-            this.holidayEdit.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.holidayEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("holidayEdit.BackgroundImage")));
-            this.holidayEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.holidayEdit.Location = new System.Drawing.Point(150, 4);
-            this.holidayEdit.Name = "holidayEdit";
-            this.holidayEdit.Size = new System.Drawing.Size(40, 40);
-            this.holidayEdit.TabIndex = 9;
-            this.holidayEdit.UseVisualStyleBackColor = true;
-            this.holidayEdit.Click += new System.EventHandler(this.holidayEdit_Click);
             // 
             // label3
             // 
@@ -161,8 +147,6 @@
             this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.InputLayout.Controls.Add(this.leaveEdit, 3, 0);
-            this.InputLayout.Controls.Add(this.label12, 2, 0);
             this.InputLayout.Controls.Add(this.label8, 0, 4);
             this.InputLayout.Controls.Add(this.label7, 0, 3);
             this.InputLayout.Controls.Add(this.label6, 0, 2);
@@ -173,10 +157,10 @@
             this.InputLayout.Controls.Add(this.worked, 1, 2);
             this.InputLayout.Controls.Add(this.late, 1, 3);
             this.InputLayout.Controls.Add(this.worked_day, 1, 4);
-            this.InputLayout.Controls.Add(this.label11, 2, 1);
-            this.InputLayout.Controls.Add(this.label10, 2, 2);
-            this.InputLayout.Controls.Add(this.tableLayoutPanel4, 3, 1);
-            this.InputLayout.Controls.Add(this.tableLayoutPanel5, 3, 2);
+            this.InputLayout.Controls.Add(this.tableLayoutPanel4, 3, 0);
+            this.InputLayout.Controls.Add(this.tableLayoutPanel5, 3, 1);
+            this.InputLayout.Controls.Add(this.label11, 2, 0);
+            this.InputLayout.Controls.Add(this.label10, 2, 1);
             this.InputLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InputLayout.Location = new System.Drawing.Point(124, 230);
             this.InputLayout.Name = "InputLayout";
@@ -189,52 +173,6 @@
             this.InputLayout.Size = new System.Drawing.Size(546, 371);
             this.InputLayout.TabIndex = 5;
             this.InputLayout.Visible = false;
-            // 
-            // pbcEdit
-            // 
-            this.pbcEdit.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pbcEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbcEdit.BackgroundImage")));
-            this.pbcEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pbcEdit.Location = new System.Drawing.Point(143, 14);
-            this.pbcEdit.Name = "pbcEdit";
-            this.pbcEdit.Size = new System.Drawing.Size(40, 40);
-            this.pbcEdit.TabIndex = 12;
-            this.pbcEdit.UseVisualStyleBackColor = true;
-            this.pbcEdit.Click += new System.EventHandler(this.pbcEdit_Click);
-            // 
-            // allowanceEdit
-            // 
-            this.allowanceEdit.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.allowanceEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("allowanceEdit.BackgroundImage")));
-            this.allowanceEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.allowanceEdit.Location = new System.Drawing.Point(143, 14);
-            this.allowanceEdit.Name = "allowanceEdit";
-            this.allowanceEdit.Size = new System.Drawing.Size(40, 40);
-            this.allowanceEdit.TabIndex = 11;
-            this.allowanceEdit.UseVisualStyleBackColor = true;
-            this.allowanceEdit.Click += new System.EventHandler(this.allowanceEdit_Click);
-            // 
-            // leaveEdit
-            // 
-            this.leaveEdit.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.leaveEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("leaveEdit.BackgroundImage")));
-            this.leaveEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.leaveEdit.Location = new System.Drawing.Point(356, 17);
-            this.leaveEdit.Name = "leaveEdit";
-            this.leaveEdit.Size = new System.Drawing.Size(40, 40);
-            this.leaveEdit.TabIndex = 10;
-            this.leaveEdit.UseVisualStyleBackColor = true;
-            this.leaveEdit.Click += new System.EventHandler(this.leaveEdit_Click);
-            // 
-            // label12
-            // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(303, 28);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(47, 17);
-            this.label12.TabIndex = 9;
-            this.label12.Text = "Leave";
             // 
             // label8
             // 
@@ -280,11 +218,11 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 28);
+            this.label4.Location = new System.Drawing.Point(21, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 17);
+            this.label4.Size = new System.Drawing.Size(57, 34);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Leave";
+            this.label4.Text = "Unpaid Leave";
             // 
             // leave
             // 
@@ -316,14 +254,14 @@
             // 
             this.worked.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.worked.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.worked.Holder = " DAY";
+            this.worked.Holder = " MINUTES";
             this.worked.HolderType = CSharpOskaAPI.WF.HolderType.BACK;
             this.worked.Location = new System.Drawing.Point(84, 171);
             this.worked.Name = "worked";
             this.worked.OriText = "";
             this.worked.Size = new System.Drawing.Size(144, 28);
             this.worked.TabIndex = 4;
-            this.worked.Text = " DAY";
+            this.worked.Text = " MINUTES";
             // 
             // late
             // 
@@ -355,7 +293,7 @@
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(279, 102);
+            this.label11.Location = new System.Drawing.Point(279, 28);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(71, 17);
             this.label11.TabIndex = 8;
@@ -365,11 +303,93 @@
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(315, 176);
+            this.label10.Location = new System.Drawing.Point(315, 102);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(35, 17);
             this.label10.TabIndex = 7;
             this.label10.Text = "PBC";
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel4.Controls.Add(this.allowanceEdit, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.allowance, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(356, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(187, 68);
+            this.tableLayoutPanel4.TabIndex = 13;
+            // 
+            // allowanceEdit
+            // 
+            this.allowanceEdit.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.allowanceEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("allowanceEdit.BackgroundImage")));
+            this.allowanceEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.allowanceEdit.Location = new System.Drawing.Point(143, 14);
+            this.allowanceEdit.Name = "allowanceEdit";
+            this.allowanceEdit.Size = new System.Drawing.Size(40, 40);
+            this.allowanceEdit.TabIndex = 11;
+            this.allowanceEdit.UseVisualStyleBackColor = true;
+            this.allowanceEdit.Click += new System.EventHandler(this.allowanceEdit_Click);
+            // 
+            // allowance
+            // 
+            this.allowance.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.allowance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.allowance.Holder = "RM ";
+            this.allowance.HolderType = CSharpOskaAPI.WF.HolderType.FRONT;
+            this.allowance.Location = new System.Drawing.Point(3, 20);
+            this.allowance.Name = "allowance";
+            this.allowance.OriText = "";
+            this.allowance.ReadOnly = true;
+            this.allowance.Size = new System.Drawing.Size(134, 28);
+            this.allowance.TabIndex = 12;
+            this.allowance.Text = "RM ";
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.Controls.Add(this.pbcEdit, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.pbc, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(356, 77);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(187, 68);
+            this.tableLayoutPanel5.TabIndex = 14;
+            // 
+            // pbcEdit
+            // 
+            this.pbcEdit.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pbcEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbcEdit.BackgroundImage")));
+            this.pbcEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbcEdit.Location = new System.Drawing.Point(143, 14);
+            this.pbcEdit.Name = "pbcEdit";
+            this.pbcEdit.Size = new System.Drawing.Size(40, 40);
+            this.pbcEdit.TabIndex = 12;
+            this.pbcEdit.UseVisualStyleBackColor = true;
+            this.pbcEdit.Click += new System.EventHandler(this.pbcEdit_Click);
+            // 
+            // pbc
+            // 
+            this.pbc.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pbc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.pbc.Holder = "RM ";
+            this.pbc.HolderType = CSharpOskaAPI.WF.HolderType.FRONT;
+            this.pbc.Location = new System.Drawing.Point(3, 20);
+            this.pbc.Name = "pbc";
+            this.pbc.OriText = "";
+            this.pbc.ReadOnly = true;
+            this.pbc.Size = new System.Drawing.Size(134, 28);
+            this.pbc.TabIndex = 13;
+            this.pbc.Text = "RM ";
             // 
             // tableLayoutPanel3
             // 
@@ -428,9 +448,9 @@
             this.employeeList.FormattingEnabled = true;
             this.employeeList.Items.AddRange(new object[] {
             ""});
-            this.employeeList.Location = new System.Drawing.Point(124, 184);
+            this.employeeList.Location = new System.Drawing.Point(124, 185);
             this.employeeList.Name = "employeeList";
-            this.employeeList.Size = new System.Drawing.Size(144, 30);
+            this.employeeList.Size = new System.Drawing.Size(165, 30);
             this.employeeList.StringList = "";
             this.employeeList.TabIndex = 1;
             this.employeeList.SelectedIndexChanged += new System.EventHandler(this.employeeList_SelectedIndexChanged);
@@ -460,6 +480,18 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(546, 48);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
+            // holidayEdit
+            // 
+            this.holidayEdit.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.holidayEdit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("holidayEdit.BackgroundImage")));
+            this.holidayEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.holidayEdit.Location = new System.Drawing.Point(150, 4);
+            this.holidayEdit.Name = "holidayEdit";
+            this.holidayEdit.Size = new System.Drawing.Size(40, 40);
+            this.holidayEdit.TabIndex = 9;
+            this.holidayEdit.UseVisualStyleBackColor = true;
+            this.holidayEdit.Click += new System.EventHandler(this.holidayEdit_Click);
+            // 
             // ph_counter
             // 
             this.ph_counter.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -472,62 +504,6 @@
             this.ph_counter.ReadOnly = true;
             this.ph_counter.Size = new System.Drawing.Size(141, 28);
             this.ph_counter.TabIndex = 10;
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.Controls.Add(this.allowanceEdit, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.allowance, 0, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(356, 77);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(187, 68);
-            this.tableLayoutPanel4.TabIndex = 13;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel5.Controls.Add(this.pbcEdit, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.pbc, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(356, 151);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(187, 68);
-            this.tableLayoutPanel5.TabIndex = 14;
-            // 
-            // allowance
-            // 
-            this.allowance.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.allowance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.allowance.Holder = "RM ";
-            this.allowance.HolderType = CSharpOskaAPI.WF.HolderType.FRONT;
-            this.allowance.Location = new System.Drawing.Point(3, 20);
-            this.allowance.Name = "allowance";
-            this.allowance.OriText = "";
-            this.allowance.ReadOnly = true;
-            this.allowance.Size = new System.Drawing.Size(134, 28);
-            this.allowance.TabIndex = 12;
-            // 
-            // pbc
-            // 
-            this.pbc.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pbc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.pbc.Holder = "RM ";
-            this.pbc.HolderType = CSharpOskaAPI.WF.HolderType.FRONT;
-            this.pbc.Location = new System.Drawing.Point(3, 20);
-            this.pbc.Name = "pbc";
-            this.pbc.OriText = "";
-            this.pbc.ReadOnly = true;
-            this.pbc.Size = new System.Drawing.Size(134, 28);
-            this.pbc.TabIndex = 13;
             // 
             // ReportDataEdit
             // 
@@ -543,13 +519,13 @@
             this.tableLayoutPanel1.PerformLayout();
             this.InputLayout.ResumeLayout(false);
             this.InputLayout.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -581,10 +557,8 @@
         private System.Windows.Forms.Button holidayEdit;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button pbcEdit;
         private System.Windows.Forms.Button allowanceEdit;
-        private System.Windows.Forms.Button leaveEdit;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private CSharpOskaAPI.WF.NumberBox ph_counter;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;

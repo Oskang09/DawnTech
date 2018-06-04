@@ -17,7 +17,6 @@ namespace DawnTech.wfgui
         public ReportDataEdit()
         {
             InitializeComponent();
-            WorkData = new WorkData();
         }
 
         public event EventHandler<FormData> FormEvent;
@@ -25,9 +24,12 @@ namespace DawnTech.wfgui
         public void setDate(DateTime date)
         {
             DATE.Text = $"{date.Year}-{date.Month}";
-            WorkData.LoadJson(DATE.Text);
+            WorkData = new WorkData().LoadJson(DATE.Text);
 
             ph_counter.Text = WorkData.Holidays.Count.ToString();
+            working_day.Text = WorkData.Working_Day.ToString();
+            
+            employeeList.StringList = string.Join("," ,WorkData.EMPLOYEES.Keys);
         }
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
@@ -42,6 +44,7 @@ namespace DawnTech.wfgui
         private void defaultBtn_Click(object sender, EventArgs e)
         {
             working_day.Text = WorkData.Working_Day.ToString();
+            ph_counter.Text = WorkData.Holidays.Count.ToString();
             foreach (var ct in WorkData.EMPLOYEES)
             {
                 employeeList.Items.Add(ct.Key);
@@ -54,12 +57,17 @@ namespace DawnTech.wfgui
 
             if (employeeList.SelectedIndex > -1)
             {
-                var data = WorkData.EMPLOYEES.First(x => x.Key == employeeList.Text).Value;
-                leave.Text = data.Leave.ToString();
-                ot.Text = data.Overtime.ToString();
-                worked.Text = data.Worked.ToString();
-                late.Text = data.Late.ToString();
-                worked_day.Text = data.Worked_Day.ToString();
+                if (WorkData.EMPLOYEES.ContainsKey(employeeList.Text))
+                {
+                    var data = WorkData.EMPLOYEES[employeeList.Text];
+                    leave.OriText = data.Leave.ToString();
+                    ot.OriText = data.Overtime.ToString();
+                    worked.OriText = data.Worked.ToString();
+                    late.OriText = data.Late.ToString();
+                    worked_day.OriText = data.Worked_Day.ToString();
+                    allowance.OriText= data.Allowance.Sum(x => x.Item2).ToString("0.00");
+                    pbc.OriText = data.PBC.Sum(x => x.Item2).ToString("0.00");
+                }
             }
         }
 
@@ -68,13 +76,16 @@ namespace DawnTech.wfgui
             WorkData.Working_Day = int.Parse(working_day.OriText);
             if (employeeList.SelectedIndex > -1)
             {
+                var temp = WorkData.EMPLOYEES[employeeList.Text];
                 WorkData.EMPLOYEES[employeeList.Text] = new WorkTime()
                 {
                     Worked_Day = int.Parse(worked_day.OriText),
-                    Worked = int.Parse(worked.Text),
+                    Worked = int.Parse(worked.OriText),
                     Late = int.Parse(late.OriText),
                     Leave = int.Parse(leave.OriText),
-                    Overtime = int.Parse(ot.Text)
+                    Overtime = int.Parse(ot.OriText),
+                    Allowance = temp.Allowance,
+                    PBC = temp.PBC
                 };
                 MessageBox.Show($"Updated EMPLOYEE({employeeList.Text})'s data!", "Update Employee's Data");
             }
@@ -91,42 +102,65 @@ namespace DawnTech.wfgui
             if (employeeList.SelectedIndex > -1)
             {
                 var data = WorkData.EMPLOYEES.First(x => x.Key == employeeList.Text).Value;
-                leave.Text = data.Leave.ToString();
-                ot.Text = data.Overtime.ToString();
-                worked.Text = data.Worked.ToString();
-                late.Text = data.Late.ToString();
-                worked_day.Text = data.Worked_Day.ToString();
-                allowance.Text = data.Allowance.Sum(x => x.Item2).ToString("0.00");
-                pbc.Text = data.PBC.Sum(x => x.Item2).ToString("0.00");
+                leave.OriText = (data.Leave - new Employee().LoadJson("EMP-" + employeeList.Text).LeaveData.leaves.Sum(x => x.Item1.Year + "-" + x.Item1.Month == DATE.Text ? 1 : 0)).ToString();
+                ot.OriText = data.Overtime.ToString();
+                worked.OriText = data.Worked.ToString();
+                late.OriText = data.Late.ToString();
+                worked_day.OriText = data.Worked_Day.ToString();
+                allowance.OriText = data.Allowance.Sum(x => x.Item2).ToString("0.00");
+                pbc.OriText = data.PBC.Sum(x => x.Item2).ToString("0.00");
                 InputLayout.Visible = true;
             }
         }
 
         private void holidayEdit_Click(object sender, EventArgs e)
         {
-            if (WorkData.Holidays == null)
+            HolidayEditDialog hed = new HolidayEditDialog(WorkData);
+            hed.FormEvent += (s, fd) =>
             {
-                WorkData.Holidays = new List<Tuple<string, DateTime>>();
-            }
-            new HolidayEditDialog(WorkData).ShowDialog();
-        }
-
-        private void leaveEdit_Click(object sender, EventArgs e)
-        {
-            if (employeeList.SelectedIndex > -1)
-            {
-                new LeaveEditDialog(new Employee().LoadJson(employeeList.Text)).ShowDialog();
-            }
+                if (fd.Action == "DONE")
+                {
+                    WorkData = (WorkData) fd.CallbackData;
+                    defaultBtn.PerformClick();
+                }
+            };
+            hed.ShowDialog();
         }
 
         private void allowanceEdit_Click(object sender, EventArgs e)
         {
-
+            if (employeeList.SelectedIndex > -1 && new Employee().Exists("EMP-" + employeeList.Text))
+            {
+                APBCDialog apbc = new APBCDialog(WorkData.EMPLOYEES[employeeList.Text]);
+                apbc.setName("Allowance");
+                apbc.FormEvent += (s, fd) =>
+                {
+                    if (fd.Action == "DONE")
+                    {
+                        WorkData.EMPLOYEES[employeeList.Text] = (WorkTime) fd.CallbackData;
+                        defaultBtn.PerformClick();
+                    }
+                };
+                apbc.ShowDialog();
+            }
         }
 
         private void pbcEdit_Click(object sender, EventArgs e)
         {
-
+            if (employeeList.SelectedIndex > -1 && new Employee().Exists("EMP-" + employeeList.Text))
+            {
+                APBCDialog apbc = new APBCDialog(WorkData.EMPLOYEES[employeeList.Text]);
+                apbc.setName("PBC");
+                apbc.FormEvent += (s, fd) =>
+                {
+                    if (fd.Action == "DONE")
+                    {
+                        WorkData.EMPLOYEES[employeeList.Text] = (WorkTime)fd.CallbackData;
+                        defaultBtn.PerformClick();
+                    }
+                };
+                apbc.ShowDialog();
+            }
         }
     }
 }

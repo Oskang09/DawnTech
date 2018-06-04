@@ -32,6 +32,7 @@ namespace DawnTech.wfgui
             DataTable.Columns.Add("BASIC");
             DataTable.Columns.Add("OVERTIME");
             DataTable.Columns.Add("LEAVE");
+            DataTable.Columns.Add("ALLOWANCE");
             DataTable.Columns.Add("GROSS PAY");
 
             DataTable.Columns.Add("EPF EMPLOYEE");
@@ -40,7 +41,6 @@ namespace DawnTech.wfgui
 
             DataTable.Columns.Add("TOTAL");
             DataTable.Columns.Add("LATE");
-            DataTable.Columns.Add("ALLOWANCE");
             DataTable.Columns.Add("PBC");
             DataTable.Columns.Add("NETPAY");
 
@@ -76,14 +76,14 @@ namespace DawnTech.wfgui
                             "RM " + emp.Basic.ToString("0.00"),
                             "RM " + emp.cOvertime().ToString("0.00"),
                             "RM " + emp.cLeave().ToString("0.00"),
+                            "RM " + emp.cAllowance().ToString("0.00"),
                             "RM " + emp.cGrossPay().ToString("0.00"),
                             "RM " + emp.cEPF(EPFType.EMPLOYEE).ToString("0"),
                             "RM " + emp.cSocso(SocsoType.EMPLOYEE).ToString("0.00"),
                             "RM " + emp.cEIS().ToString("0.00"),
                             "RM " + emp.cTotal(SocsoType.EMPLOYEE, EPFType.EMPLOYEE).ToString("0.00"),
                             "RM " + emp.cLate().ToString("0.00"),
-                            "RM " + emp.calculateAllowance().ToString("0.00"),
-                            "RM " + emp.calculatePBC().ToString("0.00"),
+                            "RM " + emp.cPBC().ToString("0.00"),
                             "RM " + emp.cNetPay(SocsoType.EMPLOYEE, EPFType.EMPLOYEE).ToString("0.00"),
 
                             "RM " + emp.cEPF(EPFType.BOSS).ToString("0"),
@@ -102,8 +102,8 @@ namespace DawnTech.wfgui
                     "RM " + SumDT(4, "0.00"),
                     "RM " + SumDT(5, "0.00"),
                     "RM " + SumDT(6, "0.00"),
-                    "RM " + SumDT(7, "0"),
-                    "RM " + SumDT(8, "0.00"),
+                    "RM " + SumDT(7, "0.00"),
+                    "RM " + SumDT(8, "0"),
                     "RM " + SumDT(9, "0.00"),
                     "RM " + SumDT(10, "0.00"),
                     "RM " + SumDT(11, "0.00"),
@@ -114,6 +114,7 @@ namespace DawnTech.wfgui
                     "RM " + SumDT(16, "0.00"),
                     "RM " + SumDT(17, "0.00"));
             }
+            DataView.Sort = "EMP NO ASC";
         }
 
         private string SumDT(int column, string parseFormat)
@@ -182,7 +183,14 @@ namespace DawnTech.wfgui
 
         private void delBtn_Click(object sender, EventArgs e)
         {
-
+            if (when_cbox.SelectedIndex > -1)
+            {
+                if (MessageBox.Show("Did you want to delete selected work data?", "Delete WorkData", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    new WorkData().DeleteJson(when_cbox.Text);
+                    UpdateComboBox();
+                }
+            }
         }
     }
 }

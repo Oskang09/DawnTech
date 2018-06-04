@@ -78,7 +78,7 @@ namespace DawnTech
 
         public double cGrossPay()
         {
-            return Math.Round(Basic + cOvertime() + cLeave(), 2);
+            return Math.Round(Basic + cOvertime() + cAllowance() - cLeave(), 2);
         }
 
         public double cLate()
@@ -92,7 +92,7 @@ namespace DawnTech
         public double cLeave()
         {
             var exp = new Expression(DataManager.SETTINGS["leave"]);
-            exp.Parameters["day"] = getWorkTime.Leave;
+            exp.Parameters["day"] = getWorkTime.Leave - LeaveData.leaves.Sum(x => x.Item1.Year == year && x.Item1.Month == month ? 1 : 0);
             exp.Parameters["basic"] = Basic;
             exp.Parameters["working_day"] = getWorkData.Working_Day;
             return !isPartTime ? Math.Round((double)exp.Evaluate(), 1, MidpointRounding.AwayFromZero) : 0;
@@ -130,15 +130,15 @@ namespace DawnTech
 
         public double cTotal(SocsoType st, EPFType epf)
         {
-            return Math.Round(cGrossPay() - cEPF(epf) - cEIS() - cSocso(st), 1, MidpointRounding.AwayFromZero);
+            return Math.Round(cGrossPay() - cEPF(epf) - cEIS() - cSocso(st) - cPBC(), 1, MidpointRounding.AwayFromZero);
         }
 
         public double cNetPay(SocsoType st, EPFType epf)
         {
-            return Math.Round(cTotal(st, epf) - cLate() - calculatePBC() + calculateAllowance(), 1, MidpointRounding.AwayFromZero);
+            return Math.Round(cTotal(st, epf) - cLate(), 1, MidpointRounding.AwayFromZero);
         }
 
-        public float calculateMedical()
+        public float cMedical()
         {
             float total = 0F;
             foreach (var tp in LeaveData.leaves)
@@ -151,11 +151,11 @@ namespace DawnTech
             return float.Parse(DataManager.SETTINGS["medical_fee_per_year"]) - total;
         }
 
-        public float calculateAllowance()
+        public float cAllowance()    
         {
             return getWorkTime.Allowance.Sum(x => x.Item2);
         }
-        public float calculatePBC()
+        public float cPBC()
         {
             return getWorkTime.PBC.Sum(x => x.Item2);
         }

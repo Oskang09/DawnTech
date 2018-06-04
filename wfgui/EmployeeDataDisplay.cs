@@ -229,6 +229,9 @@ namespace DawnTech.wfgui
 
                     DataRow[] dr = DataTable.Select($"[EMP NO]='{uid.Value.ToString()}'");
                     dr[0].Delete();
+
+                    MainWindow.GetInstance.RDD.UpdateComboBox();
+                    MainWindow.GetInstance.LED.UpdateComboBox();
                 }
             }
         }

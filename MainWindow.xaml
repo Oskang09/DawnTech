@@ -34,6 +34,14 @@
                     </StackPanel>
                 </MenuItem.Header>
             </MenuItem>
+            <MenuItem Click="LeaveEdit" Margin="0 0 5 -6" BorderBrush="{x:Null}" Background="{x:Null}">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Vertical">
+                        <Image Margin="0 0 0 5" HorizontalAlignment="Center" Source="assets/Leave.png" Width="64" Height="64" />
+                        <TextBlock HorizontalAlignment="Center" Text="Leave" Foreground="Black" />
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
             <MenuItem Click="PayslipUI" Margin="0 0 5 -6" BorderBrush="{x:Null}" Background="{x:Null}">
                 <MenuItem.Header>
                     <StackPanel Orientation="Vertical">
