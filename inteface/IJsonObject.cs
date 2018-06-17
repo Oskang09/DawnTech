@@ -61,5 +61,11 @@ namespace DawnTech
         {
             return File.Exists(DATA + "/" + verify + ".json") ? true : false;
         }
+
+        public bool Exists(string verify, out T obj)
+        {
+            obj = File.Exists(DATA + "/" + verify + ".json") ? JsonConvert.DeserializeObject<T>(File.ReadAllText(DATA + "/" + verify + ".json")) : default(T);
+            return obj != null;
+        }
     }
 }

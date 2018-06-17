@@ -30,16 +30,23 @@ namespace DawnTech.wfgui
             DataTable.Columns.Add("DATE");
             DataTable.Columns.Add("REASON");
             DataTable.Columns.Add("MEDICAL FEE");
+            DataTable.Columns.Add("LEAVE TAKEN");
+            DataTable.Columns.Add("LEAVE TYPE");
             DataView = DataTable.DefaultView;
             LeaveData.DataSource = DataView;
             if (Employee != null)
             {
+                medical_fee.OriText = Employee.cMedicalYear().ToString("0.00");
                 foreach (var wt in Employee.LeaveData.leaves)
                 {
+                    var rtb = new RichTextBox();
+                    rtb.Rtf = wt.Item2;
                     DataTable.Rows.Add(
                         wt.Item1.ToString("MM / dd / yyyy"),
-                        wt.Item2,
-                        wt.Item3);
+                        rtb.Text,
+                        "RM " + wt.Item3.ToString("0.00"),
+                        wt.Item4.ToString("0.0"),
+                        wt.Item5.ToString());
                 }
             }
         }
@@ -59,10 +66,12 @@ namespace DawnTech.wfgui
             if (Employee != null)
             {
                 Employee.LeaveData.leaves.Add(
-                new Tuple<DateTime, string, float>(
+                new Tuple<DateTime, string, float, float, LeaveType>(
                     leaveDate.Value,
                     notes.Rtf,
-                    fee.OriText != "" ? float.Parse(fee.OriText) : 0F));
+                    fee.OriText != "" ? float.Parse(fee.OriText) : 0F,
+                    leave.OriText != "" ? float.Parse(leave.OriText) : 0F,
+                    (LeaveType)leaveType.SelectedIndex));
                 Employee.LeaveData.used_leave += 1;
                 new Employee(leaveDate.Value.Year, leaveDate.Value.Month).getWorkData.readSpecificWorkData(Employee.UID);
                 Employee.SaveJson("EMP-" + Employee.UID);
@@ -114,6 +123,34 @@ namespace DawnTech.wfgui
             else
             {
                 Employee = null;
+            }
+        }
+
+        private void leaveDate_ValueChanged(object sender, EventArgs e)
+        {
+            if (Employee != null)
+            {
+                Employee.setParameters(leaveDate.Value.Year, leaveDate.Value.Month);
+                medical_fee.OriText = Employee.cMedicalYear().ToString("0.00");
+            }
+        }
+
+        private void leaveType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            leave.ReadOnly = false;
+            fee.ReadOnly = false;
+            switch (leaveType.SelectedIndex)
+            {
+                case 0:
+                    leave.ReadOnly = true;
+                    break;
+                case 1:
+                    fee.ReadOnly = true;
+                    break;
+                case 2:
+                    fee.ReadOnly = true;
+                    leave.ReadOnly = true;
+                    break;
             }
         }
     }

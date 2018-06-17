@@ -28,7 +28,7 @@ namespace DawnTech.wfgui
                 {
                     if (confirm.Checked)
                     {
-                        int month = (DateTime.Now.Month - confirm_date.Value.Month) + 12 * (DateTime.Now.Year - confirm_date.Value.Year);
+                        int month = (DateTime.Now.Month - confirm_date.Value.Month) + 12 * (DateTime.Now.Year - confirm_date.Value.Year) + 1;
                         if (month > 3)
                         {
                             if (month < 12)
@@ -69,7 +69,7 @@ namespace DawnTech.wfgui
                         LeaveData = new LeaveData()
                         {
                             used_leave = leave.OriText != "" ? total_leave - float.Parse(leave.OriText) : 0,
-                            leaves = new List<Tuple<DateTime, string, float>>()
+                            leaves = new List<Tuple<DateTime, string, float, float, LeaveType>>()
                         }
                     }
                 });
@@ -77,7 +77,7 @@ namespace DawnTech.wfgui
             }
             else
             {
-                // Employee Exists
+                MessageBox.Show($"Employee with ID {empno.Text} is repeated!", "Employee ID Repeated", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

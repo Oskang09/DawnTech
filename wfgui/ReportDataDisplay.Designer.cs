@@ -32,13 +32,13 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.SUM_DATA = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.exportExcel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.importBtn = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.delBtn = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
             this.when_cbox = new CSharpOskaAPI.WF.FilterComboBox();
-            this.exportExcel = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SUM_DATA)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -97,6 +97,20 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(817, 100);
             this.tableLayoutPanel2.TabIndex = 5;
+            // 
+            // exportExcel
+            // 
+            this.exportExcel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.exportExcel.Image = ((System.Drawing.Image)(resources.GetObject("exportExcel.Image")));
+            this.exportExcel.Location = new System.Drawing.Point(509, 3);
+            this.exportExcel.Name = "exportExcel";
+            this.exportExcel.Size = new System.Drawing.Size(149, 94);
+            this.exportExcel.TabIndex = 5;
+            this.exportExcel.Text = "Export Excel";
+            this.exportExcel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.exportExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.exportExcel.UseVisualStyleBackColor = true;
+            this.exportExcel.Click += new System.EventHandler(this.exportExcel_Click);
             // 
             // label1
             // 
@@ -176,19 +190,6 @@
             this.when_cbox.StringList = "";
             this.when_cbox.TabIndex = 5;
             this.when_cbox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // exportExcel
-            // 
-            this.exportExcel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.exportExcel.Image = ((System.Drawing.Image)(resources.GetObject("exportExcel.Image")));
-            this.exportExcel.Location = new System.Drawing.Point(509, 3);
-            this.exportExcel.Name = "exportExcel";
-            this.exportExcel.Size = new System.Drawing.Size(149, 94);
-            this.exportExcel.TabIndex = 5;
-            this.exportExcel.Text = "Export Excel";
-            this.exportExcel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.exportExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.exportExcel.UseVisualStyleBackColor = true;
             // 
             // ReportDataDisplay
             // 

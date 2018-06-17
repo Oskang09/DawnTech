@@ -61,8 +61,8 @@
             this.join_date = new System.Windows.Forms.DateTimePicker();
             this.nric = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.leave = new CSharpOskaAPI.WF.NumberBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.leave = new CSharpOskaAPI.WF.NumberBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.EditBtn = new System.Windows.Forms.Button();
             this.ExitBtn = new System.Windows.Forms.Button();
@@ -75,6 +75,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.SortBy = new System.Windows.Forms.ComboBox();
             this.SortBox = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.mcl = new CSharpOskaAPI.WF.NumberBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.InputLayout.SuspendLayout();
@@ -478,19 +480,33 @@
             // 
             // tableLayoutPanel6
             // 
-            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnCount = 4;
             this.InputLayout.SetColumnSpan(this.tableLayoutPanel6, 4);
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this.leave, 0, 0);
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.8189F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.1811F));
             this.tableLayoutPanel6.Controls.Add(this.label12, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.leave, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.label13, 2, 0);
+            this.tableLayoutPanel6.Controls.Add(this.mcl, 3, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 437);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(508, 63);
             this.tableLayoutPanel6.TabIndex = 28;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(26, 23);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(98, 17);
+            this.label12.TabIndex = 17;
+            this.label12.Text = "Current Leave";
             // 
             // leave
             // 
@@ -498,22 +514,12 @@
             this.leave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
             this.leave.Holder = "";
             this.leave.HolderType = CSharpOskaAPI.WF.HolderType.NONE;
-            this.leave.Location = new System.Drawing.Point(257, 18);
+            this.leave.Location = new System.Drawing.Point(130, 18);
             this.leave.Name = "leave";
             this.leave.OriText = "";
             this.leave.ReadOnly = true;
-            this.leave.Size = new System.Drawing.Size(107, 27);
+            this.leave.Size = new System.Drawing.Size(121, 27);
             this.leave.TabIndex = 18;
-            // 
-            // label12
-            // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(153, 23);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(98, 17);
-            this.label12.TabIndex = 17;
-            this.label12.Text = "Current Leave";
             // 
             // tableLayoutPanel3
             // 
@@ -687,6 +693,29 @@
             this.SortBox.TabIndex = 2;
             this.SortBox.TextChanged += new System.EventHandler(this.SortBox_TextChanged);
             // 
+            // label13
+            // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(272, 23);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(99, 17);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "Medical Leave";
+            // 
+            // mcl
+            // 
+            this.mcl.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.mcl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.mcl.Holder = "";
+            this.mcl.HolderType = CSharpOskaAPI.WF.HolderType.NONE;
+            this.mcl.Location = new System.Drawing.Point(377, 17);
+            this.mcl.Name = "mcl";
+            this.mcl.OriText = "";
+            this.mcl.ReadOnly = true;
+            this.mcl.Size = new System.Drawing.Size(114, 28);
+            this.mcl.TabIndex = 20;
+            // 
             // EmployeeDataDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -764,5 +793,7 @@
         private CSharpOskaAPI.WF.NumberBox leave;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.CheckBox isPart;
+        private System.Windows.Forms.Label label13;
+        private CSharpOskaAPI.WF.NumberBox mcl;
     }
 }

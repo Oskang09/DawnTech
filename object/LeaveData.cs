@@ -10,7 +10,14 @@ namespace DawnTech
     {
         public float used_leave { get; set; }
         
-        public List<Tuple<DateTime, string, float>> leaves { get; set; }
+        public List<Tuple<DateTime, string, float, float, LeaveType>> leaves { get; set; }
+    }
+
+    public enum LeaveType
+    {
+        MEDICAL_LEAVE,
+        ANNUAL_LEAVE,
+        UNPAID_LEAVE
     }
 
 }

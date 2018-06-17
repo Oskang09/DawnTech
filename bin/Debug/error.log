@@ -364,4 +364,20 @@ Parameter name: String
    at System.Windows.Forms.Button.WndProc(Message& m)
    at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
    at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)Thread Error : System.IO.FileNotFoundException: Could not find file 'C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\bin\Debug\data\employee\EMP-50.json'.
+File name: 'C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\bin\Debug\data\employee\EMP-50.json'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding, Boolean checkHost)
+   at System.IO.File.ReadAllText(String path)
+   at DawnTech.IJsonObject`1.LoadJson(String path) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\inteface\IJsonObject.cs:line 37
+   at DawnTech.wfgui.ReportDataEdit.employeeList_SelectedIndexChanged(Object sender, EventArgs e) in C:\Users\OSKA\Desktop\Git Repo\C#\DawnTech\DawnTech\wfgui\ReportDataEdit.cs:line 106
+   at System.Windows.Forms.ComboBox.OnSelectedIndexChanged(EventArgs e)
+   at CSharpOskaAPI.WF.FilterComboBox.OnSelectedIndexChanged(EventArgs e)
+   at System.Windows.Forms.ComboBox.WmReflectCommand(Message& m)
+   at System.Windows.Forms.ComboBox.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
    at System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)

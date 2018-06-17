@@ -46,7 +46,8 @@ namespace DawnTech.wfgui
             DataTable.Columns.Add("DEPT");
             DataTable.Columns.Add("AGE");
             DataTable.Columns.Add("NRIC");
-            DataTable.Columns.Add("LEAVE");
+            DataTable.Columns.Add("ANNUAL_LEAVE");
+            DataTable.Columns.Add("MEDICAL_LEAVE");
             DataView = DataTable.DefaultView;
             EmployeeDataDGV.DataSource = DataView;
             foreach (var emp in new Employee().GetList())
@@ -57,7 +58,8 @@ namespace DawnTech.wfgui
                     emp.DEPT,
                     emp.Age,
                     emp.NRIC,
-                    emp.calculateLeave());
+                    emp.calculateLeave(),
+                    emp.cMedicalLeave());
             }
         }
 
@@ -79,12 +81,12 @@ namespace DawnTech.wfgui
                 if (ctl is CheckBox) ((CheckBox)ctl).Enabled = !((CheckBox)ctl).Enabled;
                 if (ctl is ComboBox) ((ComboBox)ctl).Enabled = !((ComboBox)ctl).Enabled;
                 if (ctl is DateTimePicker) ((DateTimePicker)ctl).Enabled = !((DateTimePicker)ctl).Enabled;
+                if (ctl == confirm && confirm.Enabled) confirm_date.Enabled = confirm.Checked;
             }
         }
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(basic.OriText);
             if (editMode)
             {
                 if (EmployeeDataDGV.SelectedRows.Count == 1)
@@ -97,12 +99,12 @@ namespace DawnTech.wfgui
                         if (confirm.Checked)
                         {
                             int month = (DateTime.Now.Month - confirm_date.Value.Month) + 12 * (DateTime.Now.Year - confirm_date.Value.Year);
-                            if (month > 3)
+                            if (month >= 3)
                             {
                                 if (month < 12)
                                 {
                                     int times = month / 3;
-                                    total_leave = times * (float.Parse(DataManager.SETTINGS["extra_leave_1"]) / 4f);
+                                    total_leave = times * (float.Parse(DataManager.SETTINGS["extra_leave_1"]) / 4F);
                                 }
                                 else
                                 {
@@ -147,7 +149,8 @@ namespace DawnTech.wfgui
                             emp.DEPT,
                             emp.Age,
                             emp.NRIC,
-                            emp.calculateLeave());
+                            emp.calculateLeave(),
+                            emp.cMedicalLeave());
 
                         return;
                     }
@@ -162,7 +165,7 @@ namespace DawnTech.wfgui
                         LeaveData ld = new Employee().LoadJson("EMP-" + uid.Value.ToString()).LeaveData;
                         if (confirm.Checked)
                         {
-                            int month = (DateTime.Now.Month - confirm_date.Value.Month) + 12 * (DateTime.Now.Year - confirm_date.Value.Year);
+                            int month = (DateTime.Now.Month - confirm_date.Value.Month) + 12 * (DateTime.Now.Year - confirm_date.Value.Year) + 1;
                             if (month > 3)
                             {
                                 if (month < 12)
@@ -225,7 +228,7 @@ namespace DawnTech.wfgui
                 if (MessageBox.Show("Did you want to delete selected employee?\n* Warning : After delete cant be recover without restore from backup", "Delete Employee", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
                     var uid = EmployeeDataDGV.SelectedRows[0].Cells[0];
-                    new Employee().DeleteJson(uid.Value.ToString());
+                    new Employee().DeleteJson("EMP-" + uid.Value.ToString());
 
                     DataRow[] dr = DataTable.Select($"[EMP NO]='{uid.Value.ToString()}'");
                     dr[0].Delete();
@@ -285,6 +288,7 @@ namespace DawnTech.wfgui
                 bankname.Text = ObjectParse.ObjectParseString(employee.BankName);
                 join_date.Value = employee.JoinDate;
                 isPart.Checked = employee.isPartTime;
+                mcl.Text = employee.cMedicalLeave().ToString();
                 if (employee.ConfirmDate.HasValue)
                 {
                     confirm.Checked = true;

@@ -75,12 +75,7 @@ namespace DawnTech
        
         [JsonIgnore] public WorkData getWorkData => new WorkData().LoadJson($"{year}-{month}");
         [JsonIgnore] public WorkTime getWorkTime => getWorkData.EMPLOYEES[UID];
-
-        public double cGrossPay()
-        {
-            return Math.Round(Basic + cOvertime() + cAllowance() - cLeave(), 2);
-        }
-
+       
         public double cLate()
         {
             var exp = new Expression(DataManager.SETTINGS["late"]);
@@ -92,19 +87,51 @@ namespace DawnTech
         public double cLeave()
         {
             var exp = new Expression(DataManager.SETTINGS["leave"]);
-            exp.Parameters["day"] = getWorkTime.Leave - LeaveData.leaves.Sum(x => x.Item1.Year == year && x.Item1.Month == month ? 1 : 0);
+            exp.Parameters["day"] = LeaveData.leaves.Sum(x => x.Item1.Year == year && x.Item1.Month == month && x.Item5 == LeaveType.UNPAID_LEAVE ? 1 : 0F);
             exp.Parameters["basic"] = Basic;
             exp.Parameters["working_day"] = getWorkData.Working_Day;
             return !isPartTime ? Math.Round((double)exp.Evaluate(), 1, MidpointRounding.AwayFromZero) : 0;
         }
 
+        public double cTotalOT()
+        {
+            return cOvertime() + cHolidayOT();
+        }
         public double cOvertime()
         {
-            var exp = new Expression(DataManager.SETTINGS["overtime"]);
-            exp.Parameters["hour"] = Convert.ToInt32(getWorkTime.Overtime / 60);
-            exp.Parameters["basic"] = Basic;
-            exp.Parameters["working_day"] = getWorkData.Working_Day;
-            return !isPartTime ? Math.Round((double)exp.Evaluate(), 1, MidpointRounding.AwayFromZero) : 0;
+            if (!isPartTime)
+            {
+                var exp = new Expression(DataManager.SETTINGS["overtime"]);
+                exp.Parameters["hour"] = Convert.ToInt32(getWorkTime.Overtime / 60);
+                exp.Parameters["basic"] = Basic;
+                exp.Parameters["working_day"] = getWorkData.Working_Day;
+                return Math.Round((double)exp.Evaluate(), 1, MidpointRounding.AwayFromZero);
+            }
+            else
+            {
+                var exp = new Expression(DataManager.SETTINGS["part_ot"]);
+                exp.Parameters["basic"] = Basic;
+                exp.Parameters["hour"] = Convert.ToInt32(getWorkTime.Overtime / 60);
+                return Math.Round((double)exp.Evaluate(), 1, MidpointRounding.AwayFromZero);
+            }
+        }
+        public double cHolidayOT()
+        {
+            if (!isPartTime)
+            {
+                var exp = new Expression(DataManager.SETTINGS["holiday"]);
+                exp.Parameters["hour"] = Convert.ToInt32(getWorkTime.HolidayOT / 60);
+                exp.Parameters["basic"] = Basic;
+                exp.Parameters["working_day"] = getWorkData.Working_Day;
+                return Math.Round((double)exp.Evaluate(), 1, MidpointRounding.AwayFromZero);
+            }
+            else
+            {
+                var exp = new Expression(DataManager.SETTINGS["part_holiday"]);
+                exp.Parameters["basic"] = Basic;
+                exp.Parameters["hour"] = Convert.ToInt32(getWorkTime.HolidayOT / 60);
+                return Math.Round((double)exp.Evaluate(), 1, MidpointRounding.AwayFromZero);
+            }
         }
 
         public double cEPF(EPFType epf)
@@ -117,15 +144,30 @@ namespace DawnTech
         public double cSocso(SocsoType st)
         {
             return !isPartTime && useSocso ? 
-                Math.Round(new CALC(cGrossPay()).cSocso(st), 1, MidpointRounding.AwayFromZero) : 
+                new CALC(cGrossPay()).cSocso(st) : 
                 0;
         }
 
         public double cEIS()
         {
             return !isPartTime && useEIS ?
-                Math.Round(new CALC(cGrossPay()).cEIS(), 1, MidpointRounding.AwayFromZero) : 
+                new CALC(cGrossPay()).cEIS() : 
                 0;
+        }
+
+        public double cGrossPay()
+        {
+            if (!isPartTime)
+            {
+                return Math.Round(Basic + cTotalOT() - cLeave(), 2);
+            }
+            else
+            {
+                var exp = new Expression(DataManager.SETTINGS["part_normal"]);
+                exp.Parameters["basic"] = Basic;
+                exp.Parameters["hour"] = Convert.ToInt32(getWorkTime.Worked / 60);
+                return Math.Round((double)exp.Evaluate(), 1, MidpointRounding.AwayFromZero) + cTotalOT();
+            }
         }
 
         public double cTotal(SocsoType st, EPFType epf)
@@ -135,20 +177,22 @@ namespace DawnTech
 
         public double cNetPay(SocsoType st, EPFType epf)
         {
-            return Math.Round(cTotal(st, epf) - cLate(), 1, MidpointRounding.AwayFromZero);
+            return Math.Round(cTotal(st, epf) + cAllowance() - cLate(), 1, MidpointRounding.AwayFromZero);
         }
 
-        public float cMedical()
+        public float cMedicalMonth()
         {
-            float total = 0F;
-            foreach (var tp in LeaveData.leaves)
-            {
-                if (tp.Item1.Year == DateTime.Now.Year)
-                {
-                    return total += tp.Item3;
-                }
-            }
-            return float.Parse(DataManager.SETTINGS["medical_fee_per_year"]) - total;
+            return LeaveData.leaves.Sum(x => x.Item1.Year == year && x.Item1.Month == month ? x.Item3 : 0F);
+        }
+
+        public float cMedicalYear()
+        {
+            return float.Parse(DataManager.SETTINGS["medical_fee_per_year"]) - LeaveData.leaves.Sum(x => x.Item1.Year == year && x.Item5 == LeaveType.MEDICAL_LEAVE ? x.Item3 : 0F);
+        }
+
+        public int cMedicalLeave()
+        {
+            return int.Parse(DataManager.SETTINGS["medical_leave_per_year"]) - LeaveData.leaves.Sum(x => x.Item5 == LeaveType.MEDICAL_LEAVE && x.Item1.Year == year ? 1 : 0);
         }
 
         public float cAllowance()    
@@ -159,17 +203,20 @@ namespace DawnTech
         {
             return getWorkTime.PBC.Sum(x => x.Item2);
         }
-
-        public int calculateAnnualLeave()
+        public float calculateAnnualLeave()
         {
-            return LeaveData.leaves.Sum(x => x.Item1.Year == year && x.Item1.Month == month ? 1 : 0);
+            return LeaveData.leaves.Sum(x => x.Item1.Year == year && x.Item1.Month == month && x.Item5 == LeaveType.ANNUAL_LEAVE ? x.Item4 : 0F);
+        }
+        public float calculatePaidLeave()
+        {
+            return LeaveData.leaves.Sum(x => x.Item1.Year == year && x.Item1.Month == month && x.Item5 != LeaveType.UNPAID_LEAVE ? x.Item4 : 0F);
         }
 
         public float calculateLeave()
         {
             if (!isPartTime && ConfirmDate.HasValue)
-            {
-                int month = (DateTime.Now.Month - ConfirmDate.Value.Month) + 12 * (DateTime.Now.Year - ConfirmDate.Value.Year);
+            {   
+                int month = (DateTime.Now.Month - ConfirmDate.Value.Month) + 12 * (DateTime.Now.Year - ConfirmDate.Value.Year) + 1;
                 if (month < 3)
                 {
                     return 0;

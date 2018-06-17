@@ -35,24 +35,26 @@
             this.label1 = new System.Windows.Forms.Label();
             this.working_day = new CSharpOskaAPI.WF.NumberBox();
             this.InputLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.holiday_ot = new CSharpOskaAPI.WF.NumberBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.leave = new CSharpOskaAPI.WF.NumberBox();
             this.ot = new CSharpOskaAPI.WF.NumberBox();
-            this.worked = new CSharpOskaAPI.WF.NumberBox();
             this.late = new CSharpOskaAPI.WF.NumberBox();
             this.worked_day = new CSharpOskaAPI.WF.NumberBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.allowanceEdit = new System.Windows.Forms.Button();
             this.allowance = new CSharpOskaAPI.WF.NumberBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.pbcEdit = new System.Windows.Forms.Button();
             this.pbc = new CSharpOskaAPI.WF.NumberBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.worked = new CSharpOskaAPI.WF.NumberBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.defaultBtn = new System.Windows.Forms.Button();
             this.saveBtn = new System.Windows.Forms.Button();
@@ -147,20 +149,22 @@
             this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.InputLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.InputLayout.Controls.Add(this.holiday_ot, 1, 2);
             this.InputLayout.Controls.Add(this.label8, 0, 4);
             this.InputLayout.Controls.Add(this.label7, 0, 3);
-            this.InputLayout.Controls.Add(this.label6, 0, 2);
             this.InputLayout.Controls.Add(this.label5, 0, 1);
-            this.InputLayout.Controls.Add(this.label4, 0, 0);
-            this.InputLayout.Controls.Add(this.leave, 1, 0);
             this.InputLayout.Controls.Add(this.ot, 1, 1);
-            this.InputLayout.Controls.Add(this.worked, 1, 2);
             this.InputLayout.Controls.Add(this.late, 1, 3);
             this.InputLayout.Controls.Add(this.worked_day, 1, 4);
             this.InputLayout.Controls.Add(this.tableLayoutPanel4, 3, 0);
             this.InputLayout.Controls.Add(this.tableLayoutPanel5, 3, 1);
             this.InputLayout.Controls.Add(this.label11, 2, 0);
             this.InputLayout.Controls.Add(this.label10, 2, 1);
+            this.InputLayout.Controls.Add(this.label12, 0, 2);
+            this.InputLayout.Controls.Add(this.label4, 2, 2);
+            this.InputLayout.Controls.Add(this.leave, 3, 2);
+            this.InputLayout.Controls.Add(this.label6, 0, 0);
+            this.InputLayout.Controls.Add(this.worked, 1, 0);
             this.InputLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InputLayout.Location = new System.Drawing.Point(124, 230);
             this.InputLayout.Name = "InputLayout";
@@ -173,6 +177,19 @@
             this.InputLayout.Size = new System.Drawing.Size(546, 371);
             this.InputLayout.TabIndex = 5;
             this.InputLayout.Visible = false;
+            // 
+            // holiday_ot
+            // 
+            this.holiday_ot.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.holiday_ot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.holiday_ot.Holder = " MINUTES";
+            this.holiday_ot.HolderType = CSharpOskaAPI.WF.HolderType.BACK;
+            this.holiday_ot.Location = new System.Drawing.Point(84, 171);
+            this.holiday_ot.Name = "holiday_ot";
+            this.holiday_ot.OriText = "";
+            this.holiday_ot.Size = new System.Drawing.Size(144, 28);
+            this.holiday_ot.TabIndex = 16;
+            this.holiday_ot.Text = " MINUTES";
             // 
             // label8
             // 
@@ -194,16 +211,6 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "Late";
             // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 176);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 17);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Worked";
-            // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -218,7 +225,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 20);
+            this.label4.Location = new System.Drawing.Point(293, 168);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 34);
             this.label4.TabIndex = 2;
@@ -230,9 +237,10 @@
             this.leave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.leave.Holder = " DAY";
             this.leave.HolderType = CSharpOskaAPI.WF.HolderType.BACK;
-            this.leave.Location = new System.Drawing.Point(84, 23);
+            this.leave.Location = new System.Drawing.Point(356, 171);
             this.leave.Name = "leave";
             this.leave.OriText = "";
+            this.leave.ReadOnly = true;
             this.leave.Size = new System.Drawing.Size(144, 28);
             this.leave.TabIndex = 2;
             this.leave.Text = " DAY";
@@ -249,19 +257,6 @@
             this.ot.Size = new System.Drawing.Size(144, 28);
             this.ot.TabIndex = 3;
             this.ot.Text = " MINUTES";
-            // 
-            // worked
-            // 
-            this.worked.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.worked.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.worked.Holder = " MINUTES";
-            this.worked.HolderType = CSharpOskaAPI.WF.HolderType.BACK;
-            this.worked.Location = new System.Drawing.Point(84, 171);
-            this.worked.Name = "worked";
-            this.worked.OriText = "";
-            this.worked.Size = new System.Drawing.Size(144, 28);
-            this.worked.TabIndex = 4;
-            this.worked.Text = " MINUTES";
             // 
             // late
             // 
@@ -288,26 +283,6 @@
             this.worked_day.Size = new System.Drawing.Size(144, 28);
             this.worked_day.TabIndex = 6;
             this.worked_day.Text = " DAY";
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(279, 28);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(71, 17);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "Allowance";
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(315, 102);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(35, 17);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "PBC";
             // 
             // tableLayoutPanel4
             // 
@@ -391,6 +366,59 @@
             this.pbc.TabIndex = 13;
             this.pbc.Text = "RM ";
             // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(279, 28);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(71, 17);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Allowance";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(315, 102);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(35, 17);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "PBC";
+            // 
+            // worked
+            // 
+            this.worked.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.worked.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.worked.Holder = " MINUTES";
+            this.worked.HolderType = CSharpOskaAPI.WF.HolderType.BACK;
+            this.worked.Location = new System.Drawing.Point(84, 23);
+            this.worked.Name = "worked";
+            this.worked.OriText = "";
+            this.worked.Size = new System.Drawing.Size(144, 28);
+            this.worked.TabIndex = 4;
+            this.worked.Text = " MINUTES";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(21, 28);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 17);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Worked";
+            // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(23, 176);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(55, 17);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "Holiday";
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
@@ -448,7 +476,7 @@
             this.employeeList.FormattingEnabled = true;
             this.employeeList.Items.AddRange(new object[] {
             ""});
-            this.employeeList.Location = new System.Drawing.Point(124, 185);
+            this.employeeList.Location = new System.Drawing.Point(124, 184);
             this.employeeList.Name = "employeeList";
             this.employeeList.Size = new System.Drawing.Size(165, 30);
             this.employeeList.StringList = "";
@@ -565,5 +593,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private CSharpOskaAPI.WF.NumberBox allowance;
         private CSharpOskaAPI.WF.NumberBox pbc;
+        private CSharpOskaAPI.WF.NumberBox holiday_ot;
+        private System.Windows.Forms.Label label12;
     }
 }

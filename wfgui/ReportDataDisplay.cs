@@ -32,7 +32,6 @@ namespace DawnTech.wfgui
             DataTable.Columns.Add("BASIC");
             DataTable.Columns.Add("OVERTIME");
             DataTable.Columns.Add("LEAVE");
-            DataTable.Columns.Add("ALLOWANCE");
             DataTable.Columns.Add("GROSS PAY");
 
             DataTable.Columns.Add("EPF EMPLOYEE");
@@ -40,6 +39,7 @@ namespace DawnTech.wfgui
             DataTable.Columns.Add("EIS EMPLOYEE");
 
             DataTable.Columns.Add("TOTAL");
+            DataTable.Columns.Add("ALLOWANCE");
             DataTable.Columns.Add("LATE");
             DataTable.Columns.Add("PBC");
             DataTable.Columns.Add("NETPAY");
@@ -74,14 +74,14 @@ namespace DawnTech.wfgui
                             emp.UID,
                             emp.DEPT,
                             "RM " + emp.Basic.ToString("0.00"),
-                            "RM " + emp.cOvertime().ToString("0.00"),
+                            "RM " + emp.cTotalOT().ToString("0.00"),
                             "RM " + emp.cLeave().ToString("0.00"),
-                            "RM " + emp.cAllowance().ToString("0.00"),
                             "RM " + emp.cGrossPay().ToString("0.00"),
                             "RM " + emp.cEPF(EPFType.EMPLOYEE).ToString("0"),
                             "RM " + emp.cSocso(SocsoType.EMPLOYEE).ToString("0.00"),
                             "RM " + emp.cEIS().ToString("0.00"),
                             "RM " + emp.cTotal(SocsoType.EMPLOYEE, EPFType.EMPLOYEE).ToString("0.00"),
+                            "RM " + emp.cAllowance().ToString("0.00"),
                             "RM " + emp.cLate().ToString("0.00"),
                             "RM " + emp.cPBC().ToString("0.00"),
                             "RM " + emp.cNetPay(SocsoType.EMPLOYEE, EPFType.EMPLOYEE).ToString("0.00"),
@@ -102,8 +102,8 @@ namespace DawnTech.wfgui
                     "RM " + SumDT(4, "0.00"),
                     "RM " + SumDT(5, "0.00"),
                     "RM " + SumDT(6, "0.00"),
-                    "RM " + SumDT(7, "0.00"),
-                    "RM " + SumDT(8, "0"),
+                    "RM " + SumDT(7, "0"),
+                    "RM " + SumDT(8, "0.00"),
                     "RM " + SumDT(9, "0.00"),
                     "RM " + SumDT(10, "0.00"),
                     "RM " + SumDT(11, "0.00"),
@@ -152,7 +152,7 @@ namespace DawnTech.wfgui
             {
                 try
                 {
-                    ExcelReader er = new ExcelReader(ofd.FileName);
+                    ExcelAPI er = new ExcelAPI(ofd.FileName);
                     ChooseDialog cd = new ChooseDialog();
                     cd.set("Excel's sheets", "Choose the sheet, you want to import", er.getSheets());
                     cd.FormEvent += (form_sender, form_data) =>
@@ -189,6 +189,23 @@ namespace DawnTech.wfgui
                 {
                     new WorkData().DeleteJson(when_cbox.Text);
                     UpdateComboBox();
+                }
+            }
+        }
+
+        private void exportExcel_Click(object sender, EventArgs e)
+        {
+            if (when_cbox.SelectedIndex > -1)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "Excel files (*.xlsx)|*.xlsx|Excel 97-2003 fiels (*.xls)|*.xls|All files (*.*)|*.*";
+                sfd.RestoreDirectory = true;
+                sfd.Title = "Export to Excel Files ...";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    ExcelAPI er = new ExcelAPI();
+                    er.ExportExcel($"WorkData {when_cbox.Text}",  new WorkData().LoadJson(when_cbox.Text), sfd.FileName);
+                    er.close();
                 }
             }
         }

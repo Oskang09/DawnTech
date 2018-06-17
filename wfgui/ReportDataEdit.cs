@@ -60,13 +60,14 @@ namespace DawnTech.wfgui
                 if (WorkData.EMPLOYEES.ContainsKey(employeeList.Text))
                 {
                     var data = WorkData.EMPLOYEES[employeeList.Text];
-                    leave.OriText = data.Leave.ToString();
+                    leave.OriText = new Employee().LoadJson(employeeList.Text).setParameters(WorkData.When.Year, WorkData.When.Month).LeaveData.leaves.Sum(x => x.Item1.Year + "-" + x.Item1.Month == DATE.Text ? 1 : 0).ToString();
                     ot.OriText = data.Overtime.ToString();
                     worked.OriText = data.Worked.ToString();
                     late.OriText = data.Late.ToString();
                     worked_day.OriText = data.Worked_Day.ToString();
                     allowance.OriText= data.Allowance.Sum(x => x.Item2).ToString("0.00");
                     pbc.OriText = data.PBC.Sum(x => x.Item2).ToString("0.00");
+                    holiday_ot.OriText = data.HolidayOT.ToString();
                 }
             }
         }
@@ -82,14 +83,16 @@ namespace DawnTech.wfgui
                     Worked_Day = int.Parse(worked_day.OriText),
                     Worked = int.Parse(worked.OriText),
                     Late = int.Parse(late.OriText),
-                    Leave = int.Parse(leave.OriText),
                     Overtime = int.Parse(ot.OriText),
                     Allowance = temp.Allowance,
-                    PBC = temp.PBC
+                    PBC = temp.PBC,
+                    Leaves = temp.Leaves,
+                    HolidayOT = int.Parse(holiday_ot.OriText)
                 };
                 MessageBox.Show($"Updated EMPLOYEE({employeeList.Text})'s data!", "Update Employee's Data");
             }
-            WorkData.SaveJson($"{WorkData.When.Year}-{WorkData.When.Month}");
+            WorkData.R_readToWorkData();
+            MessageBox.Show($"Updated Holiday & WorkingDay's data!", "Update Holiday & WorkingDay's Data");
         }
 
         private void employeeList_SelectedIndexChanged(object sender, EventArgs e)
@@ -102,8 +105,9 @@ namespace DawnTech.wfgui
             if (employeeList.SelectedIndex > -1)
             {
                 var data = WorkData.EMPLOYEES.First(x => x.Key == employeeList.Text).Value;
-                leave.OriText = (data.Leave - new Employee().LoadJson("EMP-" + employeeList.Text).LeaveData.leaves.Sum(x => x.Item1.Year + "-" + x.Item1.Month == DATE.Text ? 1 : 0)).ToString();
+                leave.OriText = new Employee().LoadJson("EMP-" + employeeList.Text).LeaveData.leaves.Sum(x => x.Item1.Year + "-" + x.Item1.Month == DATE.Text ? 1 : 0).ToString();
                 ot.OriText = data.Overtime.ToString();
+                holiday_ot.OriText = data.HolidayOT.ToString();
                 worked.OriText = data.Worked.ToString();
                 late.OriText = data.Late.ToString();
                 worked_day.OriText = data.Worked_Day.ToString();

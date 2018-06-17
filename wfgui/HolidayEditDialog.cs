@@ -50,8 +50,8 @@ namespace DawnTech.wfgui
             {
                 if (MessageBox.Show("Did you really want to delete selected public holiday?", "Delete Holiday", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
-                    holidays.Items.RemoveAt(holidays.SelectedIndex);
                     WorkData.Holidays.RemoveAt(holidays.SelectedIndex);
+                    holidays.Items.RemoveAt(holidays.SelectedIndex);
                 }
             }
         }

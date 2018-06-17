@@ -32,13 +32,13 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.list = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.name = new System.Windows.Forms.Label();
             this.value = new CSharpOskaAPI.WF.NumberBox();
+            this.name = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.note = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.note = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -91,16 +91,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(637, 66);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // name
-            // 
-            this.name.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.name.AutoSize = true;
-            this.name.Location = new System.Drawing.Point(371, 24);
-            this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(71, 17);
-            this.name.TabIndex = 0;
-            this.name.Text = "Allowance";
-            // 
             // value
             // 
             this.value.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -111,7 +101,36 @@
             this.value.Name = "value";
             this.value.OriText = "";
             this.value.Size = new System.Drawing.Size(186, 28);
-            this.value.TabIndex = 1;
+            this.value.TabIndex = 2;
+            // 
+            // name
+            // 
+            this.name.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.name.AutoSize = true;
+            this.name.Location = new System.Drawing.Point(371, 24);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(71, 17);
+            this.name.TabIndex = 0;
+            this.name.Text = "Allowance";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(86, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Note";
+            // 
+            // note
+            // 
+            this.note.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.note.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.note.Location = new System.Drawing.Point(130, 19);
+            this.note.Name = "note";
+            this.note.Size = new System.Drawing.Size(185, 28);
+            this.note.TabIndex = 1;
             // 
             // tableLayoutPanel3
             // 
@@ -157,25 +176,6 @@
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(86, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Note";
-            // 
-            // note
-            // 
-            this.note.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.note.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.note.Location = new System.Drawing.Point(130, 19);
-            this.note.Name = "note";
-            this.note.Size = new System.Drawing.Size(185, 28);
-            this.note.TabIndex = 4;
             // 
             // button3
             // 

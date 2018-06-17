@@ -25,6 +25,7 @@ namespace DawnTech
         public EmployeeDataDisplay EDD { get; set; }
         public ReportDataDisplay RDD { get; set; }
         public LeaveEditDialog LED { get; set; }
+        public PaySlipUI PSU { get; set; }
 
         public static MainWindow GetInstance { get; set; }
         public MainWindow()
@@ -70,6 +71,7 @@ namespace DawnTech
             };
             RDD = new ReportDataDisplay();
             LED = new LeaveEditDialog();
+            PSU = new PaySlipUI();
         }
 
         private void ReportUI(object sender, RoutedEventArgs e)
@@ -86,7 +88,8 @@ namespace DawnTech
 
         private void PayslipUI(object sender, RoutedEventArgs e)
         {
-
+            WFContent.Child = PSU;
+            PSU.Focus();
         }
 
         private void LeaveEdit(object sender, RoutedEventArgs e)

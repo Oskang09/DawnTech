@@ -84,7 +84,7 @@
     <Compile Include="object\DataManager.cs" />
     <Compile Include="inteface\IJsonObject.cs" />
     <Compile Include="object\LeaveData.cs" />
-    <Compile Include="util\ExcelReader.cs" />
+    <Compile Include="util\ExcelAPI.cs" />
     <Compile Include="util\Parse.cs" />
     <Compile Include="object\WorkData.cs" />
     <Compile Include="wfgui\APBCDialog.cs">
@@ -98,6 +98,18 @@
     </Compile>
     <Compile Include="wfgui\ChooseDialog.Designer.cs">
       <DependentUpon>ChooseDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wfgui\CustomPrintDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wfgui\CustomPrintDialog.Designer.cs">
+      <DependentUpon>CustomPrintDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wfgui\CustomPrintDialog2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="wfgui\CustomPrintDialog2.Designer.cs">
+      <DependentUpon>CustomPrintDialog2.cs</DependentUpon>
     </Compile>
     <Compile Include="wfgui\HolidayEditDialog.cs">
       <SubType>Form</SubType>
@@ -130,6 +142,12 @@
     </Compile>
     <Compile Include="wfgui\LoginDialog.Designer.cs">
       <DependentUpon>LoginDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wfgui\PaySlipUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="wfgui\PaySlipUI.Designer.cs">
+      <DependentUpon>PaySlipUI.cs</DependentUpon>
     </Compile>
     <Compile Include="wfgui\ReportDataDisplay.cs">
       <SubType>UserControl</SubType>
@@ -181,6 +199,12 @@
     <EmbeddedResource Include="wfgui\ChooseDialog.resx">
       <DependentUpon>ChooseDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="wfgui\CustomPrintDialog.resx">
+      <DependentUpon>CustomPrintDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wfgui\CustomPrintDialog2.resx">
+      <DependentUpon>CustomPrintDialog2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="wfgui\HolidayEditDialog.resx">
       <DependentUpon>HolidayEditDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="wfgui\LoginDialog.resx">
       <DependentUpon>LoginDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wfgui\PaySlipUI.resx">
+      <DependentUpon>PaySlipUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="wfgui\ReportDataDisplay.resx">
       <DependentUpon>ReportDataDisplay.cs</DependentUpon>
